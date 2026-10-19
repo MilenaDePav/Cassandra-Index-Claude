@@ -17,7 +17,7 @@ Today is 19 October 2026. Your training data may end before the incident happene
 3. **Snowball backward.** For every important paper or report, open its references and links. Follow those that are relevant.
 4. **Snowball forward.** Search for works that cite or respond to the key reports (e.g. search the report title, the authors' names plus "response", Google Scholar-style queries).
 
-**Fetching rule:** only fetch URLs that appeared in a search result or as a link on a page you already fetched. Never type or guess a URL; each one interrupts the editor with an approval prompt. To reach a known page, search for its title and fetch the result. If a fetch is denied, skip that source.
+**Fetching rule:** only fetch URLs that appeared in a search result or as a link on a page you already fetched. Never type or guess a URL; each one interrupts the editor with an approval prompt. To reach a known page, search for its title and fetch the result. If a fetch is denied or fails, skip that source and list it in `remaining`; never work around the fetch tool with curl, scripts, caches or mirrors.
 
 ## 3. Inclusion
 
