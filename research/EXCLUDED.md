@@ -15,3 +15,5 @@ Checked by every researcher before searching. Add entries with a date and reason
 | news.ainauten.com | Appears machine-rewritten (flagged in round 2, not opened) | 2026-10-19 |
 | situational-intelligence.onrender.com | Automated briefing | 2026-10-19 |
 | book.st-hakky.com | Rewrites other coverage | 2026-10-19 |
+| dailyaiworld.com | Near-duplicate pages (flagged round 3, not opened) | 2026-10-19 |
+| techjacksolutions.com | SEO-style pages (flagged round 3, not opened) | 2026-10-19 |
