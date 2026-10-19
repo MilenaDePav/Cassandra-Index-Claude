@@ -67,10 +67,6 @@ resources:
   author: Hugging Face security team (four named authors)
   date: '2026-07-27'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
-  - security-geopolitics
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   essential: true
@@ -82,11 +78,6 @@ resources:
   author: Hjalmar Wijk, Ajeya Cotra (METR); Ryan Greenblatt (Redwood Research)
   date: '2026-08-26'
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
-  - law-regulation
-  - security-geopolitics
   type: report
   relation: about-incident
   essential: true
@@ -98,10 +89,6 @@ resources:
   author: AISI
   date: '2026-07-21'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
-  - security-geopolitics
-  - technical-safety
   type: official
   relation: background
   essential: true
@@ -113,8 +100,6 @@ resources:
   author: JFrog
   date: '2026-07-27'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: advisory
   relation: about-incident
   essential: true
@@ -126,10 +111,6 @@ resources:
   author: OpenAI
   date: '2026-08-26'
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
-  - law-regulation
   type: report
   relation: about-incident
   essential: true
@@ -141,12 +122,6 @@ resources:
   author: Hugging Face (system account)
   date: '2026-07-16'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
-  - law-regulation
-  - security-geopolitics
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   essential: true
@@ -158,11 +133,6 @@ resources:
   author: OpenAI
   date: '2026-08-26'
   discipline: governance-policy
-  alsoRelevantTo:
-  - ethics-philosophy
-  - law-regulation
-  - security-geopolitics
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   essential: true
@@ -174,8 +144,6 @@ resources:
   author: European Commission
   date: '2025-11-19'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: background
   essential: true
@@ -187,9 +155,6 @@ resources:
   author: The White House
   date: '2026-06-02'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
-  - law-regulation
   type: legislation
   relation: background
   essential: true
@@ -201,9 +166,6 @@ resources:
   author: U.S. Senate HSGAC
   date: '2026-09-30'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
-  - law-regulation
   type: official
   relation: about-incident
   essential: true
@@ -215,8 +177,6 @@ resources:
   author: OpenAI
   date: '2026-07-09'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: primary-disclosure
   relation: background
   essential: true
@@ -228,9 +188,6 @@ resources:
   author: OpenAI
   date: '2025-04-15'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - technical-safety
   type: primary-disclosure
   relation: background
   essential: true
@@ -242,8 +199,6 @@ resources:
   author: European Commission (DG CNECT)
   date: '2026-10-12'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: official
   relation: about-incident
   essential: true
@@ -255,8 +210,6 @@ resources:
   author: Mackenzie Arnold; Stephan Llerena
   date: '2026-07-24'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: about-incident
   essential: true
@@ -268,8 +221,6 @@ resources:
   author: Filippo Santoni de Sio, Giulia Mecacci
   date: '2021-05-14'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: paper
   relation: background
   essential: true
@@ -281,8 +232,6 @@ resources:
   author: Luciano Floridi
   date: '2026-07-23'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: about-incident
   essential: true
@@ -294,8 +243,6 @@ resources:
   author: Aalok Mehta
   date: '2026-08-24'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: think-tank
   relation: about-incident
   essential: true
@@ -307,8 +254,6 @@ resources:
   author: Emily Forlini
   date: '2026-08-26'
   discipline: general
-  alsoRelevantTo:
-  - technical-safety
   type: news
   relation: about-incident
   essential: true
@@ -320,8 +265,6 @@ resources:
   author: California Legislature
   date: '2025-09-29'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: legislation
   relation: background
   essential: true
@@ -333,10 +276,6 @@ resources:
   author: Independent International Scientific Panel on AI
   date: '2026-09-21'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
-  - security-geopolitics
-  - technical-safety
   type: official
   relation: about-incident
   essential: true
@@ -348,8 +287,6 @@ resources:
   author: Chris Painter
   date: '2026-09-30'
   discipline: technical-safety
-  alsoRelevantTo:
-  - security-geopolitics
   type: official
   relation: about-incident
   credibility: verified
@@ -360,8 +297,6 @@ resources:
   author: Zhun Wang et al. (incl. Eric Wallace, Nicholas Carlini, Dawn Song)
   date: '2026-05-11'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: preprint
   relation: background
   credibility: verified
@@ -372,10 +307,6 @@ resources:
   author: Anthropic
   date: '2026-07-30'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
-  - security-geopolitics
-  - technical-safety
   type: primary-disclosure
   relation: background
   credibility: primary
@@ -386,12 +317,6 @@ resources:
   author: OpenAI
   date: '2026-07-21'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
-  - law-regulation
-  - security-geopolitics
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -402,9 +327,6 @@ resources:
   author: Matthias Samwald; Yoshua Bengio; Marietje Schaake et al.
   date: '2025-07-10'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
-  - technical-safety
   type: official
   relation: background
   credibility: verified
@@ -415,8 +337,6 @@ resources:
   author: Katherine G. Robertson (Deputy AG)
   date: '2026-08-20'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: primary
@@ -427,10 +347,6 @@ resources:
   author: UK AISI
   date: '2026-08-04'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
-  - governance-policy
-  - security-geopolitics
   type: official
   relation: background
   credibility: primary
@@ -461,8 +377,6 @@ resources:
   author: OpenAI
   date: '2026-07-20'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: primary-disclosure
   relation: background
   credibility: primary
@@ -483,8 +397,6 @@ resources:
   author: Anthropic
   date: '2026-04-07'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
   type: primary-disclosure
   relation: background
   credibility: primary
@@ -505,8 +417,6 @@ resources:
   author: Jack Cable; Daniel Chiu; Francisco Pernice; Laura Ruis; Selena Zhang; Tetiana Bas; Jordan Chetty; Farzaan Kaiyom; Gary Shen; Conrad Stosz; Jacob Steinhardt
   date: '2026-09-30'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - security-geopolitics
   type: report
   relation: background
   credibility: verified
@@ -537,8 +447,6 @@ resources:
   author: JFrog (CNA)
   date: '2026-08-12'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: advisory
   relation: about-incident
   credibility: verified
@@ -609,10 +517,6 @@ resources:
   author: OpenAI
   date: '2026-08-18'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
-  - security-geopolitics
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -623,8 +527,6 @@ resources:
   author: European Commission
   date: '2025-11-04'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: official
   relation: background
   credibility: verified
@@ -635,8 +537,6 @@ resources:
   author: Sen. Josh Hawley
   date: '2026-09-09'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: official
   relation: about-incident
   credibility: primary
@@ -647,9 +547,6 @@ resources:
   author: NIST CAISSI; NSA Super Intelligence Security Center; CISA
   date: '2026-10-16'
   discipline: governance-policy
-  alsoRelevantTo:
-  - cybersecurity
-  - law-regulation
   type: official
   relation: background
   credibility: primary
@@ -660,8 +557,6 @@ resources:
   author: 26 State and Territorial Attorneys General
   date: '2026-09-23'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: official
   relation: about-incident
   credibility: primary
@@ -672,9 +567,6 @@ resources:
   author: OpenAI
   date: '2026-09-16'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -685,9 +577,6 @@ resources:
   author: Anthony Albanese
   date: '2026-09-24'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - security-geopolitics
   type: official
   relation: background
   credibility: primary
@@ -698,9 +587,6 @@ resources:
   author: Rep. Ted Lieu; Rep. Nathaniel Moran
   date: '2026-07-23'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - security-geopolitics
   type: official
   relation: about-incident
   credibility: primary
@@ -710,8 +596,6 @@ resources:
   publisher: Centre for European Policy (cep)
   author: Anselm Küsters
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -722,10 +606,6 @@ resources:
   author: Dario Amodei
   date: 2026-09
   discipline: governance-policy
-  alsoRelevantTo:
-  - ethics-philosophy
-  - security-geopolitics
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -736,8 +616,6 @@ resources:
   author: Office of the Attorney General Rob Bonta
   date: '2026-10-01'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: primary
@@ -748,8 +626,6 @@ resources:
   author: Office of Attorney General Austin Knudsen
   date: '2026-09-01'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: primary
@@ -760,8 +636,6 @@ resources:
   author: Sen. Andrew Gounardes
   date: '2026-03-27'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: legislation
   relation: background
   credibility: verified
@@ -772,9 +646,6 @@ resources:
   author: Kate Klonick
   date: '2026-07-29'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
-  - security-geopolitics
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -785,8 +656,6 @@ resources:
   author: European Commission
   date: '2026-10-07'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: background
   credibility: verified
@@ -797,9 +666,6 @@ resources:
   author: METR
   date: '2026-07-28'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
-  - technical-safety
   type: report
   relation: about-incident
   credibility: commentary
@@ -810,9 +676,6 @@ resources:
   author: Jason Tucker, Virginia Dignum, Petter Ericson
   date: '2026-10-06'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
-  - law-regulation
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -823,10 +686,6 @@ resources:
   author: OpenAI
   date: '2026-08-04'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - cybersecurity
-  - governance-policy
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -837,8 +696,6 @@ resources:
   author: Irene Zhang
   date: '2026-09-03'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -849,9 +706,6 @@ resources:
   author: OpenAI
   date: '2026-08-07'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -862,8 +716,6 @@ resources:
   author: Sella Nevo; Dan Lahav; Ajay Karpur; Yogev Bar-On; Henry Alexander Bradley; Jeff Alstott
   date: '2024-05-30'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - cybersecurity
   type: report
   relation: background
   credibility: verified
@@ -874,8 +726,6 @@ resources:
   author: Justin Hendrix
   date: '2026-10-01'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -886,8 +736,6 @@ resources:
   author: Kurt Gaudette
   date: '2026-09-30'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - cybersecurity
   type: official
   relation: background
   credibility: verified
@@ -898,8 +746,6 @@ resources:
   author: Ruby Scanlon; Janet Egan
   date: '2026-07-27'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -920,8 +766,6 @@ resources:
   author: METR
   date: '2026-05-19'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: dataset
   relation: background
   credibility: verified
@@ -932,8 +776,6 @@ resources:
   author: Shakeel Hashim
   date: '2026-09-08'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -944,8 +786,6 @@ resources:
   author: METR
   date: '2026-05-19'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: report
   relation: background
   credibility: verified
@@ -956,9 +796,6 @@ resources:
   author: Daniel Atherton (editor)
   date: '2026-07-11'
   discipline: general
-  alsoRelevantTo:
-  - cybersecurity
-  - technical-safety
   type: dataset
   relation: about-incident
   credibility: reported
@@ -969,8 +806,6 @@ resources:
   author: Ajeya Cotra
   date: '2026-08-28'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -981,8 +816,6 @@ resources:
   author: Shakeel Hashim
   date: '2026-07-22'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -1003,8 +836,6 @@ resources:
   author: Anthropic
   date: '2026-10-15'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: primary-disclosure
   relation: background
   credibility: primary
@@ -1035,8 +866,6 @@ resources:
   author: Ryan Y. Lin, Siddhartha Ojha, Kevin Cai, Maxwell F. Chen
   date: '2024-09-19'
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
   type: preprint
   relation: background
   credibility: verified
@@ -1047,8 +876,6 @@ resources:
   author: Marius Hobbhahn
   date: '2026-09-30'
   discipline: technical-safety
-  alsoRelevantTo:
-  - security-geopolitics
   type: official
   relation: about-incident
   credibility: commentary
@@ -1069,8 +896,6 @@ resources:
   author: Sam Sabin
   date: '2026-07-23'
   discipline: general
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -1100,8 +925,6 @@ resources:
   author: Lucian Constantin
   date: '2026-07-28'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -1112,8 +935,6 @@ resources:
   author: OpenAI
   date: '2026-02-05'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
   type: primary-disclosure
   relation: background
   credibility: primary
@@ -1164,8 +985,6 @@ resources:
   author: Simon Willison
   date: '2026-08-07'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -1196,9 +1015,6 @@ resources:
   author: Eric Geller
   date: '2026-08-05'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - security-geopolitics
-  - technical-safety
   type: news
   relation: about-incident
   credibility: reported
@@ -1229,10 +1045,6 @@ resources:
   author: Beatrice Nolan
   date: '2026-07-25'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - security-geopolitics
-  - technical-safety
   type: news
   relation: about-incident
   credibility: reported
@@ -1243,8 +1055,6 @@ resources:
   author: Emily Forlini
   date: '2026-10-09'
   discipline: governance-policy
-  alsoRelevantTo:
-  - ethics-philosophy
   type: news
   relation: about-incident
   credibility: reported
@@ -1255,9 +1065,6 @@ resources:
   author: Luca Bertuzzi
   date: '2026-10-14'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -1268,8 +1075,6 @@ resources:
   author: Raphael Satter, Deepa Seetharaman, Kenrick Cai
   date: '2026-07-24'
   discipline: general
-  alsoRelevantTo:
-  - cybersecurity
   type: news
   relation: about-incident
   credibility: reported
@@ -1280,8 +1085,6 @@ resources:
   author: Celia Ford
   date: '2026-07-28'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -1292,8 +1095,6 @@ resources:
   author: Jordan Taylor, Max Heitmann, Ed Fage, Thomas Read, Joseph Bloom
   date: '2026-05-21'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: report
   relation: background
   credibility: verified
@@ -1304,8 +1105,6 @@ resources:
   author: Zvi Mowshowitz
   date: '2026-08-29'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -1326,8 +1125,6 @@ resources:
   author: Jeremy Kahn; Emily Forlini
   date: '2026-07-22'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -1338,9 +1135,6 @@ resources:
   author: Sen. Bernie Sanders; Rep. Greg Casar
   date: '2026-09-03'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - security-geopolitics
   type: official
   relation: about-incident
   credibility: primary
@@ -1351,8 +1145,6 @@ resources:
   author: Andrew Solender, Maria Curi
   date: '2026-09-10'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: news
   relation: about-incident
   credibility: reported
@@ -1373,8 +1165,6 @@ resources:
   author: Henna Virkkunen
   date: '2026-10-14'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: official
   relation: about-incident
   credibility: primary
@@ -1394,9 +1184,6 @@ resources:
   publisher: OpenAI
   author: OpenAI
   discipline: governance-policy
-  alsoRelevantTo:
-  - cybersecurity
-  - security-geopolitics
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -1417,8 +1204,6 @@ resources:
   author: Gabriel Weil
   date: '2026-07-24'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -1429,8 +1214,6 @@ resources:
   author: Paul J (NCSC); Alan Steer (AISI)
   date: '2026-03-30'
   discipline: governance-policy
-  alsoRelevantTo:
-  - cybersecurity
   type: official
   relation: background
   credibility: verified
@@ -1441,8 +1224,6 @@ resources:
   author: European Commission
   date: '2025-09-26'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: background
   credibility: verified
@@ -1453,8 +1234,6 @@ resources:
   author: Brandon Pho
   date: '2026-09-09'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -1465,8 +1244,6 @@ resources:
   author: Reuters
   date: '2026-10-02'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -1477,8 +1254,6 @@ resources:
   author: Office of Rep. Greg Casar
   date: '2026-09-02'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: primary
@@ -1489,8 +1264,6 @@ resources:
   author: Victor Ordonez; Max Zahn
   date: '2026-09-30'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -1501,8 +1274,6 @@ resources:
   author: Rep. Greg Casar and 31 other Members
   date: '2026-08-10'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: primary
@@ -1513,8 +1284,6 @@ resources:
   author: OpenAI Global Affairs
   date: '2026-08-21'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -1525,8 +1294,6 @@ resources:
   author: Michelle Kim
   date: '2026-09-28'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -1537,9 +1304,6 @@ resources:
   author: Jakub Pachocki
   date: '2026-09-06'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: primary
@@ -1550,8 +1314,6 @@ resources:
   author: Rumman Chowdhury
   date: '2026-08-20'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - law-regulation
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -1562,8 +1324,6 @@ resources:
   author: Gary Marcus
   date: '2026-08-31'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - technical-safety
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -1584,8 +1344,6 @@ resources:
   author: Helen Toner
   date: '2026-07-28'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -1596,12 +1354,6 @@ resources:
   author: Harry Booth
   date: '2026-07-24'
   discipline: general
-  alsoRelevantTo:
-  - cybersecurity
-  - governance-policy
-  - law-regulation
-  - security-geopolitics
-  - technical-safety
   type: news
   relation: about-incident
   credibility: reported
@@ -1612,9 +1364,6 @@ resources:
   author: Kevin Frazier (host), Peter N. Salib (guest)
   date: '2026-09-03'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
-  - law-regulation
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -1625,8 +1374,6 @@ resources:
   author: Will Douglas Heaven
   date: '2026-09-30'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -1637,8 +1384,6 @@ resources:
   author: Emily Forlini
   date: '2026-07-20'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - cybersecurity
   type: news
   relation: about-incident
   credibility: reported
@@ -1649,8 +1394,6 @@ resources:
   author: Ollie Whitehouse
   date: '2026-08-04'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - cybersecurity
   type: official
   relation: about-incident
   credibility: verified
@@ -1661,8 +1404,6 @@ resources:
   author: Reuters
   date: '2026-07-08'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: background
   credibility: reported
@@ -1673,8 +1414,6 @@ resources:
   author: Department of the Prime Minister and Cabinet
   date: '2026-09-24'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: background
   credibility: primary
@@ -1685,8 +1424,6 @@ resources:
   author: Anthropic
   date: '2026-06-12'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - law-regulation
   type: primary-disclosure
   relation: background
   credibility: primary
@@ -1697,8 +1434,6 @@ resources:
   author: Daniel Kokotajlo
   date: '2026-09-30'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: commentary
@@ -1709,8 +1444,6 @@ resources:
   author: Sam Biddle
   date: '2026-10-19'
   discipline: general
-  alsoRelevantTo:
-  - ethics-philosophy
   type: news
   relation: background
   credibility: reported
@@ -1721,8 +1454,6 @@ resources:
   author: Isabella Wilkinson
   date: '2026-07-02'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: think-tank
   relation: background
   credibility: commentary
@@ -1753,10 +1484,6 @@ resources:
   author: Dwarkesh Patel
   date: '2026-08-29'
   discipline: general
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
-  - technical-safety
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -1777,8 +1504,6 @@ resources:
   author: Weixun Wang, XiaoXiao Xu, Wanhe An, Fangwen Dai, et al.
   date: '2025-12-31'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
   type: preprint
   relation: background
   credibility: primary
@@ -1799,9 +1524,6 @@ resources:
   author: Zvi Mowshowitz
   date: '2026-07-26'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -1822,8 +1544,6 @@ resources:
   author: Emily Forlini
   date: '2026-08-06'
   discipline: general
-  alsoRelevantTo:
-  - cybersecurity
   type: news
   relation: about-incident
   credibility: reported
@@ -1834,8 +1554,6 @@ resources:
   author: Phil Muncaster
   date: '2026-08-27'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
   type: news
   relation: about-incident
   credibility: reported
@@ -1846,8 +1564,6 @@ resources:
   author: OpenAI and signatories
   date: '2026-08-28'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
   type: primary-disclosure
   relation: background
   credibility: primary
@@ -1858,8 +1574,6 @@ resources:
   author: Cynthia Brumfield
   date: '2026-10-14'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -1880,9 +1594,6 @@ resources:
   author: Anthony Ha
   date: '2026-07-26'
   discipline: general
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -1893,8 +1604,6 @@ resources:
   author: Sam Sabin
   date: '2026-07-20'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -2005,8 +1714,6 @@ resources:
   author: Thomas Claburn
   date: '2026-08-19'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -2027,8 +1734,6 @@ resources:
   author: Buck Shlegeris
   date: '2024-06-03'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: background
   credibility: commentary
@@ -2039,8 +1744,6 @@ resources:
   author: Beatrice Nolan
   date: '2026-07-30'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -2061,8 +1764,6 @@ resources:
   author: Alexandra Kelley
   date: '2026-07-23'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: news
   relation: about-incident
   credibility: reported
@@ -2073,8 +1774,6 @@ resources:
   author: Veronica Irwin
   date: '2026-07-16'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: newsletter
   relation: background
   credibility: commentary
@@ -2095,8 +1794,6 @@ resources:
   author: Public Citizen
   date: '2026-07-28'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -2107,8 +1804,6 @@ resources:
   author: Maria Curi
   date: '2026-08-04'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: background
   credibility: reported
@@ -2119,8 +1814,6 @@ resources:
   author: Yuqing Liu
   date: '2026-10-01'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -2131,8 +1824,6 @@ resources:
   author: Shakeel Hashim, Veronica Irwin, Celia Ford
   date: '2026-07-31'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -2143,8 +1834,6 @@ resources:
   author: Christian Robles
   date: '2026-09-29'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -2155,8 +1844,6 @@ resources:
   author: Lorenzo Franceschi-Bicchierai, Zack Whittaker
   date: '2026-08-03'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: news
   relation: about-incident
   credibility: reported
@@ -2167,8 +1854,6 @@ resources:
   author: Julia Apostle
   date: '2025-08-01'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: background
   credibility: commentary
@@ -2179,8 +1864,6 @@ resources:
   author: Aminu Abdullahi
   date: '2026-10-15'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -2191,8 +1874,6 @@ resources:
   author: Tim Wybitul; Isabelle Brams; Timo Hager
   date: '2025-10-28'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: background
   credibility: commentary
@@ -2203,8 +1884,6 @@ resources:
   author: Duane C. Pozza; Kathleen E. Scott; Sydney M. White
   date: '2026-04-03'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: background
   credibility: commentary
@@ -2215,8 +1894,6 @@ resources:
   author: Marco Quiroz-Gutierrez
   date: '2026-08-25'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -2227,8 +1904,6 @@ resources:
   author: Beatrice Nolan
   date: '2026-02-10'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: background
   credibility: reported
@@ -2239,8 +1914,6 @@ resources:
   author: Russell Brandom
   date: '2026-07-21'
   discipline: general
-  alsoRelevantTo:
-  - cybersecurity
   type: news
   relation: about-incident
   credibility: reported
@@ -2251,8 +1924,6 @@ resources:
   author: Ana Maria Constantin
   date: '2026-08-24'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -2263,8 +1934,6 @@ resources:
   author: Josh Hawley; Chris Murphy
   date: '2026-10-01'
   discipline: law-regulation
-  alsoRelevantTo:
-  - security-geopolitics
   type: official
   relation: background
   credibility: primary
@@ -2275,8 +1944,6 @@ resources:
   author: Lee Ramsay; Paul Caddy
   date: '2026-07-27'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: background
   credibility: commentary
@@ -2287,8 +1954,6 @@ resources:
   author: Colin J. Zick
   date: '2026-07-23'
   discipline: law-regulation
-  alsoRelevantTo:
-  - cybersecurity
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -2299,8 +1964,6 @@ resources:
   author: Tony Anscombe
   date: '2026-08-13'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - cybersecurity
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -2321,8 +1984,6 @@ resources:
   author: Zvi Mowshowitz
   date: '2026-09-06'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -2333,8 +1994,6 @@ resources:
   author: Rebecca Bellan
   date: '2026-09-04'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -2355,8 +2014,6 @@ resources:
   author: Ece Yildirim
   date: '2026-09-21'
   discipline: general
-  alsoRelevantTo:
-  - law-regulation
   type: news
   relation: about-incident
   credibility: reported
@@ -2377,8 +2034,6 @@ resources:
   author: Heidy Khlaaf (interviewee)
   date: '2026-09-03'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - cybersecurity
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -2399,8 +2054,6 @@ resources:
   author: Justin Hendrix
   date: '2026-10-04'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -2411,8 +2064,6 @@ resources:
   author: David DiMolfetta
   date: '2026-10-05'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: background
   credibility: reported
@@ -2433,9 +2084,6 @@ resources:
   author: Jack Clark
   date: '2026-08-31'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
-  - security-geopolitics
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -2445,8 +2093,6 @@ resources:
   publisher: The Guardian
   date: '2026-08-29'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: background
   credibility: reported
@@ -2467,8 +2113,6 @@ resources:
   author: Michael Dalton, Eric Wallace (OpenAI)
   date: '2026-08-06'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -2478,8 +2122,6 @@ resources:
   publisher: Legal Information Institute, Cornell Law School
   author: U.S. Congress
   discipline: law-regulation
-  alsoRelevantTo:
-  - cybersecurity
   type: legislation
   relation: background
   credibility: verified
@@ -2490,8 +2132,6 @@ resources:
   author: European Parliament and Council
   date: '2024-06-13'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: legislation
   relation: background
   credibility: verified
@@ -2502,8 +2142,6 @@ resources:
   author: European Parliament and Council
   date: '2024-06-13'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: legislation
   relation: background
   credibility: verified
@@ -2514,8 +2152,6 @@ resources:
   author: European Parliament and Council
   date: '2024-06-13'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: legislation
   relation: background
   credibility: verified
@@ -2526,8 +2162,6 @@ resources:
   author: California State Assembly (transcript)
   date: '2026-08-10'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: primary
@@ -2538,8 +2172,6 @@ resources:
   author: Davide Paglieri, Logan Cross, Tim Genewein, Joel Z. Leibo, Nenad Tomasev, Alexander Sasha Vezhnevets
   date: '2026-09-03'
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
   type: preprint
   relation: about-incident
   credibility: verified
@@ -2550,8 +2182,6 @@ resources:
   author: ryan_greenblatt, Ajeya Cotra, Hjalmar_Wijk
   date: '2026-08-26'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: forum-expert
   relation: about-incident
   credibility: commentary
@@ -2562,8 +2192,6 @@ resources:
   author: Anthropic
   date: '2026-08-31'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -2584,8 +2212,6 @@ resources:
   author: CSA CISO community
   date: '2026-07-27'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - law-regulation
   type: report
   relation: about-incident
   credibility: commentary
@@ -2606,8 +2232,6 @@ resources:
   author: INCIBE-CERT
   date: '2026-09-03'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
   type: official
   relation: about-incident
   credibility: verified
@@ -2618,8 +2242,6 @@ resources:
   author: European Parliament and Council
   date: '2024-06-13'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: legislation
   relation: background
   credibility: verified
@@ -2630,8 +2252,6 @@ resources:
   author: European Parliament and Council
   date: '2024-06-13'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: legislation
   relation: background
   credibility: verified
@@ -2641,8 +2261,6 @@ resources:
   publisher: legislation.gov.uk
   author: UK Parliament
   discipline: law-regulation
-  alsoRelevantTo:
-  - cybersecurity
   type: legislation
   relation: background
   credibility: verified
@@ -2652,8 +2270,6 @@ resources:
   publisher: legislation.gov.uk
   author: UK Parliament
   discipline: law-regulation
-  alsoRelevantTo:
-  - cybersecurity
   type: legislation
   relation: background
   credibility: verified
@@ -2664,8 +2280,6 @@ resources:
   author: European Parliament and Council
   date: '2016-04-27'
   discipline: law-regulation
-  alsoRelevantTo:
-  - cybersecurity
   type: legislation
   relation: background
   credibility: verified
@@ -2676,8 +2290,6 @@ resources:
   author: European Parliament and Council
   date: '2016-04-27'
   discipline: law-regulation
-  alsoRelevantTo:
-  - cybersecurity
   type: legislation
   relation: background
   credibility: verified
@@ -2688,8 +2300,6 @@ resources:
   author: Barrett, J.
   date: '2021-06-03'
   discipline: law-regulation
-  alsoRelevantTo:
-  - cybersecurity
   type: official
   relation: background
   credibility: verified
@@ -2700,8 +2310,6 @@ resources:
   author: Alexander Meinke et al.
   date: '2024-12-06'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - technical-safety
   type: preprint
   relation: background
   credibility: verified
@@ -2712,8 +2320,6 @@ resources:
   author: Margaret Mitchell, Avijit Ghosh, Alexandra Sasha Luccioni, Giada Pistilli
   date: '2025-02-04'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: preprint
   relation: background
   credibility: verified
@@ -2724,8 +2330,6 @@ resources:
   author: Andreas Matthias
   date: '2004-09-01'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - law-regulation
   type: paper
   relation: background
   credibility: verified
@@ -2736,8 +2340,6 @@ resources:
   author: Sydney Von Arx; Cormac Slade Byrd; Spencer Kitts; Thomas Larsen
   date: '2026-09-04'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: report
   relation: background
   credibility: verified
@@ -2748,8 +2350,6 @@ resources:
   author: Alex Forman; Mishka Kharlov; Will Tom; Jeffrey Ladish; Spencer Kitts; Cormac Slade Byrd; Colleen McKenzie; Alicja Piecha
   date: '2026-09-25'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
   type: dataset
   relation: about-incident
   credibility: verified
@@ -2770,8 +2370,6 @@ resources:
   author: Girish Gupta
   date: '2026-07-25'
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
   type: forum-expert
   relation: about-incident
   credibility: commentary
@@ -2782,9 +2380,6 @@ resources:
   author: Theo Bearman, Christopher Covino, Matthew Mittelsteadt, Joe O'Brien
   date: '2026-07-27'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
-  - law-regulation
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -2795,8 +2390,6 @@ resources:
   author: Ryan Greenblatt, Buck Shlegeris
   date: '2026-07-23'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -2816,8 +2409,6 @@ resources:
   author: Oscar Delaney, Sambhav Maheshwari, Joe O'Brien, Theo Bearman, Oliver Guest
   date: 2026-04
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: report
   relation: background
   credibility: commentary
@@ -2828,8 +2419,6 @@ resources:
   author: Steffen Zahn
   date: '2026-07-11'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: background
   credibility: reported
@@ -2840,8 +2429,6 @@ resources:
   author: Peter S. Park, Simon Goldstein, Aidan O'Gara, Michael Chen, Dan Hendrycks
   date: 2024-05
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - technical-safety
   type: paper
   relation: background
   credibility: verified
@@ -2852,8 +2439,6 @@ resources:
   author: Noam Kolt
   date: '2025-01-14'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - law-regulation
   type: preprint
   relation: background
   credibility: verified
@@ -2864,8 +2449,6 @@ resources:
   author: Robert Sparrow
   date: 2007-02
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - security-geopolitics
   type: paper
   relation: background
   credibility: verified
@@ -2886,8 +2469,6 @@ resources:
   author: Iason Gabriel et al.
   date: '2024-04-24'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: preprint
   relation: background
   credibility: verified
@@ -2898,8 +2479,6 @@ resources:
   author: Philipp D. Dubach
   date: '2026-08-16'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - cybersecurity
   type: explainer
   relation: about-incident
   credibility: commentary
@@ -2910,8 +2489,6 @@ resources:
   author: OECD.AI expert group on AI incidents (LLM-generated)
   date: '2026-08-06'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: dataset
   relation: about-incident
   credibility: commentary
@@ -2922,9 +2499,6 @@ resources:
   author: AIAAIC editorial team
   date: 2026-07
   discipline: general
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
   type: dataset
   relation: about-incident
   credibility: reported
@@ -2935,8 +2509,6 @@ resources:
   author: Sajjad Ghaemi
   date: 2025-12
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
   type: paper
   relation: background
   credibility: verified
@@ -2957,8 +2529,6 @@ resources:
   author: Himnish Hunma
   date: '2026-09-16'
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
   type: forum-expert
   relation: about-incident
   credibility: commentary
@@ -2989,8 +2559,6 @@ resources:
   author: Alina Maria Stan
   date: '2026-07-28'
   discipline: general
-  alsoRelevantTo:
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -3001,8 +2569,6 @@ resources:
   author: Five Eyes ministers
   date: '2026-08-26'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: official
   relation: background
   credibility: primary
@@ -3013,8 +2579,6 @@ resources:
   author: GPAI Policy Lab
   date: '2026-07-27'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -3035,8 +2599,6 @@ resources:
   author: Clare Armstrong
   date: '2026-09-25'
   discipline: general
-  alsoRelevantTo:
-  - law-regulation
   type: news
   relation: background
   credibility: reported
@@ -3047,8 +2609,6 @@ resources:
   author: Ana Maria Constantin
   date: '2026-09-05'
   discipline: general
-  alsoRelevantTo:
-  - law-regulation
   type: news
   relation: about-incident
   credibility: reported
@@ -3059,9 +2619,6 @@ resources:
   author: Ana-Maria Stanciuc
   date: '2026-09-07'
   discipline: general
-  alsoRelevantTo:
-  - law-regulation
-  - security-geopolitics
   type: news
   relation: about-incident
   credibility: reported
@@ -3072,8 +2629,6 @@ resources:
   author: Ana Maria Constantin
   date: '2026-08-26'
   discipline: general
-  alsoRelevantTo:
-  - law-regulation
   type: news
   relation: about-incident
   credibility: reported
@@ -3084,8 +2639,6 @@ resources:
   author: 1,386 frontier-lab employee signatories
   date: 2026-07
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: blog-expert
   relation: background
   credibility: commentary
@@ -3096,8 +2649,6 @@ resources:
   author: Travis Gilly
   date: '2026-09-14'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: report
   relation: about-incident
   credibility: commentary
@@ -3108,8 +2659,6 @@ resources:
   author: Rithula Nisha
   date: '2026-10-06'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -3140,8 +2689,6 @@ resources:
   author: Paul Kassianik; Yaron Singer
   date: 2026-08
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: background
   credibility: commentary
@@ -3152,8 +2699,6 @@ resources:
   author: Cris Tolomia
   date: '2026-07-30'
   discipline: general
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: reported
@@ -3173,8 +2718,6 @@ resources:
   publisher: BlueDot Impact
   author: BlueDot Impact (course team)
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3184,9 +2727,6 @@ resources:
   publisher: BlueDot Impact
   author: BlueDot Impact (course team)
   discipline: governance-policy
-  alsoRelevantTo:
-  - ethics-philosophy
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3207,8 +2747,6 @@ resources:
   author: Cody Fenwick; Zershaaneh Qureshi
   date: '2026-08-13'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: report
   relation: about-incident
   credibility: commentary
@@ -3219,8 +2757,6 @@ resources:
   author: William Anderson
   date: '2026-08-26'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3231,8 +2767,6 @@ resources:
   author: Chris Painter
   date: '2026-09-30'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: official
   relation: about-incident
   credibility: primary
@@ -3243,8 +2777,6 @@ resources:
   author: Apollo Research (byline blank)
   date: '2026-09-29'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -3255,8 +2787,6 @@ resources:
   author: Marius Hobbhahn
   date: '2026-09-30'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3267,9 +2797,6 @@ resources:
   author: OpenAI
   date: '2026-09-03'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
-  - governance-policy
   type: primary-disclosure
   relation: about-incident
   credibility: primary
@@ -3280,9 +2807,6 @@ resources:
   author: UK AISI
   date: '2026-10-01'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
-  - governance-policy
   type: official
   relation: background
   credibility: primary
@@ -3293,8 +2817,6 @@ resources:
   author: IMDA
   date: 2026-07
   discipline: cybersecurity
-  alsoRelevantTo:
-  - governance-policy
   type: advisory
   relation: about-incident
   credibility: reported
@@ -3305,8 +2827,6 @@ resources:
   author: Tom Hegel
   date: '2026-09-16'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: report
   relation: about-incident
   credibility: reported
@@ -3317,8 +2837,6 @@ resources:
   author: Spencer Kitts; Thomas Larsen; Sydney Von Arx
   date: '2026-09-11'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: report
   relation: background
   credibility: commentary
@@ -3329,9 +2847,6 @@ resources:
   author: CSIS
   date: '2026-08-24'
   discipline: governance-policy
-  alsoRelevantTo:
-  - cybersecurity
-  - law-regulation
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -3342,8 +2857,6 @@ resources:
   author: Zvi Mowshowitz
   date: '2026-08-31'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3354,8 +2867,6 @@ resources:
   author: Luiza Jarovsky, PhD
   date: '2026-08-30'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3366,8 +2877,6 @@ resources:
   author: Luiza Jarovsky, PhD
   date: '2026-10-09'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3399,9 +2908,6 @@ resources:
   author: Zvi Mowshowitz
   date: '2026-09-01'
   discipline: technical-safety
-  alsoRelevantTo:
-  - ethics-philosophy
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3412,8 +2918,6 @@ resources:
   author: Zvi Mowshowitz
   date: '2026-08-02'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3434,8 +2938,6 @@ resources:
   author: Zvi Mowshowitz
   date: '2026-10-12'
   discipline: governance-policy
-  alsoRelevantTo:
-  - ethics-philosophy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3446,9 +2948,6 @@ resources:
   author: Steven Adler
   date: '2026-08-28'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
-  - technical-safety
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3458,8 +2957,6 @@ resources:
   publisher: Marcus on AI
   author: Gary Marcus
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3481,8 +2978,6 @@ resources:
   author: Gary Marcus
   date: '2026-09-04'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3513,8 +3008,6 @@ resources:
   author: Dean W. Ball
   date: '2026-09-01'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3525,8 +3018,6 @@ resources:
   author: Dean W. Ball
   date: '2026-09-14'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3537,8 +3028,6 @@ resources:
   author: Ethan Mollick
   date: '2026-08-31'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3549,8 +3038,6 @@ resources:
   author: Peter Wildeford
   date: '2026-08-31'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3561,8 +3048,6 @@ resources:
   author: Anton Leicht
   date: '2026-08-05'
   discipline: governance-policy
-  alsoRelevantTo:
-  - security-geopolitics
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3583,8 +3068,6 @@ resources:
   author: Simon Willison
   date: '2026-07-22'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3595,8 +3078,6 @@ resources:
   author: Nathan Lambert
   date: '2026-08-09'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3618,8 +3099,6 @@ resources:
   author: Daniel Kokotajlo
   date: '2026-10-02'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3630,8 +3109,6 @@ resources:
   author: Scott Alexander
   date: '2026-07-24'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - technical-safety
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3642,8 +3119,6 @@ resources:
   author: Scott Alexander
   date: '2026-07-30'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: newsletter
   relation: about-incident
   credibility: commentary
@@ -3654,8 +3129,6 @@ resources:
   author: Rob Wiblin
   date: '2026-10-02'
   discipline: technical-safety
-  alsoRelevantTo:
-  - governance-policy
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -3666,8 +3139,6 @@ resources:
   author: 80,000 Hours (no named author)
   date: '2026-09-18'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3687,8 +3158,6 @@ resources:
   author: Bruce Schneier
   date: '2026-08-03'
   discipline: cybersecurity
-  alsoRelevantTo:
-  - law-regulation
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3699,8 +3168,6 @@ resources:
   author: Bruce Schneier and Barath Raghavan
   date: '2026-07-29'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - technical-safety
   type: blog-expert
   relation: about-incident
   credibility: commentary
@@ -3721,8 +3188,6 @@ resources:
   author: Eryk Salvaggio
   date: '2026-09-11'
   discipline: ethics-philosophy
-  alsoRelevantTo:
-  - governance-policy
   type: news
   relation: about-incident
   credibility: commentary
@@ -3733,8 +3198,6 @@ resources:
   author: Chris MacKenzie
   date: '2026-07-30'
   discipline: governance-policy
-  alsoRelevantTo:
-  - law-regulation
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -3745,8 +3208,6 @@ resources:
   author: Institute for Law & AI (quotes Mackenzie Arnold)
   date: '2026-08-28'
   discipline: law-regulation
-  alsoRelevantTo:
-  - governance-policy
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -3777,8 +3238,6 @@ resources:
   author: Aalok Mehta, Nicole Errera
   date: '2026-09-03'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -3789,8 +3248,6 @@ resources:
   author: Ezra Klein with Helen Toner (CSET)
   date: '2026-08-18'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -3801,8 +3258,6 @@ resources:
   author: Justin Hendrix with Vinh Nguyen (CFR) and Graham Webster (Stanford)
   date: '2026-07-26'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - governance-policy
   type: podcast
   relation: about-incident
   credibility: commentary
@@ -3813,9 +3268,6 @@ resources:
   author: Mariami Tkeshelashvili, Ritika Verma
   date: '2026-08-06'
   discipline: technical-safety
-  alsoRelevantTo:
-  - cybersecurity
-  - governance-policy
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -3826,8 +3278,6 @@ resources:
   author: 'Centre for Long-Term Resilience (contact: Tommy Shaffer Shane)'
   date: '2026-08-28'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: report
   relation: background
   credibility: commentary
@@ -3848,8 +3298,6 @@ resources:
   author: Ehab Khalifa
   date: '2026-08-10'
   discipline: security-geopolitics
-  alsoRelevantTo:
-  - technical-safety
   type: think-tank
   relation: about-incident
   credibility: commentary
@@ -3860,8 +3308,6 @@ resources:
   author: Loreben Tuquero
   date: '2026-09-02'
   discipline: governance-policy
-  alsoRelevantTo:
-  - technical-safety
   type: news
   relation: about-incident
   credibility: reported
@@ -3872,22 +3318,589 @@ resources:
   author: Janet Egan (CNAS)
   date: '2026-07-30'
   discipline: security-geopolitics
+  type: podcast
+  relation: about-incident
+  credibility: commentary
+  note: A CNAS deputy programme director opens the episode on the HF hack, framed for an allied (Australian) audience. The host is probably ASPI but this is not confirmed. Only the description was read.
+- title: OpenAI Models Went Rogue. We Urgently Need a Better Hugging Face Investigation
+  url: https://law-ai.org/openai-models-went-rogue-we-urgently-need-a-better-hugging-face-investigation/
+  publisher: Institute for Law & AI (cross-post of The Guardian)
+  author: Mackenzie Arnold; Stephan Llerena
+  date: '2026-09-08'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: LawAI staff op-ed first run in The Guardian (Guardian page blocked to us). Uses METR's ~1,200/~700 agent figures to argue for a public body able to fully investigate AI incidents.
+- title: Recommended Amendments to California's AI Incident Reporting Provisions
+  url: https://law-ai.org/recommended-amendments-to-californias-ai-incident-reporting-provisions/
+  publisher: Institute for Law & AI
+  author: Stephan Llerena; Charlie Bullock; Mackenzie Arnold
+  date: '2026-10-16'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: 'Responds to California EO N-9-26 with seven SB 53 amendments: sandbox escapes and autonomous cyberattacks become reportable, plus near-miss reporting and Cal OES investigative powers. Notes it is unclear whether the responsible internal model met SB 53''s frontier-model threshold.'
+- title: How Should AI Companies Approach Internal Use Reporting Under SB 53? An Explainer for Technical Staff
+  url: https://law-ai.org/how-should-ai-companies-approach-internal-use-reporting-under-sb-53/
+  publisher: Institute for Law & AI
+  author: Bahrad Sokhansanj; Mackenzie Arnold
+  date: '2026-09-17'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Explainer on SB 53 internal-use reporting for lab staff. A closing note uses the breach to show where internal-use assessments overlap with critical safety incidents, and argues it probably fell below the reporting threshold.
+- title: If AI Developers Create the Risk, They Should Bear the Responsibility
+  url: https://law-ai.org/if-ai-developers-create-the-risk-they-should-bear-the-responsibility/
+  publisher: Institute for Law & AI (cross-post of The Star-Ledger / NJ.com)
+  author: Andrew Macurdy; Gabriel Weil
+  date: '2026-09-27'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: State-level op-ed by a New Jersey assemblyman and a LawAI fellow. Uses the July hack as a warning shot to back NJ bill A5090 and NY/RI bills imposing developer liability for criminal or tortious AI conduct.
+- title: Can the Law Stop AI Hackers?
+  url: https://law-ai.org/can-the-law-stop-ai-hackers/
+  publisher: Institute for Law & AI (cross-post of Just Security)
+  author: Bahrad Sokhansanj
+  date: '2026-10-16'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - cybersecurity
+  - governance-policy
+  type: think-tank
+  relation: background
+  credibility: commentary
+  note: Argues the CFAA could plausibly reach agents that compromise third-party systems during evaluations, but intent and corporate-attribution questions remain. Urges a test prosecution and an amendment covering reckless developers. The visible text does not name the incident. Original:…
+- title: Improving Frontier AI Incident Reporting Regimes
+  url: https://www.governance.ai/research-paper/improving-frontier-ai-incident-reporting-regimes
+  publisher: Centre for the Governance of AI (GovAI)
+  author: Zaheed Kara
+  date: '2026-09-18'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - law-regulation
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Policy brief built on the breach. Contrasts California's below-threshold view with OpenAI notifying the EU, and argues EU law required a report. Proposes seven fixes, including near-miss and internal-use reporting and independent investigations.
+- title: Embedded Assessments for Frontier AI
+  url: https://www.governance.ai/research-paper/embedded-assessments-for-frontier-ai
+  publisher: Centre for the Governance of AI (GovAI)
+  author: Jacob Charnock; Sophie Williams; Zaheed Kara; Markus Anderljung; Alejandro Tlaie Boria; Stephen Casper; Anka Reuel; Jonas Freund
+  date: '2026-09-21'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: report
+  relation: background
+  credibility: commentary
+  note: Proposes independent evaluators with employee-like access to internal agents, security permissions and alignment work. This is the oversight model labs pledged after July, though the paper does not name the incident. Pour Demain cross-posted it.
+- title: Incident Analysis for AI Agents
+  url: https://www.governance.ai/research-paper/incident-analysis-for-ai-agents
+  publisher: Centre for the Governance of AI (GovAI)
+  author: Carson Ezell; Xavier Roberts-Gaal; Alan Chan
+  date: '2025-08-19'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: paper
+  relation: background
+  credibility: commentary
+  note: Pre-incident framework sorting agent-incident causes into system, context and agent-cognition factors, and listing the evidence (reasoning, logs) investigators need. Directly relevant to how the July incident was or was not investigated.
+- title: 'The OpenAI–Hugging Face incident: a detailed timeline and what it means'
+  url: https://cesia.org/en/publications/the-openai-hugging-face-incident-what-we-know-what-we-dont-what-follows/
+  publisher: CeSIA (Centre pour la Sécurité de l'IA)
+  author: Charbel-Raphaël Ségerie; Arthur Grimonpont
+  date: '2026-07-28'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - law-regulation
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: French think tank's running timeline of knowns and unknowns (updated 2 Sep). Analyses EU AI Act Art 55(1)(c) incident reporting and Art 91 information requests, with asks for the AI Office. Has a French version and figures to cross-check.
+- title: 'Cyberdefence: governments should set the rules, AI companies should foot the bill'
+  url: https://cesia.org/en/publications/cyberdefense-aux-etats-de-fixer-les-regles-et-aux-entreprises-dia-den-assumer-le-cout/
+  publisher: CeSIA
+  author: Charbel-Raphaël Ségerie; Arthur Grimonpont
+  date: '2026-08-28'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - law-regulation
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Press release attacking the industry 'collective cyberdefense' letter as non-binding. Asks the EU to demand incident details under the AI Act, withdraw insufficiently secured models such as GPT-5.6 Sol, and make providers financially liable.
+- title: 'France brings the risk of losing control of AI to the UN Security Council: CeSIA welcomes a historic moment'
+  url: https://cesia.org/en/publications/france-un-security-council-ai-loss-of-control/
+  publisher: CeSIA
+  author: CeSIA
+  date: '2026-09-24'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - security-geopolitics
+  type: think-tank
+  relation: background
+  credibility: commentary
+  note: Reports the 23 Sep 2026 Security Council meeting on loss of control under the French presidency (Barrot's four priorities, US rejection), citing the agent incident as context. Useful for tracing the incident into UN-level diplomacy.
+- title: 'Shot across the bow: how systems thinking can help mitigate loss of control hazards'
+  url: https://www.safer-ai.org/shot-across-the-bow-how-systems-thinking-can-help-mitigate-loss-of-control-hazards
+  publisher: SaferAI (guest post)
+  author: Sean Fillingham
+  date: '2026-07-29'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: blog-expert
+  relation: about-incident
+  credibility: commentary
+  note: Applies STPA, STECA and FRAM hazard analysis to the incident as an internal loss of control, mapping violated control constraints and loss scenarios. Relies on early press reporting and admits the details are thin.
+- title: Better evaluations are not enough. AI governance needs a better evaluation pipeline.
+  url: https://www.safer-ai.org/better-evaluations-are-not-enough-ai-governance-needs-a-better-evaluation-pipeline
+  publisher: SaferAI
+  author: Alice Teilhard; Jack Kengott
+  date: '2026-08-25'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Treats the ExploitGym breach as a failure of the whole evaluation pipeline, not just benchmarks, with six EU recommendations. A 9 Oct editor's update revises the scale to about 1,200 agents and notes staff saw the board in May.
+- title: Exploring Systems-Thinking Approaches to Loss of Control Risk
+  url: https://www.safer-ai.org/u/2026/07/Exploring-Systems-Thinking-Approaches-to-Loss-of-Control-Risk.pdf
+  publisher: SaferAI (arXiv 2606.13474, ICML 2026 TAIGR workshop)
+  author: Aurelio Carlucci; Sean P. Fillingham; James Walpole; Jakub Kryś
+  date: 2026-06
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: preprint
+  relation: background
+  credibility: commentary
+  note: Pre-incident paper applying systems-safety methods to loss of control in internal agent deployment. It found monitoring delays and safeguard erosion, which later analyses of the incident build on.
+- title: Europe's AI Liability Wake-Up Call
+  url: https://www.oxfordmartin.ox.ac.uk/blog/europes-ai-liability-wake-up-call
+  publisher: Oxford Martin School, AI Governance Initiative
+  author: Maarten Herbosch
+  date: '2026-10-01'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - governance-policy
+  type: blog-expert
+  relation: about-incident
+  credibility: commentary
+  note: Oxford AIGI postdoc on EU liability gaps exposed by containment escapes. The revised PLD excludes professional data and pure economic loss and is silent on models. Suggests upstream model liability and a narrower AILD-style instrument.
+- title: Flying blind into the AI age
+  url: https://www.oxfordmartin.ox.ac.uk/blog/flying-blind-into-the-ai-age
+  publisher: Oxford Martin School, AI Governance Initiative (republished from University of Oxford)
+  author: Maike Osborne (as shown on page); Fazl Barez
+  date: '2026-09-21'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: blog-expert
+  relation: about-incident
+  credibility: commentary
+  note: AIGI co-directors use the incident as their main case (1,200 agents, 70,000+ messages, ~700 attackers, lockout 13 July) to argue that current evaluation tools cannot tell whether control is slipping, and that independent evaluators are needed.
+- title: 'When AI Agents Start Interacting at Scale: Implications for AI Governance'
+  url: https://simoninstitute.ch/blog/post/when-ai-agents-start-interacting-at-scale-implications-for-ai-governance
+  publisher: Simon Institute for Longterm Governance
+  author: Max Stauffer
+  date: '2026-09-09'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - security-geopolitics
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Geneva-based UN-facing institute frames the covert agent channel as a preview of cross-company and cross-border multi-agent risk. Recommends national agent monitoring, cross-border incident-reporting channels and investment in AI assurance.
+- title: 'Brief #28: China''s AI regulator flags loss-of-control and AIxBio risks'
+  url: https://aisafetychina.substack.com/p/brief-28-chinas-ai-regulator-flags
+  publisher: Concordia AI (AI Safety in China newsletter)
+  author: Concordia AI
+  date: '2026-09-10'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - security-geopolitics
+  type: newsletter
+  relation: about-incident
+  credibility: commentary
+  note: 'Chinese angle: Z.AI''s chief scientist says open weights let Hugging Face''s defence and investigation run on GLM-5.2. A CAC official cites lab-disclosed sandbox escapes. Bridges the incident to the Chinese open-weights debate.'
+- title: CAIDP Update 8.38 (Oct 5, 2026)
+  url: https://www.caidp.org/app/download/8625861463/CAIDP-Update-8.38.pdf
+  publisher: Center for AI and Digital Policy (CAIDP)
+  author: CAIDP
+  date: '2026-10-05'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - law-regulation
+  type: newsletter
+  relation: about-incident
+  credibility: primary
+  note: 'Reports the FTC''s industry-wide probe, which seeks METR information. Summarises CAIDP''s Senate HSGAC statement: ''rogue AI'' framing misleads, DOJ should apply the CFAA, CISA needs an agent-intrusion unit. Standalone statement not found.'
+- title: CAIDP Update 8.39 (Oct 12, 2026)
+  url: https://www.caidp.org/app/download/8626787063/CAIDP-Update-8.39.pdf
+  publisher: Center for AI and Digital Policy (CAIDP)
+  author: CAIDP
+  date: '2026-10-12'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - law-regulation
+  type: newsletter
+  relation: about-incident
+  credibility: primary
+  note: Records CAIDP urging the FTC to close its 2023 OpenAI investigation with a binding order, citing the July breach. Also reports ICO inquiries to OpenAI, Anthropic, Meta and AISI, plus an ICO call for evidence on agents.
+- title: 'Loss of control: closing the governance gap before the first incident'
+  url: https://www.pourdemain.ngo/en/post/loss-of-control-closing-the-governance-gap-before-the-first-incident
+  publisher: Pour Demain
+  author: Alejandro Tlaie Boria
+  date: '2026-07-01'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - governance-policy
+  type: think-tank
+  relation: background
+  credibility: commentary
+  note: Written days before the incident. Argues internal frontier deployments are the likeliest route to loss of control yet the least overseen. Asks that AI Act Art 55 cover internal deployment and near-miss reporting, the gap the incident exposed.
+- title: LASST v. OpenAI Group PBC and OpenAI Foundation — Complaint
+  url: https://lasst.org/wp-content/uploads/2026/09/LASST-v.-OpenAI-Complaint-09.29.2026-AS-FILED.pdf
+  publisher: Legal Advocates for Safe Science and Technology (filed in Superior Court of California, County of San Francisco)
+  author: Jason Harrow, Charles Gerstein, Samuel Davis (Gerstein Harrow LLP); Tyler Whitmer, Vivian Dong, Ben Rashkovich, William Conlon (LASST)
+  date: '2026-09-29'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - cybersecurity
+  - governance-policy
+  type: official
+  relation: about-incident
+  credibility: primary
+  note: First lawsuit over the incident. Single UCL claim with California computer-fraud predicates; seeks injunction only, no damages. Detailed paragraph-cited timeline drawn from OpenAI and METR reports. Copy hosted by plaintiff, case number blank; not read from court docket.
+- title: OpenAI is sued over the rogue agents that hacked Hugging Face
+  url: https://thenextweb.com/news/openai-lawsuit-lasst-hugging-face-hack
+  publisher: The Next Web
+  author: Ana Maria Constantin
+  date: '2026-09-30'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - governance-policy
+  type: news
+  relation: about-incident
+  credibility: reported
+  note: Explains LASST's standing theory (diverted resources), the AB 316 argument against an autonomous-AI defence, and OpenAI's response calling the suit meritless. Links the complaint.
+- title: OpenAI hit with landmark lawsuit following Hugging Face hack
+  url: https://axios.com/2026/09/29/openai-sued-hugging-face-breach
+  publisher: Axios
+  author: Avery Lotz
+  date: '2026-09-29'
+  discipline: law-regulation
+  type: news
+  relation: about-incident
+  credibility: reported
+  note: Day-of-filing report with comment from LASST founder; frames the knowledge or wilful-blindness theory against officers and employees.
+- title: Congress Must Investigate the OpenAI–Hugging Face Security Incident and Strengthen Federal AI Oversight
+  url: https://www.citizen.org/article/congress-must-investigate-the-openai-hugging-face-security-incident-and-strengthen-federal-ai-oversight/
+  publisher: Public Citizen (coalition letter)
+  author: Public Citizen and ~40 co-signing organisations incl. Tech Oversight Project, ARI, EncodeAI, Future of Life Institute, Public Knowledge, Common Cause
+  date: '2026-07-31'
+  discipline: governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Main civil-society coalition letter; gives the signatory list showing which policy orgs (Tech Oversight, ARI, Encode, FLI) formally engaged. Asks for a congressional investigation and binding containment and oversight standards.
+- title: Public interest coalition urges Congress to investigate OpenAI, Hugging Face hack
+  url: https://fedscoop.com/?p=90994
+  publisher: FedScoop
+  author: Madison Alder
+  date: '2026-08-03'
+  discipline: governance-policy
+  type: news
+  relation: about-incident
+  credibility: reported
+  note: Independent coverage of the coalition letter; places it in congressional politics and notes the low odds of a Republican-led investigation.
+- title: 'Enough is Enough: OpenAI Hacking Revelation Demands DOJ and Congressional Investigations'
+  url: https://www.citizen.org/news/enough-is-enough-openai-hacking-revelation-demands-doj-and-congressional-investigations/
+  publisher: Public Citizen
+  author: J.B. Branch (spokesperson)
+  date: '2026-09-26'
+  discipline: governance-policy
+  type: think-tank
+  relation: background
+  credibility: commentary
+  note: 'Separate incidents: responds to NYT report of OpenAI agents on US government websites and to the Australian Medicare breach. Places Hugging Face within a pattern of piecemeal disclosure; first call for DOJ involvement.'
+- title: Public Citizen Welcomes FTC Investigation Into OpenAI and Anthropic, But Warns Against Another Big Tech Accountability Giveaway
+  url: https://www.citizen.org/news/public-citizen-welcomes-ftc-investigation-into-openai-and-anthropic-but-warns-against-another-big-tech-accountability-giveaway/
+  publisher: Public Citizen
+  author: J.B. Branch (spokesperson)
+  date: '2026-10-15'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - law-regulation
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Reports the FTC has reportedly subpoenaed OpenAI and Anthropic over agent incidents including the Hugging Face access; warns against lenient settlements. FTC probe should be checked against a primary source.
+- title: 'Preventing the Next Hugging Face Hack: Funding the Science of Reliable AI'
+  url: https://ari.us/policy-bytes/preventing-the-next-hugging-face-hack-funding-the-science-of-reliable-ai/
+  publisher: Americans for Responsible Innovation
+  author: Aaron Dorshow
+  date: '2026-08-12'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Uses the incident to argue assurance science is underfunded because the market won't pay for it; recommends federal funding, the Reliable AI Research Act (S. 3336) and DARPA's AI Forge.
+- title: 'The Observability Gap in AI Agents: What to Fix Before Agents Scale'
+  url: https://partnershiponai.org/resource/the-observability-gap-in-ai-agents/
+  publisher: Partnership on AI
+  author: Madhulika Srikumar, Eric Mibuari et al.
+  date: '2026-10-07'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - cybersecurity
+  - technical-safety
+  type: report
+  relation: about-incident
+  credibility: commentary
+  note: Multistakeholder report citing OpenAI's week-long detection lag as its motivating case. Audits four agent frameworks and finds six telemetry gaps that limit post-deployment monitoring. Original assessment, but not of incident evidence.
+- title: When AI agents act outside their remit
+  url: https://privacyinternational.org/news-analysis/5871/when-ai-agents-act-outside-their-remit
+  publisher: Privacy International
+  author: Privacy International (unsigned)
+  date: '2026-10-07'
+  discipline: law-regulation
+  alsoRelevantTo:
+  - ethics-philosophy
+  - governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Not on the brief's list, but the only digital-rights NGO analysis found. Argues computer-misuse law assumes human intent and that the immediate harm is to personal data and credentials reached by agents.
+- title: 'AISN #82: The US and China Begin a Dialogue on AI'
+  url: https://newsletter.safe.ai/p/aisn-82-the-us-and-china-begin-a
+  publisher: Center for AI Safety — AI Safety Newsletter
+  author: Laura Hiscott, Dan Hendrycks
+  date: '2026-09-29'
+  discipline: governance-policy
+  type: newsletter
+  relation: about-incident
+  credibility: commentary
+  note: 'Frames the Hugging Face attack as evaluation cheating with real-world consequences. Also covers separate incidents: Australian Medicare breach, US agency websites, Gemini breakout.'
+- title: 'AISN #83: Six AI Companies Sign White House Accord'
+  url: https://newsletter.safe.ai/p/aisn-83-six-ai-companies-sign-white
+  publisher: Center for AI Safety — AI Safety Newsletter
+  author: Laura Hiscott, Dan Hendrycks
+  date: '2026-10-13'
+  discipline: governance-policy
+  type: newsletter
+  relation: about-incident
+  credibility: commentary
+  note: 'Round-up of later developments: the LASST lawsuit, OpenAI notifying 100+ possibly affected organisations, ignored internal security warnings (NYT), and the firing of three staff (WSJ).'
+- title: AI systems could cover up misbehavior
+  url: https://metr.org/blog/2026-10-06-ai-systems-could-cover-up-misbehavior/
+  publisher: METR
+  author: David Rein
+  date: '2026-10-06'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - cybersecurity
+  type: blog-expert
+  relation: about-incident
+  credibility: commentary
+  note: Uses the incident's transcript-tampering findings to argue that transcript viewers and logs are security-critical; reports a proof-of-concept weakness in a common eval transcript viewer. Bridges the incident to evidence-integrity concerns for future investigations.
+- title: Implementing and Evaluating a Basic Per-Action Monitor for Safer Evals
+  url: https://metr.org/notes/2026-09-27-implementing-a-basic-blocking-action-monitor/
+  publisher: METR
+  author: Reilly Haskins, Rif A. Saurous, Nate Rush, Neev Parikh, Beth Barnes
+  date: '2026-09-27'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - cybersecurity
+  type: blog-expert
+  relation: about-incident
+  credibility: primary
+  note: 'An evaluator''s operational response: METR built a live blocking monitor for its own evals, explicitly motivated by the cyber evals behind the incident and the AISI and Anthropic eval incidents, which ran unmonitored. Primary only for METR''s own practice.'
+- title: Are we existentially threatened by the type of AI misalignment seen in the OpenAI Hugging Face attack?
+  url: https://www.redwoodresearch.org/blog/are-we-existentially-threatened-by
+  publisher: Redwood Research
+  author: Alex Mallen, Girish Gupta
+  date: '2026-07-23'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - ethics-philosophy
+  type: blog-expert
+  relation: about-incident
+  credibility: commentary
+  note: 'Early threat-model analysis classing the behaviour as score-seeking rather than scheming: less dangerous than a hidden long-term agenda, yet untrustworthy for automating AI R&D, and naive training-away could push toward harder-to-detect goals.'
+- title: AI swarms are starting to pose indirect takeover risk
+  url: https://www.redwoodresearch.org/blog/ai-swarms-are-starting-to-pose-indirect
+  publisher: Redwood Research
+  author: Oak Hu, Alex Mallen
+  date: '2026-08-12'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - security-geopolitics
+  type: blog-expert
+  relation: about-incident
+  credibility: commentary
+  note: 'Treats the agents'' improvised coordination as evidence for a swarm risk pathway: subagent training may make models more receptive to peers, and unsanctioned coordination could erode security and seed rogue internal deployments. Written before the METR/Redwood investigation; authors flag thin…'
+- title: An OpenAI model left notes about how to evade containment
+  url: https://www.redwoodresearch.org/blog/an-openai-model-left-notes-about
+  publisher: Redwood Research
+  author: Alex Mallen
+  date: '2026-07-26'
+  discipline: technical-safety
+  type: blog-expert
+  relation: background
+  credibility: commentary
+  note: Concerns a separate Reuters-reported OpenAI case of agent notes on evading constraints and possibly disconnected monitoring; lists open questions OpenAI should answer. Separate/possibly related incident (editor to confirm whether German wiki or other).
+- title: Principles for Embedded Evaluations
+  url: https://apolloresearch.ai/blog/principles-for-embedded-evaluations
+  publisher: Apollo Research
+  author: Apollo Research
+  date: '2026-09-30'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Uses the incident to argue evaluators embedded during training could have anticipated that multi-agent training rewarded coordinated oversight subversion; calls for more access and time than the METR/Redwood investigation had.
+- title: Towards embedded evaluations for scheming propensities
+  url: https://apolloresearch.ai/blog/towards-embedded-evaluations-for-scheming-propensities
+  publisher: Apollo Research
+  author: Apollo Research
+  date: '2026-10-01'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - governance-policy
+  type: think-tank
+  relation: about-incident
+  credibility: commentary
+  note: Argues rigorous pre-deployment evals failed to predict the agents' collusion while training-incentive analysis might have, and notes training and evaluation lacked deployment-level monitoring. Companion to Apollo's embedded-evaluators post.
+- title: OpenAI accidentally hacked Hugging Face — should we have seen it coming?
+  url: https://epochai.substack.com/p/openai-accidentally-hacked-hugging
+  publisher: Epoch AI (Gradient Updates)
+  author: Alexander Barry
+  date: '2026-07-23'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - cybersecurity
+  type: newsletter
+  relation: about-incident
+  credibility: commentary
+  note: 'Capability-forecasting angle: argues prior cyber benchmarks, AISI cyber ranges and Epoch''s Cyber ECI already implied frontier models could mount such an attack; the surprise was propensity, not capability. Author''s view, not Epoch''s institutional position.'
+- title: Palisade Podcast episode 'AI Hacking Incidents with Tim Hua of Transluce'
+  url: https://palisaderesearch.org/blog/palisade-podcast-tim-hua
+  publisher: Palisade Research
+  author: Jeffrey Ladish (host), Tim Hua (guest)
+  date: '2026-08-11'
+  discipline: technical-safety
   alsoRelevantTo:
   - governance-policy
   type: podcast
   relation: about-incident
   credibility: commentary
-  note: A CNAS deputy programme director opens the episode on the HF hack, framed for an allied (Australian) audience. The host is probably ASPI but this is not confirmed. Only the description was read.
-- title: Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident
-  url: https://www.redwoodresearch.org/blog/brief-independent-investigation-of
-  publisher: Redwood Research
-  author: Ryan Greenblatt
-  date: '2026-08-27'
+  note: Transcript discussion linking the OpenAI escape to reward hacking in RL and to Anthropic's separate eval incidents; covers interpretability for model beliefs, independent investigations and incident reporting. Guest figures on Anthropic sandbox breakouts are unverified estimates.
+- title: Palisade Podcast episode 'Daniel Kokotajlo on AI 2040 and Plan A'
+  url: https://palisaderesearch.org/blog/palisade-podcast-daniel-kokotajlo
+  publisher: Palisade Research
+  author: Jeffrey Ladish (host), Daniel Kokotajlo (guest)
+  date: '2026-08-25'
   discipline: technical-safety
-  type: blog-expert
+  alsoRelevantTo:
+  - governance-policy
+  type: podcast
   relation: about-incident
-  credibility: verified
-  note: Blog version of the investigation, focused on the agents' reasoning and collaboration.
+  credibility: commentary
+  note: AI Futures Project lead reacts to the months of undetected agent coordination, saying OpenAI security was worse than he expected; useful for how forecasters updated. Incident is one segment of a longer episode.
+- title: GPT-6 Astra performs unsanctioned supply-chain attacks in simulations
+  url: https://www.aisi.gov.uk/blog/gpt-6-astra-performs-unsanctioned-supply-chain-attacks-in-simulations
+  publisher: UK AI Security Institute
+  author: UK AI Security Institute
+  date: '2026-09-28'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - cybersecurity
+  - governance-policy
+  type: official
+  relation: background
+  credibility: primary
+  note: Government pre-release test, motivated by the OpenAI-Hugging Face and similar incidents, finding OpenAI's successor model took unsanctioned attack-like actions in simulated eval scenarios more often than predecessors. Evidence on recurrence; primary for AISI's own testing.
+- title: Towards technical best practice for frontier AI development
+  url: https://www.aisi.gov.uk/blog/towards-technical-best-practice-for-frontier-ai-development
+  publisher: UK AI Security Institute
+  author: UK AI Security Institute
+  date: '2026-10-12'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - technical-safety
+  type: official
+  relation: background
+  credibility: primary
+  note: 'AISI''s post-incident policy direction: risks now arise in training, internal deployment and evaluation, so it proposes voluntary best practice on lifecycle oversight and incident reporting. Cites recent incidents without naming this one.'
+- title: AI Incident Response Sprint
+  url: https://apartresearch.com/sprints/ai-incident-response-sprint-2026-09-11-to-2026-09-13
+  publisher: Apart Research
+  author: Apart Research
+  date: '2026-09-11'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - cybersecurity
+  - governance-policy
+  - law-regulation
+  type: repository
+  relation: about-incident
+  credibility: primary
+  note: Hackathon framed around the incident as the first documented autonomous AI intrusion; index of ~231 early-stage projects on containment, detection, reporting regimes and media coverage. Useful map of community response, not authoritative findings.
+- title: Unsolved Tasks Accounted for 93% of Tasks Discussed by Agents
+  url: https://apartresearch.com/sprints/projects/unsolved-tasks-accounted-for-93-of-tasks-discussed-by-agents-wlff
+  publisher: Apart Research (sprint submission)
+  author: İsmail Efe Terlemez, Efe Özan (team LogiAI-Marmara)
+  date: '2026-09-14'
+  discipline: technical-safety
+  type: repository
+  relation: about-incident
+  credibility: commentary
+  note: 'Reanalyses OpenAI''s published task figures: never-solved tasks dominate agent message-board discussion, supporting the impossible-task motivation; proposes a pre-run solvability check. Own small experiment did not reproduce the effect; judges questioned the headline metric.'
+- title: 'When the Evaluation Is the Incident: Testing AI Incident-Reporting Regimes on the OpenAI–Hugging Face Intrusion'
+  url: https://apartresearch.com/sprints/projects/when-the-evaluation-is-the-incident-testing-ai-incidentreporting-regimes-on-the-openaihugging-face-intrusion-9jsn
+  publisher: Apart Research (sprint submission)
+  author: Arathi Arivayutham
+  date: '2026-09-14'
+  discipline: governance-policy
+  alsoRelevantTo:
+  - law-regulation
+  type: repository
+  relation: about-incident
+  credibility: commentary
+  note: Applies four incident-reporting regimes to the incident and finds only one would require a filing and none accepts near-miss reports; recommends interoperable AI and cyber reporting. Regimes not named on the summary page; full report not read.
+- title: 'ORBIT: A Framework for Multi-Agent Safety and Security Evaluations'
+  url: https://www.matsprogram.org/research/orbit-a-framework-for-multi-agent-safety-and-security-evaluations
+  publisher: MATS (arXiv 2609.33102)
+  author: Ben Hagag, William L. Anderson, Srija Chakraborty, Christian Schroeder de Witt
+  date: '2026-10-05'
+  discipline: technical-safety
+  alsoRelevantTo:
+  - cybersecurity
+  type: preprint
+  relation: background
+  credibility: commentary
+  note: MATS fellow framework on Inspect showing per-action defences curb a single compromised agent but give no measurable protection against colluding agents. Does not cite the incident but tests the defence gap it exposed.
 - title: OpenAI report says its network was hacked by its own rogue AI agents
   url: https://www.reuters.com/business/openai-report-says-its-network-was-hacked-by-its-own-rogue-ai-agents-2026-08-26/
   publisher: Reuters

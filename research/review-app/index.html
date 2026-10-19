@@ -1,0 +1,311 @@
+<title>Cassandra Source Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=Literata:opsz,wght@7..72,400..600&display=swap">
+<style>
+/* Layout: a working queue. Sticky progress + filters on top, one row per source below.
+   Deliberately single-theme: matches the Cassandra Index's night-indigo look. */
+:root {
+  color-scheme: dark;
+  --bg: #0f1a2b; --raised: #15233a; --sunk: #0b1422;
+  --line: #2a3a55; --line-soft: #1f2d45;
+  --text: #ece5d3; --muted: #a7adb9; --faint: #7d8597;
+  --signal: #e3a23b; --signal-soft: rgba(227,162,59,.14);
+  --ok: #8fbf8a; --no: #e2705c; --flag: #c690d6;
+  --font-ui: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-read: 'Literata', Georgia, serif;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-ui); font-size: 15px; line-height: 1.5; margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line-soft); }
+header.top .wrap { padding-block: 14px 12px; display: grid; gap: 12px; }
+h1 { font-size: 1.35rem; font-stretch: 88%; font-weight: 600; margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); font-size: .88rem; margin: 2px 0 0; }
+.progress { display: grid; gap: 6px; }
+.bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--line-soft); }
+.bar span { display: block; height: 100%; }
+.counts { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.counts b { color: var(--text); font-weight: 600; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; width: 100%; }
+.chip { font: inherit; font-size: .8rem; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; cursor: pointer; }
+.chip[aria-pressed="true"] { color: var(--text); border-color: var(--signal); background: var(--signal-soft); }
+label.f { display: grid; gap: 3px; font-size: .75rem; color: var(--faint); }
+select, input[type=search], textarea { font: inherit; font-size: .88rem; color: var(--text); background: var(--sunk); border: 1px solid var(--line); border-radius: 4px; padding: 6px 8px; }
+input[type=search] { min-width: 0; width: 220px; }
+select:focus, input:focus, textarea:focus { outline: none; border-color: var(--signal); }
+button:focus-visible, .chip:focus-visible, a:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.bulk { margin-left: auto; font: inherit; font-size: .82rem; color: var(--text); background: none; border: 1px solid var(--line); border-radius: 4px; padding: 6px 10px; cursor: pointer; }
+.bulk:hover { border-color: var(--ok); }
+.bulk[disabled] { opacity: .5; cursor: default; }
+main { padding-block: 16px 64px; }
+.notice { border-left: 2px solid var(--signal); padding: 8px 12px; color: var(--muted); font-size: .88rem; margin: 0 0 12px; }
+ol.list { list-style: none; margin: 0; padding: 0; }
+li.src { border-bottom: 1px solid var(--line-soft); padding: 14px 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 20px; }
+li.src[data-decision="approve"] { box-shadow: inset 3px 0 0 var(--ok); padding-left: 12px; }
+li.src[data-decision="reject"] { box-shadow: inset 3px 0 0 var(--no); padding-left: 12px; opacity: .72; }
+li.src[data-decision="flag"] { box-shadow: inset 3px 0 0 var(--flag); padding-left: 12px; }
+.body { min-width: 0; }
+.t { font-weight: 600; font-size: 1rem; line-height: 1.35; color: var(--text); text-decoration-color: rgba(227,162,59,.6); text-underline-offset: .18em; }
+.meta { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: .78rem; color: var(--faint); margin-top: 4px; }
+.tag { border: 1px solid var(--line); border-radius: 999px; padding: 0 7px; }
+.tag.primary { color: var(--text); } .tag.verified { color: var(--ok); } .tag.reported { color: var(--muted); } .tag.commentary { border-style: dashed; }
+.tag.ess { color: var(--signal); border-color: var(--signal); }
+.note { font-family: var(--font-read); font-size: .93rem; color: var(--muted); margin: 6px 0 0; max-width: 72ch; }
+.rev { font-size: .8rem; margin: 6px 0 0; color: var(--muted); }
+.rev .rec { font-weight: 600; }
+.rec.include { color: var(--ok); } .rec.include-caveat { color: var(--signal); } .rec.exclude { color: var(--no); }
+.flags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.flags span { font-size: .72rem; color: var(--signal); background: var(--signal-soft); border-radius: 3px; padding: 1px 6px; }
+.actions { display: flex; flex-direction: column; gap: 6px; align-items: stretch; min-width: 120px; }
+.act { font: inherit; font-size: .82rem; background: none; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 5px 10px; cursor: pointer; text-align: left; }
+.act[data-a="approve"][aria-pressed="true"] { color: #0f1a2b; background: var(--ok); border-color: var(--ok); }
+.act[data-a="reject"][aria-pressed="true"] { color: #0f1a2b; background: var(--no); border-color: var(--no); }
+.act[data-a="flag"][aria-pressed="true"] { color: #0f1a2b; background: var(--flag); border-color: var(--flag); }
+.act:hover { color: var(--text); }
+.comment { grid-column: 1 / -1; }
+.comment textarea { width: 100%; min-height: 34px; resize: vertical; }
+.empty { color: var(--faint); padding: 32px 0; }
+.cover { border: 1px solid var(--line-soft); border-radius: 6px; padding: 10px 14px; margin: 0 0 16px; background: var(--raised); }
+.cover summary { cursor: pointer; font-weight: 600; font-size: .92rem; }
+.cover h3 { font-size: .9rem; margin: 16px 0 6px; color: var(--muted); font-weight: 600; }
+.cover ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 3px 16px; font-size: .82rem; }
+.cover li { color: var(--faint); }
+.cover li.yes { color: var(--text); }
+.cover li.yes::before { content: "● "; color: var(--ok); }
+.cover li.no::before { content: "○ "; }
+.r2 { color: var(--flag); }
+@media (max-width: 640px) {
+  li.src { grid-template-columns: 1fr; }
+  .actions { flex-direction: row; min-width: 0; }
+  .act { flex: 1; text-align: center; }
+  input[type=search] { width: 100%; }
+  .bulk { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <h1>Source review: OpenAI–Hugging Face</h1>
+      <p class="sub">Approve, reject or flag each source for entry CAS-2026-0001. Two research rounds, deduplicated. Decisions save automatically.</p>
+    </div>
+    <div class="progress" aria-label="Review progress">
+      <div class="bar" id="bar"></div>
+      <div class="counts" id="counts"></div>
+    </div>
+    <div class="filters">
+      <div class="chips" id="cat" role="group" aria-label="Category"></div>
+      <label class="f">Discipline
+        <select id="fdisc"><option value="">All disciplines</option></select>
+      </label>
+      <label class="f">Your decision
+        <select id="fdec">
+          <option value="undecided">Not yet decided</option>
+          <option value="">All</option>
+          <option value="approve">Approved</option>
+          <option value="reject">Rejected</option>
+          <option value="flag">Flagged</option>
+        </select>
+      </label>
+      <label class="f">Reviewer recommends
+        <select id="frec">
+          <option value="">Any</option>
+          <option value="include">Include</option>
+          <option value="include-caveat">Include with caveat</option>
+          <option value="exclude">Exclude</option>
+        </select>
+      </label>
+      <label class="f">Relation
+        <select id="frel">
+          <option value="">Incident and background</option>
+          <option value="about-incident">About the incident</option>
+          <option value="background">Background</option>
+        </select>
+      </label>
+      <label class="f">Search
+        <input type="search" id="fq" placeholder="Title, publisher, author">
+      </label>
+      <button class="bulk" id="bulk" type="button">Approve recommended in view</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="notice" id="notice" hidden></p>
+  <details class="cover" id="cover">
+    <summary>What we checked: <span id="cover-sum">writers, think tanks and organisations</span></summary>
+    <div id="cover-body"></div>
+  </details>
+  <ol class="list" id="list"></ol>
+  <p class="empty" id="empty" hidden>Nothing matches these filters. Change a filter to see more sources.</p>
+</main>
+
+<script>
+(function () {
+  const DISC = {
+    'technical-safety': 'Technical AI safety', 'cybersecurity': 'Cybersecurity', 'governance-policy': 'Governance and policy',
+    'law-regulation': 'Law and regulation', 'ethics-philosophy': 'Ethics and philosophy', 'security-geopolitics': 'Security and geopolitics', 'general': 'General coverage'
+  };
+  const CAT = { official: 'Official and legal documents', disclosures: 'Company disclosures', reports: 'Technical reports and papers', 'think-tanks': 'Think-tank analysis', commentary: 'Expert newsletters and commentary', news: 'News articles', media: 'Podcasts and video', data: 'Datasets and trackers' };
+  const CRED = { primary: 'Primary source', verified: 'Verified', reported: 'Reported', commentary: 'Commentary' };
+  const REC = { include: 'Include', 'include-caveat': 'Include with caveat', exclude: 'Exclude' };
+  const state = { sources: [], decisions: {}, cat: '', db: null, canWrite: true };
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const notice = (msg) => { $('notice').textContent = msg; $('notice').hidden = !msg; };
+
+  function counts() {
+    const n = state.sources.length; const c = { approve: 0, reject: 0, flag: 0 };
+    for (const s of state.sources) { const d = state.decisions[s.id]?.decision; if (d) c[d]++; }
+    const und = n - c.approve - c.reject - c.flag;
+    const pct = (x) => n ? (x / n * 100) + '%' : '0';
+    $('bar').innerHTML = `<span style="width:${pct(c.approve)};background:var(--ok)"></span><span style="width:${pct(c.flag)};background:var(--flag)"></span><span style="width:${pct(c.reject)};background:var(--no)"></span>`;
+    $('counts').innerHTML = `<span><b>${n - und}</b> of ${n} decided</span><span><i class="dot" style="background:var(--ok)"></i>${c.approve} approved</span><span><i class="dot" style="background:var(--flag)"></i>${c.flag} flagged</span><span><i class="dot" style="background:var(--no)"></i>${c.reject} rejected</span>`;
+  }
+
+  function chips() {
+    const present = Object.keys(CAT).filter((k) => state.sources.some((s) => s.category === k));
+    $('cat').innerHTML = [['', 'All categories'], ...present.map((k) => [k, CAT[k]])].map(([k, l]) => {
+      const n = k ? state.sources.filter((s) => s.category === k).length : state.sources.length;
+      return `<button type="button" class="chip" data-k="${k}" aria-pressed="${state.cat === k}">${esc(l)} ${n}</button>`;
+    }).join('');
+  }
+  function disciplines() {
+    const present = Object.keys(DISC).filter((k) => state.sources.some((s) => s.discipline === k));
+    $('fdisc').innerHTML = '<option value="">All disciplines</option>' + present.map((k) => `<option value="${k}">${esc(DISC[k])}</option>`).join('');
+  }
+
+  function visible() {
+    const fdisc = $('fdisc').value, fdec = $('fdec').value, frec = $('frec').value, frel = $('frel').value, q = $('fq').value.trim().toLowerCase();
+    return state.sources.filter((s) => {
+      const d = state.decisions[s.id]?.decision || '';
+      if (state.cat && s.category !== state.cat) return false;
+      if (fdisc && s.discipline !== fdisc) return false;
+      if (fdec === 'undecided' ? d : fdec && d !== fdec) return false;
+      if (frec && s.recommendation !== frec) return false;
+      if (frel && s.relation !== frel) return false;
+      if (q && !(`${s.title} ${s.publisher} ${s.author || ''}`.toLowerCase().includes(q))) return false;
+      return true;
+    });
+  }
+
+  function row(s) {
+    const dec = state.decisions[s.id] || {};
+    const flags = (s.flags || []).map((f) => `<span>${esc(f)}</span>`).join('');
+    const btn = (a, label) => `<button type="button" class="act" data-a="${a}" aria-pressed="${dec.decision === a}" ${state.canWrite ? '' : 'disabled'}>${label}</button>`;
+    return `<li class="src" data-id="${s.id}" data-decision="${dec.decision || ''}">
+      <div class="body">
+        <a class="t" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>
+        <div class="meta">
+          <span>${esc(s.publisher)}${s.author ? ', ' + esc(s.author) : ''}</span>
+          ${s.date ? `<span>${esc(s.date)}</span>` : ''}
+          <span>${esc(CAT[s.category] || '')}</span>
+          <span>${esc(DISC[s.discipline] || s.discipline)}</span>
+          <span>${esc(s.typeLabel || s.type)}</span>
+          <span class="tag ${esc(s.credibility)}">${esc(CRED[s.credibility] || s.credibility)}</span>
+          ${s.relation === 'background' ? '<span>Background</span>' : ''}
+          ${s.essential ? '<span class="tag ess">Start here</span>' : ''}
+          ${s.score != null ? `<span>Score ${s.score}/9</span>` : ''}
+          ${s.round === 2 ? '<span class="r2">Round 2</span>' : ''}
+        </div>
+        ${s.note ? `<p class="note">${esc(s.note)}</p>` : ''}
+        <p class="rev">Reviewer: <span class="rec ${esc(s.recommendation)}">${esc(REC[s.recommendation] || 'No recommendation')}</span>${s.reason ? ' · ' + esc(s.reason) : ''}</p>
+        ${flags ? `<div class="flags">${flags}</div>` : ''}
+      </div>
+      <div class="actions" role="group" aria-label="Decision">${btn('approve', 'Approve')}${btn('flag', 'Flag')}${btn('reject', 'Reject')}</div>
+      <div class="comment"><textarea id="c-${s.id}" rows="1" placeholder="Comment (optional)" aria-label="Comment on this source" ${state.canWrite ? '' : 'disabled'}>${esc(dec.comment || '')}</textarea></div>
+    </li>`;
+  }
+
+  function render() {
+    const v = visible();
+    $('list').innerHTML = v.map(row).join('');
+    $('empty').hidden = v.length > 0 || !state.sources.length;
+    $('bulk').disabled = !state.canWrite || !v.some((s) => s.recommendation === 'include' && !state.decisions[s.id]?.decision);
+    counts();
+  }
+
+  async function save(id, patch) {
+    const prev = state.decisions[id] || {};
+    const next = { ...prev, ...patch, updatedAt: new Date().toISOString() };
+    state.decisions[id] = next;
+    if (!state.db) { notice('Decisions cannot be saved in this view. Open the page from claude.ai while signed in.'); return; }
+    try { await state.db.doc('decisions/' + id).set(next); }
+    catch (e) {
+      if (e && e.code === 'invalid_argument') { state.canWrite = false; notice('You can view this review but not change it.'); render(); }
+      else if (e && e.code === 'unavailable') { await new Promise((r) => setTimeout(r, 600 + Math.random() * 600)); try { await state.db.doc('decisions/' + id).set(next); } catch { notice('A decision did not save. Check your connection and click it again.'); } }
+      else notice('A decision did not save. Click it again to retry.');
+    }
+  }
+
+  $('cat').addEventListener('click', (e) => { const b = e.target.closest('.chip'); if (!b) return; state.cat = b.dataset.k; chips(); render(); });
+  ['fdisc', 'fdec', 'frec', 'frel'].forEach((id) => $(id).addEventListener('change', render));
+  let qt; $('fq').addEventListener('input', () => { clearTimeout(qt); qt = setTimeout(render, 150); });
+
+  $('list').addEventListener('click', async (e) => {
+    const b = e.target.closest('.act'); if (!b) return;
+    const li = b.closest('li.src'); const id = li.dataset.id;
+    const cur = state.decisions[id]?.decision;
+    const decision = cur === b.dataset.a ? '' : b.dataset.a;
+    li.dataset.decision = decision;
+    li.querySelectorAll('.act').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.a === decision)));
+    counts();
+    await save(id, { decision });
+  });
+  const pending = {};
+  $('list').addEventListener('input', (e) => {
+    if (e.target.tagName !== 'TEXTAREA') return;
+    const id = e.target.id.slice(2); clearTimeout(pending[id]);
+    pending[id] = setTimeout(() => save(id, { comment: e.target.value }), 700);
+  });
+
+  $('bulk').addEventListener('click', async () => {
+    const targets = visible().filter((s) => s.recommendation === 'include' && !state.decisions[s.id]?.decision);
+    $('bulk').disabled = true;
+    let i = 0;
+    for (const s of targets) {
+      i++; $('bulk').textContent = `Approving ${i} of ${targets.length}…`;
+      await save(s.id, { decision: 'approve', bulk: true });
+    }
+    $('bulk').textContent = 'Approve recommended in view';
+    render();
+  });
+
+  async function init() {
+    try {
+      const r = await fetch('sources.json');
+      state.sources = await r.json();
+    } catch { notice('The source list could not load. Reload the page.'); return; }
+    chips(); disciplines(); render();
+    try {
+      const cov = await (await fetch('coverage.json')).json();
+      let tot = 0, yes = 0;
+      $('cover-body').innerHTML = Object.entries(cov).map(([group, items]) => {
+        tot += items.length; const y = items.filter((i) => i.found).length; yes += y;
+        return `<h3>${esc(group)}: ${y} of ${items.length} published on the incident</h3><ul>${items.map((i) => `<li class="${i.found ? 'yes' : 'no'}" title="${esc(i.note || '')}">${esc(i.name)}${i.outlet ? ' (' + esc(i.outlet) + ')' : ''}</li>`).join('')}</ul>`;
+      }).join('') + '<p class="sub" style="margin-top:12px">Filled dot: published something on the incident. Hollow: checked, nothing found. Some checks were cut short by search limits; those are listed in the backlog for a follow-up.</p>';
+      $('cover-sum').textContent = `${tot} names, ${yes} with something on the incident`;
+    } catch { $('cover').hidden = true; }
+    const claude = window.claude;
+    const db = claude && claude.use ? await claude.use('db') : null;
+    if (!db) { notice('Decisions cannot be saved in this view. Open the page from claude.ai while signed in.'); return; }
+    state.db = db;
+    try {
+      const user = await claude.use('user');
+      if (user && user.can) { const w = await user.can('data.write'); if (w === false) { state.canWrite = false; notice('You can view this review but not change it.'); } }
+    } catch {}
+    db.collection('decisions').onSnapshot((snap) => {
+      for (const d of snap.docs) state.decisions[d.id] = d.data();
+      const focused = document.activeElement && document.activeElement.tagName === 'TEXTAREA';
+      if (!focused) render(); else counts();
+    }, () => notice('Live updates stopped. Reload the page to see the latest decisions.'));
+  }
+  init();
+})();
+</script>
