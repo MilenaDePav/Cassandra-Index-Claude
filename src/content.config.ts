@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { ALL_SUBCATEGORY_CODES, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY } from './data/taxonomy';
+import { ALL_SUBCATEGORY_CODES, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY, BACKGROUND_THEMES } from './data/taxonomy';
 
 const keysOf = <T extends object>(o: T) => Object.keys(o) as [keyof T & string, ...(keyof T & string)[]];
 
@@ -18,6 +18,8 @@ const resource = z.object({
   type: z.enum(keysOf(RESOURCE_TYPES)),
   // about-incident: discusses this incident; background: what a researcher needs to analyse it.
   relation: z.enum(['about-incident', 'background']).default('about-incident'),
+  theme: z.enum(keysOf(BACKGROUND_THEMES)).optional(), // for background sources: which debate it belongs to
+  suppliedBy: z.literal('editor').optional(),
   credibility: z.enum(keysOf(CREDIBILITY)),
   essential: z.boolean().default(false), // the few sources to read first
   note: z.string().max(300).optional(),

@@ -191,3 +191,18 @@ export function categoryOf(type: ResourceType): Category {
   if (!hit) throw new Error(`Resource type ${type} has no category`);
   return hit;
 }
+
+// Background themes: the debates an incident sits in. Background sources need not name the incident.
+export const BACKGROUND_THEMES = {
+  'ai-oversight-of-ai': 'Can AI police AI?',
+  'agent-evaluation': 'Evaluating agents',
+  'containment-and-control': 'Containment and control',
+  'multi-agent-risk': 'Multi-agent risk',
+  'reward-hacking': 'Reward hacking and evaluation gaming',
+  'internal-deployment': 'Internal deployment',
+  'incident-reporting': 'Incident reporting',
+  'liability-for-agents': 'Liability for agents',
+  'ai-cyber-offence': 'AI and cyber offence',
+  'ml-supply-chain': 'ML supply-chain security',
+} as const;
+export type BackgroundTheme = keyof typeof BACKGROUND_THEMES;
