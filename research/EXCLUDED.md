@@ -8,3 +8,8 @@ Checked by every researcher before searching. Add entries with a date and reason
 | ecosistemastartup.com | Machine-rewritten coverage | 2026-10-19 |
 | threatcluster.io | Automated clustering of other coverage, adds no reporting | 2026-10-19 |
 | Unattributed "AI news" aggregator blogs | Rewrite other coverage; bylines automated or absent | 2026-10-19 |
+| themodelwire.com | Appears machine-rewritten (flagged in round 2, not opened) | 2026-10-19 |
+| aiweekly.co alerts | Appears machine-rewritten (flagged in round 2, not opened) | 2026-10-19 |
+| letsdatascience.com | Appears machine-rewritten; dates inconsistent | 2026-10-19 |
+| modernaction.io | Appears machine-rewritten (flagged in round 2, not opened) | 2026-10-19 |
+| news.ainauten.com | Appears machine-rewritten (flagged in round 2, not opened) | 2026-10-19 |
