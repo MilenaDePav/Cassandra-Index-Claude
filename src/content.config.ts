@@ -1,7 +1,9 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { ALL_SUBCATEGORY_CODES, LENSES, SOURCE_KINDS } from './data/taxonomy';
+import { ALL_SUBCATEGORY_CODES, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY } from './data/taxonomy';
+
+const keysOf = <T extends object>(o: T) => Object.keys(o) as [keyof T & string, ...(keyof T & string)[]];
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/, 'Use YYYY-MM-DD (or YYYY-MM if the day is unknown)');
 
@@ -11,12 +13,15 @@ const resource = z.object({
   publisher: z.string(),
   author: z.string().optional(),
   date: isoDate.optional(),
-  lens: z.enum(Object.keys(LENSES) as [keyof typeof LENSES, ...(keyof typeof LENSES)[]]),
-  kind: z.enum(Object.keys(SOURCE_KINDS) as [keyof typeof SOURCE_KINDS, ...(keyof typeof SOURCE_KINDS)[]]),
-  // primary: the party involved said it; verified: checked against primary sources;
-  // reported: credible outlet, not independently confirmed; commentary: interpretation, not proof of fact.
-  credibility: z.enum(['primary', 'verified', 'reported', 'commentary']),
-  note: z.string().max(240).optional(),
+  discipline: z.enum(keysOf(DISCIPLINES)),
+  alsoRelevantTo: z.array(z.enum(keysOf(DISCIPLINES))).default([]),
+  type: z.enum(keysOf(RESOURCE_TYPES)),
+  // about-incident: discusses this incident; background: what a researcher needs to analyse it.
+  relation: z.enum(['about-incident', 'background']).default('about-incident'),
+  credibility: z.enum(keysOf(CREDIBILITY)),
+  essential: z.boolean().default(false), // the few sources to read first
+  note: z.string().max(300).optional(),
+  paywalled: z.boolean().optional(),
   peerReviewed: z.boolean().optional(),
   archived: z.string().url().optional(),
 });

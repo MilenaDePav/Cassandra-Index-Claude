@@ -63,6 +63,6 @@ export function toRecord(i: Incident, site: URL | undefined) {
     countries: d.countries.map(countryName),
     summary: d.summary,
     resource_count: d.resources.length,
-    resources: d.resources.map((r) => ({ title: r.title, url: r.url, publisher: r.publisher, date: r.date ?? null, lens: r.lens, credibility: r.credibility })),
+    resources: d.resources.map((r) => ({ title: r.title, url: r.url, publisher: r.publisher, date: r.date ?? null, discipline: r.discipline, type: r.type, relation: r.relation, credibility: r.credibility, essential: r.essential })),
   };
 }

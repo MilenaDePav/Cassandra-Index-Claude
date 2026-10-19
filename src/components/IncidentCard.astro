@@ -1,14 +1,14 @@
 ---
 import type { Incident } from '../lib/incidents';
 import { formatDate, isReviewed } from '../lib/incidents';
-import { riskTypeOf, LENSES } from '../data/taxonomy';
+import { riskTypeOf, DISCIPLINES } from '../data/taxonomy';
 import { countryName } from '../data/countries';
 import TierLadder from './TierLadder.astro';
 interface Props { incident: Incident }
 const { incident } = Astro.props;
 const d = incident.data;
 const rt = riskTypeOf(d.risk.primary);
-const lensCounts = Object.keys(LENSES).map((k) => ({ k, label: LENSES[k as keyof typeof LENSES].label, n: d.resources.filter((r) => r.lens === k).length })).filter((x) => x.n > 0);
+const disciplineCount = new Set(d.resources.map((r) => r.discipline).filter((x) => x !== 'general')).size;
 ---
 <article class="card" data-risk={rt.code}>
   <div class="meta ui">
@@ -19,7 +19,7 @@ const lensCounts = Object.keys(LENSES).map((k) => ({ k, label: LENSES[k as keyof
   <h3><a href={`/incidents/${incident.id}/`}>{d.title}</a></h3>
   <TierLadder tier={d.tier} />
   <p class="resources ui">
-    {d.resources.length} resources: {lensCounts.map((l) => `${l.n} ${l.label.toLowerCase()}`).join(', ')}
+    {d.resources.length} sources across {disciplineCount} discipline{disciplineCount === 1 ? '' : 's'}
   </p>
 </article>
 <style>

@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TierLadder from '../../components/TierLadder.astro';
 import RiskTag from '../../components/RiskTag.astro';
 import { getIncidents, formatDate, isReviewed, type Incident } from '../../lib/incidents';
-import { riskTypeOf, LENSES, SOURCE_KINDS, SEVERITIES, TIERS } from '../../data/taxonomy';
+import { riskTypeOf, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY, SEVERITIES, TIERS, type Discipline } from '../../data/taxonomy';
 import { countryName } from '../../data/countries';
 
 export async function getStaticPaths() {
@@ -14,9 +14,14 @@ export async function getStaticPaths() {
 const { incident } = Astro.props as { incident: Incident };
 const d = incident.data;
 const rt = riskTypeOf(d.risk.primary);
-const lenses = (Object.keys(LENSES) as (keyof typeof LENSES)[])
-  .map((k) => ({ key: k, ...LENSES[k], items: d.resources.filter((r) => r.lens === k) }));
-const credibilityLabel = { primary: 'Primary source', verified: 'Verified', reported: 'Reported', commentary: 'Commentary' } as const;
+const credRank = { primary: 0, verified: 1, reported: 2, commentary: 3 } as const;
+const sortRes = (a: (typeof d.resources)[number], b: (typeof d.resources)[number]) =>
+  Number(b.essential) - Number(a.essential) || credRank[a.credibility] - credRank[b.credibility] || (b.date ?? '').localeCompare(a.date ?? '');
+const disciplines = (Object.keys(DISCIPLINES) as Discipline[])
+  .map((k) => ({ key: k, ...DISCIPLINES[k], items: d.resources.filter((r) => r.discipline === k).sort(sortRes) }))
+  .filter((g) => g.items.length > 0);
+const essentials = d.resources.filter((r) => r.essential).sort(sortRes);
+const typesPresent = (Object.keys(RESOURCE_TYPES) as (keyof typeof RESOURCE_TYPES)[]).filter((t) => d.resources.some((r) => r.type === t));
 const verdictLabel = { triggered: 'Triggered', 'not-triggered': 'Not triggered', unclear: 'Unclear', gap: 'Gap in the law' } as const;
 const permalink = new URL(`/incidents/${incident.id}/`, Astro.site).href;
 const citation = `The Cassandra Index (${d.dateUpdated.slice(0, 4)}). "${d.title}" [${d.id}]. Updated ${formatDate(d.dateUpdated)}. ${permalink}`;
@@ -52,7 +57,7 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
           {d.timeline.length > 0 && <li><a href="#timeline">Timeline</a></li>}
           <li><a href="#library">Resource library <span class="faint">{d.resources.length}</span></a>
             <ul>
-              {lenses.filter((l) => l.items.length).map((l) => <li><a href={`#lens-${l.key}`}>{l.label} <span class="faint">{l.items.length}</span></a></li>)}
+              {disciplines.map((g) => <li><a href={`#d-${g.key}`}>{g.label} <span class="faint">{g.items.length}</span></a></li>)}
             </ul>
           </li>
           {d.governance.length > 0 && <li><a href="#law">Law and governance</a></li>}
@@ -82,31 +87,66 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
 
         <section id="library" aria-labelledby="lib-h">
           <h2 id="lib-h">Resource library</h2>
-          <p class="muted">Every credible source on this incident, sorted by discipline. Each is labelled by how far it can be relied on as evidence of fact.</p>
-          {lenses.map((l) => (
-            <section class="lens" id={`lens-${l.key}`} aria-labelledby={`lh-${l.key}`}>
-              <h3 id={`lh-${l.key}`}>{l.label} <span class="faint ui">{l.items.length}</span></h3>
-              {l.items.length === 0 ? (
-                <p class="none ui">No {l.label.toLowerCase()} sources yet. Know one? <a href="/about/#suggest">Suggest a source</a>.</p>
-              ) : (
-                <ul class="resources">
-                  {l.items.map((r) => (
-                    <li>
-                      <a href={r.url} rel="noopener" class="r-title">{r.title}</a>
-                      <p class="r-meta ui">
-                        <span>{r.publisher}{r.author && `, ${r.author}`}</span>
-                        {r.date && <span>{formatDate(r.date, true)}</span>}
-                        <span>{SOURCE_KINDS[r.kind]}</span>
-                        <span class:list={['cred', r.credibility]}>{credibilityLabel[r.credibility]}</span>
-                        {r.archived && <a href={r.archived}>Archived copy</a>}
-                      </p>
-                      {r.note && <p class="r-note">{r.note}</p>}
-                    </li>
-                  ))}
-                </ul>
-              )}
+          <p class="muted">{d.resources.length} sources across {disciplines.filter((g) => g.key !== 'general').length} disciplines, each opened and checked. Every source is labelled by how far it can be relied on as evidence of fact.</p>
+
+          {essentials.length > 0 && (
+            <div class="start">
+              <h3>Start here</h3>
+              <ol>
+                {essentials.map((r) => <li><a href={r.url} rel="noopener">{r.title}</a> <span class="faint ui">{r.publisher}</span></li>)}
+              </ol>
+            </div>
+          )}
+
+          <form class="lib-filters ui" id="lib-filters" aria-label="Filter sources" onsubmit="return false">
+            <fieldset>
+              <legend class="visually-hidden">Discipline</legend>
+              <label class="chip"><input type="radio" name="disc" value="" checked /> All</label>
+              {disciplines.map((g) => <label class="chip"><input type="radio" name="disc" value={g.key} /> {g.label}</label>)}
+            </fieldset>
+            <div class="row">
+              <label>Type
+                <select name="type" id="lib-type">
+                  <option value="">All types</option>
+                  {typesPresent.map((t) => <option value={t}>{RESOURCE_TYPES[t]}</option>)}
+                </select>
+              </label>
+              <label>Show
+                <select name="rel" id="lib-rel">
+                  <option value="">Incident and background</option>
+                  <option value="about-incident">About this incident</option>
+                  <option value="background">Background only</option>
+                </select>
+              </label>
+              <p class="lib-count" id="lib-count" aria-live="polite">{d.resources.length} shown</p>
+            </div>
+          </form>
+
+          {disciplines.map((g) => (
+            <section class="disc" id={`d-${g.key}`} data-disc={g.key} aria-labelledby={`dh-${g.key}`}>
+              <h3 id={`dh-${g.key}`}>{g.label} <span class="faint ui">{g.items.length}</span></h3>
+              <p class="disc-desc ui">{g.description}</p>
+              <ul class="resources">
+                {g.items.map((r) => (
+                  <li data-type={r.type} data-rel={r.relation} data-also={r.alsoRelevantTo.join(' ')}>
+                    <a href={r.url} rel="noopener" class="r-title">{r.title}</a>
+                    <p class="r-meta ui">
+                      <span>{r.publisher}{r.author && `, ${r.author}`}</span>
+                      {r.date && <span>{formatDate(r.date, true)}</span>}
+                      <span>{RESOURCE_TYPES[r.type]}</span>
+                      <span class:list={['cred', r.credibility]} title={CREDIBILITY[r.credibility].description}>{CREDIBILITY[r.credibility].label}</span>
+                      {r.relation === 'background' && <span class="bg">Background</span>}
+                      {r.paywalled && <span>Paywalled</span>}
+                      {r.archived && <a href={r.archived}>Archived copy</a>}
+                    </p>
+                    {r.note && <p class="r-note">{r.note}</p>}
+                  </li>
+                ))}
+              </ul>
             </section>
           ))}
+          <p class="none ui" id="lib-empty" hidden>No sources match these filters.</p>
+          <p class="none ui">Know a source that should be here? <a href="/about/#suggest">Suggest it</a>.</p>
         </section>
 
         {d.governance.length > 0 && (
@@ -162,6 +202,28 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
 </Base>
 
 <script>
+  const lf = document.getElementById('lib-filters') as HTMLFormElement | null;
+  if (lf) {
+    const sections = [...document.querySelectorAll<HTMLElement>('.disc')];
+    const libCount = document.getElementById('lib-count')!;
+    const libEmpty = document.getElementById('lib-empty')!;
+    const applyLib = () => {
+      const f = new FormData(lf);
+      const disc = String(f.get('disc') ?? ''), type = String(f.get('type') ?? ''), rel = String(f.get('rel') ?? '');
+      let total = 0;
+      for (const sec of sections) {
+        let n = 0;
+        for (const li of sec.querySelectorAll<HTMLLIElement>('li')) {
+          const ok = (!disc || sec.dataset.disc === disc || li.dataset.also!.split(' ').includes(disc)) && (!type || li.dataset.type === type) && (!rel || li.dataset.rel === rel);
+          li.hidden = !ok; if (ok) n++;
+        }
+        sec.hidden = n === 0; total += n;
+      }
+      libCount.textContent = `${total} shown`;
+      libEmpty.hidden = total > 0;
+    };
+    lf.addEventListener('change', applyLib);
+  }
   document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) => {
     btn.addEventListener('click', async () => {
       const text = document.getElementById(btn.dataset.copy!)?.textContent ?? '';
@@ -206,8 +268,24 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
   .timeline time { font-size: var(--fs-sm); color: var(--text-muted); padding-top: 2px; }
   .timeline p { margin: 0; }
 
-  .lens { margin-top: 28px; }
-  .lens h3 { padding-bottom: 8px; border-bottom: 1px solid var(--line-soft); }
+  .start { background: var(--bg-sunk); border: 1px solid var(--line-soft); border-left: 2px solid var(--signal); border-radius: var(--radius-s); padding: 14px 18px; margin: 18px 0 8px; }
+  .start h3 { margin-bottom: 6px; }
+  .start ol { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+  .start a { font-family: var(--font-ui); font-weight: 600; }
+  .lib-filters { margin: 22px 0 6px; display: grid; gap: 12px; font-size: var(--fs-xs); color: var(--text-muted); }
+  .lib-filters fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; cursor: pointer; color: var(--text-muted); }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip:has(input:checked) { color: var(--text); border-color: var(--signal); background: var(--signal-soft); }
+  .chip:has(input:focus-visible) { outline: 2px solid var(--signal); outline-offset: 2px; }
+  .lib-filters .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+  .lib-filters label:not(.chip) { display: grid; gap: 4px; }
+  .lib-filters select { font: inherit; font-size: var(--fs-sm); color: var(--text); background: var(--bg-sunk); border: 1px solid var(--line); border-radius: var(--radius-s); padding: 6px 8px; }
+  .lib-count { margin: 0 0 6px auto; color: var(--text-faint); }
+  .disc { margin-top: 30px; scroll-margin-top: 24px; }
+  .disc h3 { padding-bottom: 4px; }
+  .disc-desc { font-size: var(--fs-xs); color: var(--text-faint); margin: 0; padding-bottom: 8px; border-bottom: 1px solid var(--line-soft); max-width: none; }
+  .bg { color: var(--text-faint); font-style: italic; }
   .resources { list-style: none; margin: 0; padding: 0; }
   .resources li { padding: 14px 0; border-bottom: 1px solid var(--line-soft); }
   .r-title { font-family: var(--font-ui); font-weight: 600; font-size: 1.02rem; line-height: 1.35; }

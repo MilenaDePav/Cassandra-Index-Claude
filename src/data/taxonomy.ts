@@ -132,20 +132,42 @@ export const SEVERITIES = {
   catastrophic: 'Catastrophic',
 } as const;
 
-// The five lenses of the resource library.
-export const LENSES = {
-  technical: { label: 'Technical', description: 'Lab disclosures, system cards, papers, evaluations and forensic write-ups.' },
-  policy: { label: 'Policy', description: 'Safety institutes, government bodies, think tanks and policy analysis.' },
-  legal: { label: 'Legal and regulatory', description: 'Laws, reporting duties, enforcement and legal analysis.' },
-  commentary: { label: 'Expert commentary', description: 'Newsletters, Substacks, posts and explainers by credible researchers and practitioners.' },
-  news: { label: 'News coverage', description: 'Reporting by established outlets.' },
+// Resource library: every source has a discipline (whose literature it belongs to)
+// and a type (what kind of document it is). Researchers filter on both.
+export const DISCIPLINES = {
+  'technical-safety': { label: 'Technical AI safety', description: 'Alignment, control, evaluations, interpretability and the security of AI systems.' },
+  'cybersecurity': { label: 'Cybersecurity', description: 'Incident response, threat intelligence, vulnerabilities, forensics and supply-chain security.' },
+  'governance-policy': { label: 'Governance and policy', description: 'Safety institutes, governments, international bodies, lab safety frameworks and think tanks.' },
+  'law-regulation': { label: 'Law and regulation', description: 'Statutes, reporting duties, liability, enforcement and legal scholarship.' },
+  'ethics-philosophy': { label: 'Ethics and philosophy', description: 'Responsibility, precaution, research ethics and the moral questions the incident raises.' },
+  'security-geopolitics': { label: 'Security and geopolitics', description: 'National security, military and offensive capability, state competition and export controls.' },
+  'general': { label: 'General coverage', description: 'Reporting and explainers written for a general audience.' },
 } as const;
+export type Discipline = keyof typeof DISCIPLINES;
 
-export const SOURCE_KINDS = {
+export const RESOURCE_TYPES = {
   'primary-disclosure': 'Primary disclosure',
-  'research': 'Research',
   'official': 'Official',
-  'journalism': 'Journalism',
-  'expert-commentary': 'Expert commentary',
+  'legislation': 'Legislation',
+  'advisory': 'Security advisory',
+  'paper': 'Peer-reviewed paper',
+  'preprint': 'Preprint',
+  'report': 'Report',
+  'think-tank': 'Think tank',
+  'newsletter': 'Newsletter',
+  'blog-expert': 'Expert blog',
+  'forum-expert': 'Expert forum post',
+  'news': 'News',
   'explainer': 'Explainer',
+  'podcast': 'Podcast',
+  'repository': 'Repository',
+  'dataset': 'Dataset',
+} as const;
+export type ResourceType = keyof typeof RESOURCE_TYPES;
+
+export const CREDIBILITY = {
+  primary: { label: 'Primary source', description: 'Published by a party directly involved.' },
+  verified: { label: 'Verified', description: 'Independent analysis or an official body that checked the primary evidence.' },
+  reported: { label: 'Reported', description: 'Established journalism, not independently confirmed here.' },
+  commentary: { label: 'Commentary', description: 'Interpretation by credible experts; not proof of fact.' },
 } as const;
