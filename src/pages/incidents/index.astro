@@ -1,0 +1,113 @@
+---
+import Base from '../../layouts/Base.astro';
+import TierLadder from '../../components/TierLadder.astro';
+import { getIncidents, formatDate, isReviewed } from '../../lib/incidents';
+import { RISK_TYPES, riskTypeOf, subcategory, TIERS } from '../../data/taxonomy';
+import { countryName } from '../../data/countries';
+
+const incidents = await getIncidents();
+const countries = [...new Set(incidents.flatMap((i) => i.data.countries))].sort((a, b) => countryName(a).localeCompare(countryName(b)));
+---
+<Base title="All incidents" description="Search and filter every incident in the Cassandra Index by risk type, evidence tier and country.">
+  <div class="wrap page">
+    <h1>All incidents</h1>
+    <p class="muted">Filter by risk type, strength of evidence or country. Every entry links to its full resource library.</p>
+
+    <form class="filters ui" id="filters" role="search" aria-label="Filter incidents">
+      <label>Search
+        <input type="search" name="q" placeholder="Title, actor or model" autocomplete="off" />
+      </label>
+      <label>Risk type
+        <select name="risk">
+          <option value="">All risk types</option>
+          {RISK_TYPES.map((r) => <option value={r.code}>{r.name}</option>)}
+        </select>
+      </label>
+      <label>Evidence
+        <select name="tier">
+          <option value="">Any evidence</option>
+          {Object.entries(TIERS).map(([k, t]) => <option value={k}>{k} · {t.label}</option>)}
+        </select>
+      </label>
+      <label>Country
+        <select name="country">
+          <option value="">All countries</option>
+          {countries.map((c) => <option value={c}>{countryName(c)}</option>)}
+        </select>
+      </label>
+    </form>
+
+    <p class="ui count" id="count" aria-live="polite">{incidents.length} incident{incidents.length === 1 ? '' : 's'}</p>
+
+    <div class="table-scroll">
+      <table id="table">
+        <thead>
+          <tr><th scope="col">Incident</th><th scope="col">Risk</th><th scope="col">Evidence</th><th scope="col">Happened</th><th scope="col">Where</th><th scope="col">Sources</th></tr>
+        </thead>
+        <tbody>
+          {incidents.map((i) => {
+            const d = i.data;
+            const rt = riskTypeOf(d.risk.primary);
+            const haystack = [d.title, d.id, ...d.actors.map((a) => a.name), ...d.models].join(' ').toLowerCase();
+            return (
+              <tr data-risk={rt.code} data-risks={[d.risk.primary, ...d.risk.secondary].map((c) => riskTypeOf(c).code).join(' ')} data-tier={d.tier} data-countries={d.countries.join(' ')} data-text={haystack}>
+                <td class="t"><a href={`/incidents/${i.id}/`}>{d.title}</a>{!isReviewed(i) && <span class="pending"> In review</span>}<br /><span class="faint">{d.id}</span></td>
+                <td><span class="rk"><span class="dot" aria-hidden="true"></span>{rt.name}</span><br /><span class="faint">{subcategory(d.risk.primary).name}</span></td>
+                <td><TierLadder tier={d.tier} /></td>
+                <td>{formatDate(d.dateEvent, true)}</td>
+                <td>{d.countries.map(countryName).join(', ')}</td>
+                <td>{d.resources.length}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+    <p class="ui empty" id="empty" hidden>No incidents match these filters. Clear a filter to see more.</p>
+  </div>
+</Base>
+
+<script>
+  const form = document.getElementById('filters') as HTMLFormElement;
+  const rows = [...document.querySelectorAll<HTMLTableRowElement>('#table tbody tr')];
+  const count = document.getElementById('count')!;
+  const empty = document.getElementById('empty')!;
+  const params = new URLSearchParams(location.search);
+  for (const [k, v] of params) { const el = form.elements.namedItem(k) as HTMLInputElement | null; if (el) el.value = v; }
+  function apply() {
+    const f = new FormData(form);
+    const q = String(f.get('q') ?? '').trim().toLowerCase();
+    const risk = String(f.get('risk') ?? ''), tier = String(f.get('tier') ?? ''), country = String(f.get('country') ?? '');
+    let n = 0;
+    for (const r of rows) {
+      const ok = (!q || r.dataset.text!.includes(q)) && (!risk || r.dataset.risks!.split(' ').includes(risk)) && (!tier || r.dataset.tier === tier) && (!country || r.dataset.countries!.split(' ').includes(country));
+      r.hidden = !ok; if (ok) n++;
+    }
+    count.textContent = `${n} incident${n === 1 ? '' : 's'}`;
+    empty.hidden = n > 0;
+    const out = new URLSearchParams();
+    for (const [k, v] of f) if (v) out.set(k, String(v));
+    history.replaceState(null, '', out.toString() ? `?${out}` : location.pathname);
+  }
+  form.addEventListener('input', apply);
+  form.addEventListener('submit', (e) => e.preventDefault());
+  apply();
+</script>
+
+<style>
+  .page { padding-top: 40px; }
+  h1 { font-size: var(--fs-xl); font-stretch: 88%; margin-bottom: 10px; }
+  .filters { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 12px; margin: 28px 0 12px; font-size: var(--fs-xs); color: var(--text-muted); }
+  .filters label { display: grid; gap: 5px; }
+  input, select { font: inherit; font-size: var(--fs-sm); color: var(--text); background: var(--bg-sunk); border: 1px solid var(--line); border-radius: var(--radius-s); padding: 8px 10px; }
+  input:focus, select:focus { border-color: var(--signal); outline: none; }
+  .count { font-size: var(--fs-xs); color: var(--text-faint); margin: 16px 0 4px; }
+  .table-scroll { overflow-x: auto; }
+  .t a { font-weight: 600; text-decoration: none; }
+  .t a:hover { text-decoration: underline; }
+  .pending { color: var(--signal); font-size: var(--fs-xs); }
+  .rk { display: inline-flex; align-items: center; gap: 7px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--risk); }
+  .empty { color: var(--text-faint); font-size: var(--fs-sm); margin-top: 20px; }
+  @media (max-width: 760px) { .filters { grid-template-columns: 1fr 1fr; } .filters label:first-child { grid-column: 1 / -1; } }
+</style>

@@ -1,0 +1,246 @@
+---
+import Base from '../../layouts/Base.astro';
+import TierLadder from '../../components/TierLadder.astro';
+import RiskTag from '../../components/RiskTag.astro';
+import { getIncidents, formatDate, isReviewed, type Incident } from '../../lib/incidents';
+import { riskTypeOf, LENSES, SOURCE_KINDS, SEVERITIES, TIERS } from '../../data/taxonomy';
+import { countryName } from '../../data/countries';
+
+export async function getStaticPaths() {
+  const incidents = await getIncidents();
+  return incidents.map((incident) => ({ params: { slug: incident.id }, props: { incident } }));
+}
+
+const { incident } = Astro.props as { incident: Incident };
+const d = incident.data;
+const rt = riskTypeOf(d.risk.primary);
+const lenses = (Object.keys(LENSES) as (keyof typeof LENSES)[])
+  .map((k) => ({ key: k, ...LENSES[k], items: d.resources.filter((r) => r.lens === k) }));
+const credibilityLabel = { primary: 'Primary source', verified: 'Verified', reported: 'Reported', commentary: 'Commentary' } as const;
+const verdictLabel = { triggered: 'Triggered', 'not-triggered': 'Not triggered', unclear: 'Unclear', gap: 'Gap in the law' } as const;
+const permalink = new URL(`/incidents/${incident.id}/`, Astro.site).href;
+const citation = `The Cassandra Index (${d.dateUpdated.slice(0, 4)}). "${d.title}" [${d.id}]. Updated ${formatDate(d.dateUpdated)}. ${permalink}`;
+const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d.dateEventEnd)}` : formatDate(d.dateEvent);
+---
+<Base title={d.title} description={d.summary.slice(0, 155)}>
+  <article class="incident" data-risk={rt.code}>
+    <header class="head">
+      <div class="wrap">
+        <p class="crumbs ui"><a href="/incidents/">Incidents</a> <span aria-hidden="true">/</span> <a href={`/risk/${rt.slug}/`}>{rt.name}</a> <span aria-hidden="true">/</span> <span>{d.id}</span></p>
+        {!isReviewed(incident) && <p class="pending ui">In review: this entry has not yet been checked by the editor and is not public.</p>}
+        <h1>{d.title}</h1>
+        <div class="tags">
+          <RiskTag code={d.risk.primary} primary />
+          {d.risk.secondary.map((c) => <RiskTag code={c} />)}
+        </div>
+        <dl class="facts ui">
+          <div><dt>Happened</dt><dd>{eventDate}</dd></div>
+          <div><dt>Made public</dt><dd>{formatDate(d.dateDisclosed)}</dd></div>
+          <div><dt>Where</dt><dd>{d.countries.map(countryName).join(', ')}</dd></div>
+          <div><dt>Who</dt><dd>{d.actors.map((a) => `${a.name} (${a.role})`).join(', ')}</dd></div>
+          {d.models.length > 0 && <div><dt>Models</dt><dd>{d.models.join(', ')}</dd></div>}
+          <div><dt>Evidence</dt><dd><TierLadder tier={d.tier} /></dd></div>
+          <div><dt>Severity if it scales</dt><dd>{SEVERITIES[d.severity]}</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <div class="wrap body">
+      <nav class="toc ui" aria-label="On this page">
+        <ul>
+          <li><a href="#plain">In plain language</a></li>
+          {d.timeline.length > 0 && <li><a href="#timeline">Timeline</a></li>}
+          <li><a href="#library">Resource library <span class="faint">{d.resources.length}</span></a>
+            <ul>
+              {lenses.filter((l) => l.items.length).map((l) => <li><a href={`#lens-${l.key}`}>{l.label} <span class="faint">{l.items.length}</span></a></li>)}
+            </ul>
+          </li>
+          {d.governance.length > 0 && <li><a href="#law">Law and governance</a></li>}
+          {d.unknowns.length > 0 && <li><a href="#unknowns">Still unknown</a></li>}
+          <li><a href="#record">Record and citation</a></li>
+        </ul>
+      </nav>
+
+      <div class="content">
+        <section id="plain" class="plain" aria-labelledby="plain-h">
+          <h2 id="plain-h">In plain language</h2>
+          <p class="summary">{d.summary}</p>
+          <div class="pair">
+            <div><h3>Why it matters</h3><p>{d.whyItMatters}</p></div>
+            <div><h3>What it is not</h3><p>{d.whatItIsNot}</p></div>
+          </div>
+        </section>
+
+        {d.timeline.length > 0 && (
+          <section id="timeline" aria-labelledby="tl-h">
+            <h2 id="tl-h">Timeline</h2>
+            <ol class="timeline">
+              {d.timeline.map((t) => <li><time class="ui" datetime={t.date}>{formatDate(t.date, true)}</time><p>{t.event}</p></li>)}
+            </ol>
+          </section>
+        )}
+
+        <section id="library" aria-labelledby="lib-h">
+          <h2 id="lib-h">Resource library</h2>
+          <p class="muted">Every credible source on this incident, sorted by discipline. Each is labelled by how far it can be relied on as evidence of fact.</p>
+          {lenses.map((l) => (
+            <section class="lens" id={`lens-${l.key}`} aria-labelledby={`lh-${l.key}`}>
+              <h3 id={`lh-${l.key}`}>{l.label} <span class="faint ui">{l.items.length}</span></h3>
+              {l.items.length === 0 ? (
+                <p class="none ui">No {l.label.toLowerCase()} sources yet. Know one? <a href="/about/#suggest">Suggest a source</a>.</p>
+              ) : (
+                <ul class="resources">
+                  {l.items.map((r) => (
+                    <li>
+                      <a href={r.url} rel="noopener" class="r-title">{r.title}</a>
+                      <p class="r-meta ui">
+                        <span>{r.publisher}{r.author && `, ${r.author}`}</span>
+                        {r.date && <span>{formatDate(r.date, true)}</span>}
+                        <span>{SOURCE_KINDS[r.kind]}</span>
+                        <span class:list={['cred', r.credibility]}>{credibilityLabel[r.credibility]}</span>
+                        {r.archived && <a href={r.archived}>Archived copy</a>}
+                      </p>
+                      {r.note && <p class="r-note">{r.note}</p>}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+        </section>
+
+        {d.governance.length > 0 && (
+          <section id="law" aria-labelledby="law-h">
+            <h2 id="law-h">Law and governance</h2>
+            <p class="muted">Which rules this incident engages, and whether they appear to have been triggered.</p>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>Instrument</th><th>Provision</th><th>Verdict</th><th>Note</th></tr></thead>
+                <tbody>
+                  {d.governance.map((g) => (
+                    <tr>
+                      <td>{g.url ? <a href={g.url}>{g.instrument}</a> : g.instrument}<br /><span class="faint">{g.jurisdiction}</span></td>
+                      <td>{g.provision ?? '—'}</td>
+                      <td><span class:list={['verdict', g.verdict]}>{verdictLabel[g.verdict]}</span></td>
+                      <td>{g.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {d.unknowns.length > 0 && (
+          <section id="unknowns" aria-labelledby="unk-h">
+            <h2 id="unk-h">Still unknown</h2>
+            <ul class="unknowns">{d.unknowns.map((u) => <li>{u}</li>)}</ul>
+          </section>
+        )}
+
+        <section id="record" aria-labelledby="rec-h" class="record">
+          <h2 id="rec-h">Record and citation</h2>
+          <dl class="facts ui small">
+            <div><dt>Entry</dt><dd>{d.id}</dd></div>
+            <div><dt>Evidence tier</dt><dd>{d.tier}: {TIERS[d.tier].description}</dd></div>
+            <div><dt>OECD label</dt><dd>AI {d.oecd}</dd></div>
+            <div><dt>Added</dt><dd>{formatDate(d.dateAdded)}</dd></div>
+            <div><dt>Updated</dt><dd>{formatDate(d.dateUpdated)}</dd></div>
+          </dl>
+          <h3>Update log</h3>
+          <ul class="log ui">{d.updateLog.map((u) => <li><time datetime={u.date}>{formatDate(u.date, true)}</time> {u.note}</li>)}</ul>
+          <h3>Cite this entry</h3>
+          <div class="cite">
+            <p id="citation">{citation}</p>
+            <button type="button" class="ui" data-copy="citation">Copy citation</button>
+          </div>
+          <p class="ui small-note">Spotted an error or a missing source? <a href="/about/#suggest">Tell the editor</a>. Corrections are logged publicly.</p>
+        </section>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = document.getElementById(btn.dataset.copy!)?.textContent ?? '';
+      try { await navigator.clipboard.writeText(text); btn.textContent = 'Citation copied'; }
+      catch { btn.textContent = 'Select the text to copy'; }
+      setTimeout(() => (btn.textContent = 'Copy citation'), 2400);
+    });
+  });
+</script>
+
+<style>
+  .head { border-bottom: 1px solid var(--line-soft); padding: 28px 0 32px; background: linear-gradient(180deg, color-mix(in srgb, var(--risk) 7%, var(--bg)) 0%, var(--bg) 100%); }
+  .crumbs { font-size: var(--fs-xs); color: var(--text-faint); margin-bottom: 18px; }
+  .crumbs a { color: var(--text-muted); }
+  .pending { color: var(--signal); font-size: var(--fs-sm); border-left: 2px solid var(--signal); padding-left: 10px; }
+  h1 { font-size: var(--fs-xl); font-stretch: 88%; max-width: 30ch; margin-bottom: 16px; letter-spacing: -0.015em; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px 28px; margin: 0; font-size: var(--fs-sm); }
+  .facts dt { color: var(--text-faint); font-size: var(--fs-xs); margin-bottom: 2px; }
+  .facts dd { margin: 0; }
+  .facts.small { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); margin-bottom: 24px; }
+
+  .body { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding-top: 40px; }
+  .toc { position: sticky; top: 24px; align-self: start; font-size: var(--fs-sm); }
+  .toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .toc ul ul { margin-top: 8px; padding-left: 12px; border-left: 1px solid var(--line-soft); gap: 6px; font-size: var(--fs-xs); }
+  .toc a { color: var(--text-muted); text-decoration: none; }
+  .toc a:hover { color: var(--text); }
+
+  .content > section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  .content h2 { font-size: var(--fs-lg); margin-bottom: 14px; }
+  .content h3 { font-size: 1.05rem; margin-bottom: 8px; }
+
+  .plain { background: var(--bg-raised); border: 1px solid var(--line-soft); border-top: 3px solid var(--risk); border-radius: var(--radius-m); padding: clamp(20px, 3vw, 32px); }
+  .summary { font-size: 1.18rem; line-height: 1.6; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 8px; padding-top: 20px; border-top: 1px solid var(--line-soft); }
+  .pair p { color: var(--text-muted); margin: 0; }
+
+  .timeline { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+  .timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 0 0 18px 18px; position: relative; }
+  .timeline li::before { content: ''; position: absolute; left: -5px; top: 9px; width: 9px; height: 9px; background: var(--bg); border: 1.5px solid var(--risk); transform: rotate(45deg); }
+  .timeline time { font-size: var(--fs-sm); color: var(--text-muted); padding-top: 2px; }
+  .timeline p { margin: 0; }
+
+  .lens { margin-top: 28px; }
+  .lens h3 { padding-bottom: 8px; border-bottom: 1px solid var(--line-soft); }
+  .resources { list-style: none; margin: 0; padding: 0; }
+  .resources li { padding: 14px 0; border-bottom: 1px solid var(--line-soft); }
+  .r-title { font-family: var(--font-ui); font-weight: 600; font-size: 1.02rem; line-height: 1.35; }
+  .r-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--fs-xs); color: var(--text-faint); margin: 6px 0 0; }
+  .r-note { font-size: 0.97rem; color: var(--text-muted); margin: 6px 0 0; }
+  .cred { padding: 0 7px; border-radius: 999px; border: 1px solid var(--line); }
+  .cred.primary { color: var(--text); border-color: var(--text-faint); }
+  .cred.verified { color: var(--risk-gv); border-color: color-mix(in srgb, var(--risk-gv) 50%, transparent); }
+  .cred.reported { color: var(--text-muted); }
+  .cred.commentary { color: var(--text-faint); border-style: dashed; }
+  .none { font-size: var(--fs-sm); color: var(--text-faint); margin: 10px 0 0; }
+
+  .table-scroll { overflow-x: auto; }
+  .verdict { white-space: nowrap; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); }
+  .verdict.triggered { color: var(--risk-lc); border-color: currentColor; }
+  .verdict.unclear { color: var(--signal); border-color: currentColor; }
+  .verdict.gap { color: var(--risk-mu); border-color: currentColor; }
+
+  .unknowns { padding-left: 1.1em; }
+  .unknowns li { margin-bottom: 8px; max-width: var(--measure); }
+
+  .log { list-style: none; padding: 0; margin: 0 0 24px; font-size: var(--fs-sm); color: var(--text-muted); }
+  .log time { color: var(--text-faint); margin-right: 8px; }
+  .cite { background: var(--bg-sunk); border: 1px solid var(--line-soft); border-radius: var(--radius-s); padding: 14px 16px; display: grid; gap: 10px; justify-items: start; }
+  .cite p { font-size: var(--fs-sm); margin: 0; word-break: break-word; }
+  .cite button { background: none; border: 1px solid var(--line); color: var(--text); border-radius: var(--radius-s); padding: 5px 12px; font-size: var(--fs-xs); cursor: pointer; }
+  .cite button:hover { border-color: var(--signal); }
+  .small-note { font-size: var(--fs-xs); color: var(--text-faint); margin-top: 16px; }
+
+  @media (max-width: 900px) {
+    .body { grid-template-columns: 1fr; gap: 24px; }
+    .toc { position: static; }
+    .pair { grid-template-columns: 1fr; }
+    .timeline li { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>

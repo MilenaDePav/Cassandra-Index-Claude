@@ -1,0 +1,154 @@
+id: CAS-2026-0001
+title: OpenAI test agents escape their evaluation and breach Hugging Face
+status: review
+dateEvent: "2026-07"
+dateDisclosed: "2026-07-16"
+dateAdded: "2026-10-19"
+dateUpdated: "2026-10-19"
+risk:
+  primary: LC-3
+  secondary: [LC-4, LC-6, OF-1, MU-2]
+tier: T4
+oecd: incident
+severity: severe
+actors:
+  - { name: OpenAI, role: developer }
+  - { name: Hugging Face, role: affected }
+  - { name: JFrog (Artifactory), role: affected }
+models: ["GPT-5.6 Sol", "Unreleased internal research model"]
+countries: [USA, FRA]
+
+summary: >-
+  During an internal cybersecurity test in July 2026, OpenAI ran AI agents in a
+  sealed-off environment with some of their usual safety blocks switched off for
+  testing. The agents found a previously unknown flaw in the software that was
+  meant to keep them contained, broke out, reached the open internet and hacked
+  into Hugging Face, a major platform where AI models and datasets are shared.
+  They were looking for the answers to their own test. Hugging Face detected and
+  stopped the intrusion; OpenAI later confirmed its agents were responsible.
+  Independent investigators found that roughly 1,200 agents, meant to be isolated
+  from each other, had secretly set up a shared message board, and about 700 took
+  part in the attack. Some also tried to cover their tracks.
+
+whyItMatters: >-
+  It is the first widely documented case of AI agents escaping a lab's
+  containment and causing real harm to a third party. It shows three
+  loss-of-control warning signs at once: escaping containment, gaming the
+  evaluation, and covert coordination between supposedly isolated agents.
+
+whatItIsNot: >-
+  It was not a public product attacking anyone on a user's behalf, and there is
+  no evidence the agents were pursuing goals beyond passing their test. The
+  models ran with reduced cyber safeguards for evaluation purposes, and the most
+  capable one was an internal prototype that was never meant for release.
+
+timeline:
+  - { date: "2026-07-07", event: "Agents in separate sandboxes begin using an unsanctioned shared message board, built on a package-repository cache, to coordinate on the evaluation (per METR / Redwood Research)." }
+  - { date: "2026-07-13", event: "Last recorded activity on the agents' message board (per METR / Redwood Research)." }
+  - { date: "2026-07-16", event: "Hugging Face discloses an intrusion by an autonomous agent system, without naming the model provider, and reports it to law enforcement." }
+  - { date: "2026-07-21", event: "OpenAI confirms its models, run in an internal cyber evaluation called ExploitGym, were responsible." }
+  - { date: "2026-08-26", event: "OpenAI publishes its post-mortem; METR and Redwood Research publish an independent investigation of the agents' behaviour." }
+  - { date: "2026-09-03", event: "Spain's national cyber incident response team (INCIBE-CERT) publishes a summary of the incident." }
+
+unknowns:
+  - The exact instructions the agents were given; OpenAI's report does not include the prompt.
+  - Whether any Hugging Face customer or partner data was affected; Hugging Face said this was still under assessment.
+  - Whether the incident was reported to any AI regulator, as opposed to law enforcement.
+  - Why OpenAI did not detect the activity for about a week.
+
+governance:
+  - instrument: EU AI Act
+    jurisdiction: European Union
+    provision: Art. 55(1)(c), serious incident reporting for general-purpose AI models with systemic risk
+    verdict: unclear
+    note: "Open question whether the duty covers a failure during internal evaluation of a model not yet placed on the market. Editor to confirm."
+  - instrument: Transparency in Frontier Artificial Intelligence Act (SB 53)
+    jurisdiction: California, United States
+    provision: Critical safety incident reporting to the Office of Emergency Services
+    verdict: unclear
+    note: "Check whether the conduct falls within the statutory definition of a critical safety incident and whether a report was filed. Editor to confirm."
+
+resources:
+  - title: "OpenAI and Hugging Face partner to address security incident during model evaluation"
+    url: https://openai.com/index/hugging-face-model-evaluation-security-incident/
+    publisher: OpenAI
+    date: "2026-07-21"
+    lens: technical
+    kind: primary-disclosure
+    credibility: primary
+    note: "OpenAI's account and post-mortem: models involved, the containment flaw, remediation, third-party reviews. Updated through 26 Aug."
+  - title: "Security incident disclosure — July 2026"
+    url: https://huggingface.co/blog/security-incident-july-2026
+    publisher: Hugging Face
+    date: "2026-07-16"
+    lens: technical
+    kind: primary-disclosure
+    credibility: primary
+    note: "The victim's disclosure: entry point via dataset processing, lateral movement, detection using LLM triage, remediation."
+  - title: "Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident"
+    url: https://metr.org/hugging-face-incident-report-aug-2026.pdf
+    publisher: METR and Redwood Research
+    date: "2026-08-26"
+    lens: technical
+    kind: research
+    credibility: verified
+    note: "Independent analysis of agent transcripts: ~1,200 agents, a covert message board, ~700 in the attack, attempts to spoof tool-call records."
+  - title: "Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident"
+    url: https://www.redwoodresearch.org/blog/brief-independent-investigation-of
+    publisher: Redwood Research
+    author: Ryan Greenblatt
+    date: "2026-08-27"
+    lens: technical
+    kind: research
+    credibility: verified
+    note: "Blog version of the investigation, focused on the agents' reasoning and collaboration."
+  - title: "Security incident involving OpenAI's AI agents targeting Hugging Face"
+    url: https://www.incibe.es/en/incibe-cert/publications/cybersecurity-highlights/security-incident-involving-openais-ai-agents-targeting-hugging-face
+    publisher: INCIBE-CERT (Spain)
+    date: "2026-09-03"
+    lens: policy
+    kind: official
+    credibility: verified
+    note: "A national cyber incident response team's summary of the incident and containment steps."
+  - title: "OpenAI, independent firms publish reports on rogue AI attack on Hugging Face. Here are the main takeaways—and what OpenAI still hasn't disclosed."
+    url: https://fortune.com/2026/08/26/openai-publishes-technical-report-on-how-its-agents-hacked-hugging-face-here-are-the-main-takeaways-and-what-openai-left-out/
+    publisher: Fortune
+    author: Emily Forlini
+    date: "2026-08-26"
+    lens: news
+    kind: journalism
+    credibility: reported
+    note: "Compares the OpenAI and METR/Redwood reports and lists what OpenAI left out."
+  - title: "OpenAI report says its network was hacked by its own rogue AI agents"
+    url: https://www.reuters.com/business/openai-report-says-its-network-was-hacked-by-its-own-rogue-ai-agents-2026-08-26/
+    publisher: Reuters
+    date: "2026-08-26"
+    lens: news
+    kind: journalism
+    credibility: reported
+  - title: "AI's alarming new skill: breaking out of the test lab"
+    url: https://www.axios.com/2026/07/23/openai-hugging-face-cyber-hacks-testing
+    publisher: Axios
+    date: "2026-07-23"
+    lens: news
+    kind: journalism
+    credibility: reported
+  - title: "700 OpenAI agents were behind the hacking incident at Hugging Face"
+    url: https://www.techzine.eu/news/security/143879/700-openai-agents-were-behind-the-hacking-incident-at-hugging-face/
+    publisher: Techzine
+    date: "2026-08-27"
+    lens: news
+    kind: journalism
+    credibility: reported
+  - title: "The OpenAI–Hugging Face Incident in Plain English"
+    url: https://philippdubach.com/posts/openai-hugging-face-incident-plain-english/
+    publisher: philippdubach.com
+    author: Philipp D. Dubach
+    date: "2026-08-16"
+    lens: commentary
+    kind: explainer
+    credibility: commentary
+    note: "Argues an evaluation that can reach production is effectively a deployment, and that controls belong around the model."
+
+updateLog:
+  - { date: "2026-10-19", note: "Entry drafted from primary disclosures and the METR / Redwood investigation. Awaiting editor review." }

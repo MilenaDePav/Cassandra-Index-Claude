@@ -1,0 +1,30 @@
+{
+  "name": "cassandra-index",
+  "version": "1.0.0",
+  "description": "The Cassandra Index: a checked reference hub of catastrophic AI incidents.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "build:preview": "PUBLIC_SHOW_UNREVIEWED=true astro build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MilenaDePav/cassandra-index-claude.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/MilenaDePav/cassandra-index-claude/issues"
+  },
+  "homepage": "https://github.com/MilenaDePav/cassandra-index-claude#readme",
+  "dependencies": {
+    "astro": "^7.4.1",
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "type": "module",
+  "private": true
+}

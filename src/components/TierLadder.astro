@@ -1,0 +1,18 @@
+---
+import { TIERS } from '../data/taxonomy';
+interface Props { tier: 'T1' | 'T2' | 'T3' | 'T4'; showLabel?: boolean }
+const { tier, showLabel = true } = Astro.props;
+const n = Number(tier.slice(1));
+---
+<span class="ladder ui" title={`Evidence ${tier}: ${TIERS[tier].label}. ${TIERS[tier].description}`}>
+  <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true">
+    {[1, 2, 3, 4].map((k) => (
+      <rect x={(k - 1) * 6} y={14 - (k * 3 + 2)} width="4" height={k * 3 + 2} rx="1"
+        fill={k <= n ? 'var(--signal)' : 'none'} stroke={k <= n ? 'var(--signal)' : 'var(--text-faint)'} stroke-width="1" />
+    ))}
+  </svg>
+  {showLabel ? <span>{tier} · {TIERS[tier].label}</span> : <span class="visually-hidden">Evidence {tier}, {TIERS[tier].label}</span>}
+</span>
+<style>
+  .ladder { display: inline-flex; align-items: center; gap: 7px; font-size: var(--fs-xs); color: var(--text-muted); white-space: nowrap; }
+</style>

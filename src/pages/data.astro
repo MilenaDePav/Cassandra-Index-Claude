@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Open data" description="Download the Cassandra Index as JSON or CSV under CC BY 4.0.">
+  <div class="wrap prose">
+    <h1>Open data</h1>
+    <p class="lead">The whole Index is free to download and reuse under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. It is rebuilt every time an entry is published or updated.</p>
+
+    <h2 id="files">Files</h2>
+    <table>
+      <thead><tr><th>File</th><th>What it holds</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/data/incidents.json">incidents.json</a></td><td>Every published incident with its codes, grades, summary and full resource list. Doubles as a simple read-only API.</td></tr>
+        <tr><td><a href="/data/incidents.csv">incidents.csv</a></td><td>One row per incident, for spreadsheets. Resources are counted, not listed.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="fields">Main fields</h2>
+    <ul>
+      <li><code>risk_primary</code> and <code>risk_secondary</code>: codes from the <a href="/methodology/#taxonomy">risk taxonomy</a>.</li>
+      <li><code>evidence_tier</code>: T1 to T4, from theoretical to confirmed harm.</li>
+      <li><code>severity_if_scaled</code>: the worst plausible outcome if the pattern repeats at scale.</li>
+      <li><code>oecd_label</code>: AI incident or AI hazard, as the OECD defines them.</li>
+      <li><code>resources</code>: each source's title, link, publisher, date, lens and credibility label.</li>
+    </ul>
+
+    <h2 id="cite">How to cite</h2>
+    <p>The Cassandra Index (2026). <em>The Cassandra Index: a record of catastrophic AI incidents</em>. https://cassandraindex.com. Each entry page also has its own citation.</p>
+  </div>
+</Base>

@@ -1,0 +1,129 @@
+/* The Cassandra Index — design tokens
+   Night indigo ground, parchment type, one signal amber.
+   Risk types each have a hue; evidence strength is shown as a ladder, never by colour alone. */
+
+:root {
+  --bg: #0f1a2b;
+  --bg-raised: #15233a;
+  --bg-sunk: #0b1422;
+  --line: #2a3a55;
+  --line-soft: #1f2d45;
+  --text: #ece5d3;
+  --text-muted: #a7adb9;
+  --text-faint: #7d8597;
+  --signal: #e3a23b;
+  --signal-soft: rgba(227, 162, 59, 0.14);
+  --land: #22334f;
+  --land-line: #34496c;
+
+  --risk-lc: #e2705c; /* loss of control: ember */
+  --risk-mu: #c690d6; /* misuse: violet */
+  --risk-rd: #6fb4c9; /* race dynamics: steel teal */
+  --risk-of: #d6b25b; /* organisational failures: ochre */
+  --risk-gv: #8fbf8a; /* governance response: sage */
+
+  --font-read: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Type scale (1.25, from 17px) */
+  --fs-xs: 0.8rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 1.0625rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.6rem;
+  --fs-xl: 2.1rem;
+  --fs-xxl: clamp(2.2rem, 4.4vw, 3.4rem);
+
+  --measure: 68ch;
+  --gutter: clamp(16px, 4vw, 40px);
+  --wide: 1240px;
+  --radius-s: 3px;
+  --radius-m: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-read);
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: var(--fs-base);
+  line-height: 1.62;
+  font-optical-sizing: auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-stretch: 92%;
+}
+
+p { margin: 0 0 1em; max-width: var(--measure); }
+
+a {
+  color: var(--text);
+  text-decoration-color: color-mix(in srgb, var(--signal) 70%, transparent);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+a:hover { text-decoration-color: var(--signal); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.ui { font-family: var(--font-ui); }
+.muted { color: var(--text-muted); }
+.faint { color: var(--text-faint); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Risk type colour hook: set --risk on any element via data-risk */
+[data-risk='LC'] { --risk: var(--risk-lc); }
+[data-risk='MU'] { --risk: var(--risk-mu); }
+[data-risk='RD'] { --risk: var(--risk-rd); }
+[data-risk='OF'] { --risk: var(--risk-of); }
+[data-risk='GV'] { --risk: var(--risk-gv); }
+
+table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: var(--fs-sm); }
+th, td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+th { font-weight: 600; color: var(--text-muted); border-bottom-color: var(--line); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Long-form text pages (methodology, about, open data) */
+.prose { padding-top: 40px; max-width: 760px; }
+.prose h1 { font-size: var(--fs-xxl); font-stretch: 86%; margin-bottom: 18px; letter-spacing: -0.02em; }
+.prose h2 { font-size: var(--fs-lg); margin: 48px 0 14px; scroll-margin-top: 24px; }
+.prose h3 { font-size: 1.08rem; margin: 28px 0 8px; }
+.prose .lead { font-size: var(--fs-md); }
+.prose ul, .prose ol { padding-left: 1.2em; max-width: var(--measure); }
+.prose li { margin-bottom: 6px; }
+.prose table { margin: 12px 0 8px; }
+.prose code { font-size: 0.88em; background: var(--bg-sunk); border: 1px solid var(--line-soft); padding: 1px 5px; border-radius: 3px; }
+.prose .note { border-left: 2px solid var(--signal); padding-left: 14px; color: var(--text-muted); }

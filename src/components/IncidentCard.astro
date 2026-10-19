@@ -1,0 +1,35 @@
+---
+import type { Incident } from '../lib/incidents';
+import { formatDate, isReviewed } from '../lib/incidents';
+import { riskTypeOf, LENSES } from '../data/taxonomy';
+import { countryName } from '../data/countries';
+import TierLadder from './TierLadder.astro';
+interface Props { incident: Incident }
+const { incident } = Astro.props;
+const d = incident.data;
+const rt = riskTypeOf(d.risk.primary);
+const lensCounts = Object.keys(LENSES).map((k) => ({ k, label: LENSES[k as keyof typeof LENSES].label, n: d.resources.filter((r) => r.lens === k).length })).filter((x) => x.n > 0);
+---
+<article class="card" data-risk={rt.code}>
+  <div class="meta ui">
+    <span>{formatDate(d.dateEvent, true)}</span>
+    <span>{d.countries.map(countryName).join(', ')}</span>
+    {!isReviewed(incident) && <span class="pending">In review</span>}
+  </div>
+  <h3><a href={`/incidents/${incident.id}/`}>{d.title}</a></h3>
+  <TierLadder tier={d.tier} />
+  <p class="resources ui">
+    {d.resources.length} resources: {lensCounts.map((l) => `${l.n} ${l.label.toLowerCase()}`).join(', ')}
+  </p>
+</article>
+<style>
+  .card { position: relative; background: var(--bg-raised); border: 1px solid var(--line-soft); border-left: 3px solid var(--risk); border-radius: var(--radius-s); padding: 16px 18px 14px; display: grid; gap: 10px; }
+  .card:hover { border-color: var(--line); border-left-color: var(--risk); }
+  .meta { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--fs-xs); color: var(--text-faint); }
+  .pending { color: var(--signal); }
+  h3 { font-size: 1.12rem; font-weight: 600; line-height: 1.25; }
+  h3 a { text-decoration: none; }
+  h3 a::after { content: ''; position: absolute; inset: 0; }
+  h3 a:hover { text-decoration: underline; text-decoration-color: var(--signal); }
+  .resources { margin: 0; font-size: var(--fs-xs); color: var(--text-muted); }
+</style>

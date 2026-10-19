@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import WorldMap from '../components/WorldMap.astro';
+import IncidentCard from '../components/IncidentCard.astro';
+import { getIncidents, incidentsByRiskType, formatDate } from '../lib/incidents';
+
+const incidents = await getIncidents();
+const groups = incidentsByRiskType(incidents);
+const lastUpdated = incidents.map((i) => i.data.dateUpdated).sort().at(-1);
+const resourceTotal = incidents.reduce((n, i) => n + i.data.resources.length, 0);
+---
+<Base>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="lede">
+        <h1>Catastrophic AI incidents as they happen, with everything credible written about each one.</h1>
+        <p class="intro">
+          Each incident gets a plain-language summary and a checked library of the technical, policy and legal sources on it,
+          from lab disclosures and papers to regulators and expert commentary.
+        </p>
+        <p class="status ui">
+          {incidents.length} incident{incidents.length === 1 ? '' : 's'} and {resourceTotal} sources recorded from 2026 onwards.
+          {lastUpdated && <> Last updated {formatDate(lastUpdated)}.</>}
+        </p>
+      </div>
+      <div class="map-frame">
+        <WorldMap incidents={incidents} />
+        <ul class="legend ui" aria-label="Map key">
+          {groups.map(({ riskType }) => (
+            <li data-risk={riskType.code}><span aria-hidden="true"></span>{riskType.name}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="types wrap" aria-labelledby="by-type">
+    <h2 id="by-type" class="section-title">Incidents by risk type</h2>
+    {groups.map(({ riskType, incidents: own, related }) => (
+      <section class="type-row" data-risk={riskType.code} id={riskType.slug} aria-labelledby={`h-${riskType.code}`}>
+        <div class="type-head">
+          <h3 id={`h-${riskType.code}`}><a href={`/risk/${riskType.slug}/`}>{riskType.name}</a></h3>
+          <p>{riskType.short}</p>
+          <p class="count ui">{own.length} recorded{related.length > 0 && `, ${related.length} related`}</p>
+        </div>
+        <div class="type-cards">
+          {own.length > 0 ? (
+            own.map((i) => <IncidentCard incident={i} />)
+          ) : (
+            <p class="empty ui">
+              No {riskType.name.toLowerCase()} incidents recorded yet.
+              {related.length > 0 && <> {related.length === 1 ? 'One incident' : `${related.length} incidents`} filed elsewhere also involve{related.length === 1 ? 's' : ''} it: {related.map((r, k) => <>{k > 0 && ', '}<a href={`/incidents/${r.id}/`}>{r.data.title}</a></>)}.</>}
+            </p>
+          )}
+        </div>
+      </section>
+    ))}
+  </section>
+</Base>
+
+<style>
+  .hero { border-bottom: 1px solid var(--line-soft); padding: clamp(32px, 6vw, 64px) 0 40px; background: radial-gradient(ellipse at 70% 30%, #15233d 0%, var(--bg) 70%); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+  h1 { font-size: var(--fs-xxl); font-stretch: 86%; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 24px; }
+  .intro { font-size: var(--fs-md); line-height: 1.55; color: var(--text); }
+  .status { font-size: var(--fs-sm); color: var(--text-muted); margin-top: 20px; }
+  .map-frame { min-width: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 12px 0 0; font-size: var(--fs-xs); color: var(--text-muted); }
+  .legend li { display: inline-flex; align-items: center; gap: 7px; }
+  .legend span { width: 8px; height: 8px; border-radius: 50%; background: var(--risk); }
+
+  .types { padding-top: 56px; }
+  .section-title { font-size: var(--fs-lg); margin-bottom: 8px; }
+  .type-row { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 16px 40px; padding: 28px 0; border-top: 1px solid var(--line-soft); }
+  .type-row:first-of-type { border-top-color: var(--line); }
+  .type-head h3 { font-size: var(--fs-md); display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .type-head h3::before { content: ''; width: 10px; height: 10px; border-radius: 2px; background: var(--risk); transform: rotate(45deg); flex: none; }
+  .type-head h3 a { text-decoration: none; }
+  .type-head h3 a:hover { text-decoration: underline; text-decoration-color: var(--risk); }
+  .type-head p { color: var(--text-muted); margin: 0 0 6px; font-size: 0.98rem; }
+  .count { font-size: var(--fs-xs); color: var(--text-faint); }
+  .type-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; align-content: start; }
+  .empty { grid-column: 1 / -1; font-size: var(--fs-sm); color: var(--text-faint); border: 1px dashed var(--line-soft); border-radius: var(--radius-s); padding: 14px 16px; margin: 0; max-width: none; }
+  .empty a { color: var(--text-muted); }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .type-row { grid-template-columns: 1fr; }
+  }
+</style>

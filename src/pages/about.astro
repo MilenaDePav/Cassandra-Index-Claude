@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+const issues = 'https://github.com/MilenaDePav/cassandra-index-claude/issues/new';
+---
+<Base title="About" description="Why the Cassandra Index exists, who edits it, and how to suggest an incident or a source.">
+  <div class="wrap prose">
+    <h1>About the Index</h1>
+    <p class="lead">When an AI system does something dangerous that its developers did not intend, the evidence ends up scattered across lab blogs, papers, government notices, newsletters and posts. The Cassandra Index puts it in one place, checked, for anyone who needs it.</p>
+
+    <h2 id="why">Why it exists</h2>
+    <p>Incidents connected to catastrophic AI risk have started to happen in real systems, not only in experiments. Researchers in one discipline rarely see what the others have written: an engineer may not read the legal analysis, and a policymaker may not reach the technical post-mortem. Most of the public sees only headlines.</p>
+    <p>The Index is a shared starting point. Each incident has a plain-language summary anyone can follow, and a library of the credible technical, policy, legal and expert sources on it. The Index refers to others' work rather than adding another opinion. Its own judgement is limited to grading the evidence and the stakes, openly, by a <a href="/methodology/">published method</a>.</p>
+    <p>In the myth, Cassandra's warnings were true and went unheeded. The aim here is the opposite: to make warnings legible, so they can be weighed properly. That means neither ignoring them nor inflating them.</p>
+
+    <h2 id="editor">Editor</h2>
+    <p>The Index is edited by Milena, a lawyer working in AI governance. She is a Research Member at the Center for AI and Digital Policy and studies for an LL.M. in Innovation, Technology and the Law at the University of Edinburgh. Every entry is reviewed by the editor before publication.</p>
+
+    <h2 id="disclosures">Independence and disclosures</h2>
+    <ul>
+      <li>The Index is independent and currently receives no funding.</li>
+      <li>Views expressed are the editor's own and not those of any employer or organisation she is affiliated with.</li>
+      <li>Any future funding, advisers or conflicts of interest will be listed here.</li>
+    </ul>
+
+    <h2 id="suggest">Suggest an incident or a source</h2>
+    <p>If an incident is missing, a source should be added, or something is wrong, <a href={issues}>open a request on GitHub</a>. Include a link to the source. Every suggestion is checked before it appears, and corrections are logged on the <a href="/methodology/#corrections">methodology page</a>.</p>
+
+    <h2 id="licence">Licence</h2>
+    <p>The data is published under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: reuse it freely with credit to the Cassandra Index. Linked sources belong to their authors.</p>
+  </div>
+</Base>

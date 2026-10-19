@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import TierLadder from '../components/TierLadder.astro';
+import { RISK_TYPES, TIERS, SEVERITIES, LENSES } from '../data/taxonomy';
+---
+<Base title="Methodology" description="How the Cassandra Index decides what to include, how it grades evidence and severity, and how sources are checked.">
+  <div class="wrap prose">
+    <h1>Methodology</h1>
+    <p class="lead">How incidents are chosen, graded and sourced. This page changes as the method is refined; changes are dated in the corrections log below.</p>
+
+    <h2 id="scope">What counts as an incident</h2>
+    <p>An event is included if, scaled up, it plausibly maps onto one of the catastrophic-risk pathways below. That covers real-world incidents, findings from evaluations and red-teaming, and significant governance responses. Coverage begins on 1 January 2026.</p>
+    <p>Everyday AI harms without a catastrophic-risk dimension, such as an ordinary deepfake scam, are left to broad databases like the <a href="https://incidentdatabase.ai">AI Incident Database</a> and the <a href="https://oecd.ai/en/incidents">OECD AI Incidents and Hazards Monitor</a>. They are included here only if they show a new capability.</p>
+
+    <h2 id="taxonomy">Risk types</h2>
+    <p>Incidents are grouped by risk type, adapted from Hendrycks, Mazeika and Woodside, <a href="https://arxiv.org/abs/2306.12001">An Overview of Catastrophic AI Risks</a> (2023). Each subcategory is also mapped to the <a href="https://airisk.mit.edu">MIT AI Risk Repository</a> so the data can be combined with other datasets. Every incident has one primary subcategory and may have secondary ones.</p>
+    <table>
+      <thead><tr><th>Risk type</th><th>Subcategories</th></tr></thead>
+      <tbody>
+        {RISK_TYPES.map((r) => (
+          <tr><td><a href={`/risk/${r.slug}/`}>{r.name}</a></td><td>{r.subcategories.map((s) => `${s.code} ${s.name}`).join('; ')}</td></tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2 id="evidence">Evidence tiers</h2>
+    <p>Each incident gets exactly one tier, graded on the strongest claim its sources actually support, not on the headline. A contrived red-team result and a real-world attack are not the same thing, and the tier makes that difference visible. Any change of tier is recorded in the entry's update log.</p>
+    <table>
+      <thead><tr><th>Tier</th><th>Meaning</th></tr></thead>
+      <tbody>
+        {(Object.keys(TIERS) as (keyof typeof TIERS)[]).map((k) => <tr><td><TierLadder tier={k} /></td><td>{TIERS[k].description}</td></tr>)}
+      </tbody>
+    </table>
+    <p>A Tier 4 entry needs at least two sources that are not commentary. Each entry also carries the OECD label (AI incident or AI hazard), so it lines up with the OECD monitor.</p>
+
+    <h2 id="severity">Severity if it scales</h2>
+    <p>A separate judgement of the worst plausible outcome if the pattern behind the incident repeats at scale: {Object.values(SEVERITIES).join(', ').toLowerCase()}. It grades the pattern, not the event, which is why it is kept apart from the evidence tier. Every entry also says what the incident is not, to guard against overstatement.</p>
+
+    <h2 id="sources">Sources and credibility</h2>
+    <p>Each incident's resource library sorts sources into five lenses:</p>
+    <ul>{Object.values(LENSES).map((l) => <li><strong>{l.label}.</strong> {l.description}</li>)}</ul>
+    <p>Every source is labelled by how far it can be relied on as evidence of fact:</p>
+    <ul>
+      <li><strong>Primary source:</strong> published by a party directly involved, such as the developer or the affected organisation.</li>
+      <li><strong>Verified:</strong> independent analysis or an official body that checked the primary evidence.</li>
+      <li><strong>Reported:</strong> an established outlet's reporting, not independently confirmed here.</li>
+      <li><strong>Commentary:</strong> interpretation by credible experts. Social media posts and newsletters are always commentary, never proof of fact, unless the author is a party to the incident.</li>
+    </ul>
+    <p>Posts on the Alignment Forum and LessWrong are marked as not peer-reviewed. Expert commentary is drawn from a published list of researchers and practitioners, with the criteria for inclusion stated.</p>
+
+    <h2 id="process">How entries are made</h2>
+    <ol>
+      <li>Each morning an automated search scans lab disclosures, evaluators, safety institutes, incident databases, research and specialist newsletters.</li>
+      <li>Candidates are drafted in the entry format with proposed codes and grades, and placed in a review queue.</li>
+      <li>The editor checks each draft against its sources, rewrites the summary, sets the grades and approves or rejects it. Nothing is published without that review.</li>
+      <li>Published entries are updated as new sources appear, with every change dated.</li>
+    </ol>
+
+    <h2 id="rules">Editorial rules</h2>
+    <ul>
+      <li>Unverified claims are marked as reported, and every claim links to its source.</li>
+      <li>Summaries are written in our own words; others' work is linked, not republished. Cited pages are archived when cited.</li>
+      <li>No technical detail that would help someone misuse a model is published. Capabilities are described, methods are not.</li>
+      <li>Only public actors acting in their role are named. No personal data about private individuals.</li>
+    </ul>
+
+    <h2 id="corrections">Corrections log</h2>
+    <p>Corrections to entries are listed here and in each entry's update log.</p>
+    <p class="muted">No corrections yet.</p>
+  </div>
+</Base>

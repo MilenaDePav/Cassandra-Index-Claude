@@ -1,0 +1,17 @@
+---
+import { riskTypeOf, subcategory } from '../data/taxonomy';
+interface Props { code: string; primary?: boolean; link?: boolean }
+const { code, primary = false, link = true } = Astro.props;
+const rt = riskTypeOf(code);
+const sc = subcategory(code);
+const Tag = link ? 'a' : 'span';
+---
+<Tag class:list={['tag ui', { primary }]} data-risk={rt.code} href={link ? `/risk/${rt.slug}/#${code}` : undefined} title={`${rt.name}: ${sc.description}`}>
+  <span class="dot" aria-hidden="true"></span>{sc.name}
+</Tag>
+<style>
+  .tag { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--text-muted); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px 2px 7px; line-height: 1.5; }
+  .tag.primary { color: var(--text); border-color: color-mix(in srgb, var(--risk) 60%, transparent); }
+  a.tag:hover { color: var(--text); border-color: var(--risk); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--risk); flex: none; }
+</style>

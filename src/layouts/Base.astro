@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+import { SHOW_UNREVIEWED } from '../lib/incidents';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = 'A checked reference hub of catastrophic AI incidents: plain-language summaries and every credible technical, policy and legal resource on each one.' } = Astro.props;
+const fullTitle = title ? `${title} · The Cassandra Index` : 'The Cassandra Index';
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/incidents/', label: 'Incidents' },
+  { href: '/risk/loss-of-control/', label: 'Risk types', match: '/risk/' },
+  { href: '/methodology/', label: 'Methodology' },
+  { href: '/data/', label: 'Open data' },
+  { href: '/about/', label: 'About' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f1a2b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/json" href="/data/incidents.json" title="Cassandra Index incidents (JSON)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    {SHOW_UNREVIEWED && (
+      <div class="review-banner ui" role="note">
+        Preview build: entries awaiting editor review are shown and marked. They are hidden on the public site.
+      </div>
+    )}
+    <header class="site-header">
+      <div class="wrap bar">
+        <a href="/" class="brand ui" aria-label="The Cassandra Index, home">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <path d="M9 1 L17 9 L9 17 L1 9 Z" fill="none" stroke="var(--signal)" stroke-width="1.5" />
+            <circle cx="9" cy="9" r="2.6" fill="var(--signal)" />
+          </svg>
+          <span>The Cassandra Index</span>
+        </a>
+        <nav aria-label="Main">
+          <ul>
+            {nav.map((n) => (
+              <li>
+                <a href={n.href} aria-current={path.startsWith(n.match ?? n.href) ? 'page' : undefined}>{n.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer ui">
+      <div class="wrap foot">
+        <p>
+          The Cassandra Index is an independent, editor-checked record of AI incidents connected to catastrophic risk.
+          It summarises and links to others' work; it does not republish it.
+        </p>
+        <ul>
+          <li><a href="/methodology/">Methodology and corrections</a></li>
+          <li><a href="/data/">Open data (CC BY 4.0)</a></li>
+          <li><a href="/about/">About and disclosures</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--signal); color: #111; padding: 6px 10px; font-family: var(--font-ui); z-index: 10; }
+  .skip:focus { left: 8px; }
+  .review-banner { background: var(--signal-soft); border-bottom: 1px solid var(--signal); color: var(--text); font-size: var(--fs-sm); padding: 8px var(--gutter); text-align: center; }
+  .site-header { border-bottom: 1px solid var(--line-soft); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 64px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 1.05rem; font-stretch: 88%; letter-spacing: 0.005em; }
+  nav ul { display: flex; flex-wrap: wrap; gap: 4px 22px; list-style: none; margin: 0; padding: 0; font-family: var(--font-ui); font-size: var(--fs-sm); }
+  nav a { text-decoration: none; color: var(--text-muted); padding: 4px 0; border-bottom: 1px solid transparent; }
+  nav a:hover { color: var(--text); }
+  nav a[aria-current='page'] { color: var(--text); border-bottom-color: var(--signal); }
+  main { min-height: 60vh; }
+  .site-footer { border-top: 1px solid var(--line-soft); margin-top: 96px; padding: 32px 0 48px; font-size: var(--fs-sm); color: var(--text-muted); }
+  .foot { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .foot p { max-width: 52ch; margin: 0; }
+  .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .foot a { color: var(--text-muted); }
+</style>

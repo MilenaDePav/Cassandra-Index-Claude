@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import IncidentCard from '../../components/IncidentCard.astro';
+import { getIncidents, type Incident } from '../../lib/incidents';
+import { RISK_TYPES, riskTypeOf, type RiskType } from '../../data/taxonomy';
+
+export async function getStaticPaths() {
+  return RISK_TYPES.map((riskType) => ({ params: { slug: riskType.slug }, props: { riskType } }));
+}
+const { riskType } = Astro.props as { riskType: RiskType };
+const incidents = await getIncidents();
+const inType = (i: Incident) => [i.data.risk.primary, ...i.data.risk.secondary].some((c) => riskTypeOf(c).code === riskType.code);
+const own = incidents.filter((i) => riskTypeOf(i.data.risk.primary).code === riskType.code);
+const related = incidents.filter((i) => !own.includes(i) && inType(i));
+const bySub = (code: string) => incidents.filter((i) => i.data.risk.primary === code || i.data.risk.secondary.includes(code));
+---
+<Base title={riskType.name} description={riskType.description}>
+  <div class="wrap page" data-risk={riskType.code}>
+    <nav class="types ui" aria-label="Risk types">
+      {RISK_TYPES.map((r) => <a href={`/risk/${r.slug}/`} data-risk={r.code} aria-current={r.code === riskType.code ? 'page' : undefined}><span aria-hidden="true"></span>{r.name}</a>)}
+    </nav>
+    <h1>{riskType.name}</h1>
+    <p class="lead">{riskType.description}</p>
+
+    <section aria-labelledby="sub-h">
+      <h2 id="sub-h">What this covers</h2>
+      <dl class="subs">
+        {riskType.subcategories.map((s) => {
+          const n = bySub(s.code).length;
+          return (
+            <div id={s.code}>
+              <dt class="ui">{s.name} <span class="faint">{n}</span></dt>
+              <dd>{s.description}</dd>
+            </div>
+          );
+        })}
+      </dl>
+    </section>
+
+    <section aria-labelledby="inc-h">
+      <h2 id="inc-h">Incidents</h2>
+      {own.length === 0 ? <p class="empty ui">No incidents filed under {riskType.name.toLowerCase()} yet.</p> : <div class="grid">{own.map((i) => <IncidentCard incident={i} />)}</div>}
+      {related.length > 0 && (
+        <>
+          <h3 class="ui rel">Also involves {riskType.name.toLowerCase()}</h3>
+          <div class="grid">{related.map((i) => <IncidentCard incident={i} />)}</div>
+        </>
+      )}
+    </section>
+  </div>
+</Base>
+
+<style>
+  .page { padding-top: 32px; }
+  .types { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; font-size: var(--fs-sm); }
+  .types a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text-muted); border: 1px solid var(--line-soft); border-radius: 999px; padding: 4px 12px 4px 10px; }
+  .types a span { width: 8px; height: 8px; border-radius: 50%; background: var(--risk); }
+  .types a[aria-current='page'] { color: var(--text); border-color: var(--risk); }
+  h1 { font-size: var(--fs-xxl); font-stretch: 86%; margin-bottom: 16px; }
+  .lead { font-size: var(--fs-md); }
+  h2 { font-size: var(--fs-lg); margin: 48px 0 16px; }
+  .subs { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px 32px; margin: 0; }
+  .subs div { border-left: 2px solid var(--risk); padding-left: 14px; scroll-margin-top: 24px; }
+  .subs dt { font-weight: 600; margin-bottom: 4px; }
+  .subs dd { margin: 0; color: var(--text-muted); font-size: 0.97rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .rel { font-size: 1rem; color: var(--text-muted); margin: 28px 0 12px; }
+  .empty { color: var(--text-faint); font-size: var(--fs-sm); border: 1px dashed var(--line-soft); padding: 14px 16px; border-radius: var(--radius-s); max-width: none; }
+</style>
