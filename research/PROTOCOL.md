@@ -1,4 +1,6 @@
-# Cassandra Index research protocol (v1, 19 Oct 2026)
+# Cassandra Index research protocol (v2, 19 Oct 2026)
+
+v2 adds, after the pilot review: evidence-based credibility, a read-depth field, a shared exclusion list, an explicit incident scope and per-discipline search budgets.
 
 Every researcher follows this protocol. The editor (Milena, a lawyer in AI governance) approves every source before it appears on the site.
 
@@ -33,12 +35,27 @@ Score each source 1 to 3 on each axis:
 - **Relevance**: how central it is to the incident in your discipline (3 = essential; 2 = useful; 1 = context only).
 
 Then set `credibility`:
-- `primary`: published by a party directly involved.
-- `verified`: independent analysis or official body that checked primary evidence.
+- `primary`: published by a party directly involved, **or the official text of a law, regulation or court record** (read from the official source, e.g. EUR-Lex, leginfo; an unofficial copy is noted in `note`).
+- `verified`: independent analysis that **itself examined primary evidence** (transcripts, logs, documents, data). Official summaries that only restate disclosures are `reported`. A source you read only partly cannot be `verified`.
 - `reported`: established journalism, not independently confirmed.
 - `commentary`: interpretation, opinion, newsletters, social media, explainers.
 
 Include only sources scoring at least 6 of 9 in total, and at least 2 on relevance.
+
+Record `read_depth` for every source: `full` (read it all), `partial` (main sections), `abstract` (abstract or summary only), `metadata` (title and description only). Only `full` sources can be `verified`, marked essential, or count towards an evidence tier of T4.
+
+### Shared exclusion list
+Do not include these, and check `research/EXCLUDED.md` before you start:
+- AI-generated or machine-written publications, including research notes self-labelled as AI-assisted that have not been reviewed by their publisher.
+- Aggregators that rewrite other coverage without adding reporting.
+- Sites whose bylines change between articles or look automated.
+Add any new ones you find to `findings`, with the reason.
+
+### Incident scope
+Your brief states which events belong to this incident and which are **separate incidents**. Sources about a separate incident are recorded with `relation: background` and the separate incident named in `note`, never as `about-incident`.
+
+### Search budget
+Each researcher has its own budget. Reserve at least a third of it for official bodies, think tanks and non-English sources, which general searches under-find. Log searches that returned nothing useful in `searches_empty`, so that any claim that something does not exist can be checked.
 
 ## 5. Writing rules
 
@@ -57,6 +74,7 @@ Write a single JSON file to the path given in your brief:
   "discipline": "<your discipline id>",
   "researcher_summary": "<5-10 sentences: state of the literature in your field on this incident, gaps, disagreements>",
   "searches_run": ["<each query>"],
+  "searches_empty": ["<queries that found nothing useful>"],
   "findings": ["<contested facts, open legal/technical questions, things the editor should know>"],
   "sources": [
     {
@@ -72,6 +90,7 @@ Write a single JSON file to the path given in your brief:
       "credibility": "primary | verified | reported | commentary",
       "scores": { "authority": 0, "evidence": 0, "relevance": 0 },
       "paywalled": false,
+      "read_depth": "full | partial | abstract | metadata",
       "found_via": "<search query, or 'snowball from <title>'>",
       "note": ""
     }
