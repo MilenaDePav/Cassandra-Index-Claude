@@ -24,6 +24,7 @@ const disciplines = (Object.keys(DISCIPLINES) as Discipline[])
   .map((k) => ({ key: k, label: DISCIPLINES[k].label, n: d.resources.filter((r) => r.discipline === k || r.alsoRelevantTo.includes(k)).length }))
   .filter((g) => g.n > 0);
 const essentials = d.resources.filter((r) => r.essential).sort(sortRes);
+const PREVIEW_N = 8; // items shown per category before "Show all"
 const verdictLabel = { triggered: 'Triggered', 'not-triggered': 'Not triggered', unclear: 'Unclear', gap: 'Gap in the law' } as const;
 const permalink = new URL(`/incidents/${incident.id}/`, Astro.site).href;
 const citation = `The Cassandra Index (${d.dateUpdated.slice(0, 4)}). "${d.title}" [${d.id}]. Updated ${formatDate(d.dateUpdated)}. ${permalink}`;
@@ -128,8 +129,8 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
             <section class="disc" id={`c-${g.key}`} aria-labelledby={`ch-${g.key}`}>
               <h3 id={`ch-${g.key}`}>{g.label} <span class="faint ui">{g.items.length}</span></h3>
               <ul class="resources">
-                {g.items.map((r) => (
-                  <li data-disc={[r.discipline, ...r.alsoRelevantTo].join(' ')} data-cred={r.credibility} data-rel={r.relation}>
+                {g.items.map((r, i) => (
+                  <li data-disc={[r.discipline, ...r.alsoRelevantTo].join(' ')} data-cred={r.credibility} data-rel={r.relation} data-extra={i >= PREVIEW_N ? '' : undefined} hidden={i >= PREVIEW_N}>
                     <a href={r.url} rel="noopener" class="r-title">{r.title}</a>
                     <p class="r-meta ui">
                       <span>{r.publisher}{r.author && `, ${r.author}`}</span>
@@ -145,6 +146,9 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
                   </li>
                 ))}
               </ul>
+              {g.items.length > PREVIEW_N && (
+                <button type="button" class="more ui" data-more aria-expanded="false">Show all {g.items.length}</button>
+              )}
             </section>
           ))}
           <p class="none ui" id="lib-empty" hidden>No sources match these filters.</p>
@@ -209,6 +213,16 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
     const sections = [...document.querySelectorAll<HTMLElement>('.disc')];
     const libCount = document.getElementById('lib-count')!;
     const libEmpty = document.getElementById('lib-empty')!;
+    const expanded = new Set<HTMLElement>();
+    document.querySelectorAll<HTMLButtonElement>('[data-more]').forEach((b) => {
+      b.addEventListener('click', () => {
+        const sec = b.closest('section') as HTMLElement;
+        const open = !expanded.has(sec);
+        open ? expanded.add(sec) : expanded.delete(sec);
+        b.setAttribute('aria-expanded', String(open));
+        applyLib();
+      });
+    });
     const applyLib = () => {
       const f = new FormData(lf);
       const disc = String(f.get('disc') ?? ''), cred = String(f.get('cred') ?? ''), rel = String(f.get('rel') ?? '');
@@ -217,9 +231,16 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
         let n = 0;
         for (const li of sec.querySelectorAll<HTMLLIElement>('li')) {
           const ok = (!disc || li.dataset.disc!.split(' ').includes(disc)) && (!cred || li.dataset.cred === cred) && (!rel || li.dataset.rel === rel);
-          li.hidden = !ok; if (ok) n++;
+          if (ok) n++;
+          const filtering = !!(disc || cred || rel);
+          li.hidden = !ok || (!filtering && !expanded.has(sec) && li.dataset.extra !== undefined);
         }
         sec.hidden = n === 0; total += n;
+        const btn = sec.querySelector<HTMLButtonElement>('[data-more]');
+        if (btn) {
+          btn.hidden = !!(disc || cred || rel);
+          btn.textContent = expanded.has(sec) ? 'Show fewer' : `Show all ${n}`;
+        }
       }
       libCount.textContent = `${total} shown`;
       libEmpty.hidden = total > 0;
@@ -285,6 +306,8 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
   .lib-filters select { font: inherit; font-size: var(--fs-sm); color: var(--text); background: var(--bg-sunk); border: 1px solid var(--line); border-radius: var(--radius-s); padding: 6px 8px; }
   .lib-count { margin: 0 0 6px auto; color: var(--text-faint); }
   .disc { margin-top: 30px; scroll-margin-top: 24px; }
+  .more { margin-top: 10px; background: none; border: 1px solid var(--line); color: var(--text); border-radius: var(--radius-s); padding: 6px 14px; font-size: var(--fs-xs); cursor: pointer; }
+  .more:hover { border-color: var(--signal); }
   .disc h3 { padding-bottom: 4px; }
   .disc-desc { font-size: var(--fs-xs); color: var(--text-faint); margin: 0; padding-bottom: 8px; border-bottom: 1px solid var(--line-soft); max-width: none; }
   .bg { color: var(--text-faint); font-style: italic; }
