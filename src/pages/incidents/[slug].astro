@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TierLadder from '../../components/TierLadder.astro';
 import RiskTag from '../../components/RiskTag.astro';
 import { getIncidents, formatDate, isReviewed, type Incident } from '../../lib/incidents';
-import { riskTypeOf, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY, CATEGORIES, categoryOf, SEVERITIES, TIERS, type Discipline, type Category } from '../../data/taxonomy';
+import { riskTypeOf, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY, CATEGORIES, categoryOf, BACKGROUND_THEMES, SEVERITIES, TIERS, type Discipline, type Category } from '../../data/taxonomy';
 import { countryName } from '../../data/countries';
 
 export async function getStaticPaths() {
@@ -138,7 +138,7 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
                       <span>{RESOURCE_TYPES[r.type]}</span>
                       <span>{DISCIPLINES[r.discipline].label}</span>
                       <span class:list={['cred', r.credibility]} title={CREDIBILITY[r.credibility].description}>{CREDIBILITY[r.credibility].label}</span>
-                      {r.relation === 'background' && <span class="bg">Background</span>}
+                      {r.relation === 'background' && <span class="bg">Background{r.theme && `: ${BACKGROUND_THEMES[r.theme]}`}</span>}
                       {r.paywalled && <span>Paywalled</span>}
                       {r.archived && <a href={r.archived}>Archived copy</a>}
                     </p>

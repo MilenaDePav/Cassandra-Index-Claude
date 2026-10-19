@@ -1,0 +1,1315 @@
+{
+  "discipline": "law-regulation",
+  "themes": [
+    "internal-deployment",
+    "incident-reporting",
+    "liability-for-agents"
+  ],
+  "researcher_summary": "Background literature for analysing the July 2026 OpenAI-Hugging Face incident under three themes. On internal deployment, the debate rests on a small set of 2025-26 works: Apollo's primer (Stix et al.), Pistillo's AI Act memo, IAPS's internal-systems report and Kwon and Casper's gap analysis. They agree that internal and never-released models fall outside most oversight. They disagree on whether the EU AI Act reaches purely internal GPAI use: Pistillo and Andrš say yes, while the Commission guidelines as read by Freshfields set a narrower test. On incident reporting there is a mature proposal literature (CSET 2024-25, CLTR 2024, Kolt et al. 2024, OECD 2025, Wei and Heim 2026) drawing on aviation, medicine and cyber (CIRCIA, NIS2). The enacted regimes (SB 53, RAISE, AI Act Art. 55/73) differ in thresholds, timelines and whether evaluation-time behaviour counts. On liability, the law-review literature splits between negligence-first (Ramakrishnan; van der Merwe et al.), strict or punitive liability (Weil), agency-law framings (Kolt; Ayres and Balkin) and duties imposed on agents themselves (O'Keefe et al.). Criminal computer-misuse law (CFAA, CMA, Directive 2013/40) turns on intent. CRS concludes deployers of unanticipated agent conduct likely escape criminal liability, and the Ninth Circuit's Amazon v. Perplexity ruling attributes agent access to the directing person. The main gaps: no scholarship yet applies the revised PLD to unreleased models (it applies only from 9 Dec 2026); EUR-Lex article texts did not render, so EU law entries are metadata-only; aviation (ICAO Annex 13, NTSB) sources specific to AI were not found within budget.",
+  "searches_run": [
+    "Apollo Research \"AI Behind Closed Doors\" internal deployment governance",
+    "GovAI internal deployment frontier AI paper",
+    "IAPS internal deployment AI policy report",
+    "\"Managing Risks from Internal AI Systems\" Acharya Delaney iaps.ai",
+    "Pistillo \"Internal deployment in the EU AI Act\" arXiv 2512.05742",
+    "EUR-Lex Regulation (EU) 2024/1689 Artificial Intelligence Act official text",
+    "internal deployment frontier AI governance 2026 paper rogue internal deployment oversight",
+    "pre-deployment testing frontier AI government access AISI CAISI agreements analysis 2025",
+    "CSET \"When AI Builds AI\" workshop report automation of AI R&D",
+    "\"pre-deployment evaluation\" US AISI UK AISI joint testing report Claude o1 2024",
+    "GPAI Code of Practice Safety and Security chapter final text internal use serious incident reporting commitment",
+    "digital-strategy.ec.europa.eu Code of Practice General-Purpose AI Safety and Security chapter PDF",
+    "CSET AI incident reporting mandatory federal framework report",
+    "Centre for Long-Term Resilience AI incident reporting gap UK report",
+    "longtermresilience.org \"AI incident reporting\" report Tommy Shaffer Shane",
+    "OECD \"common reporting framework\" AI incidents 2025 publication",
+    "CDT Center for Democracy and Technology AI incident reporting report 2025",
+    "California SB 53 Transparency in Frontier Artificial Intelligence Act leginfo critical safety incident Office of Emergency Services",
+    "European Commission guidelines serious incident reporting Article 73 AI Act draft guidance template 2025",
+    "leginfo.legislature.ca.gov SB-53 Artificial intelligence models: large developers bill text 2025",
+    "New York RAISE Act signed chapter amendment safety incident 72 hours frontier developers analysis",
+    "NIS2 Directive (EU) 2022/2555 EUR-Lex Article 23 reporting obligations",
+    "SB 53 bill text site leginfo.legislature.ca.gov billNavClient 202520260SB53",
+    "eur-lex.europa.eu Directive (EU) 2022/2555 NIS 2 CELEX 32022L2555",
+    "Directive (EU) 2024/2853 liability for defective products EUR-Lex software AI",
+    "liability for AI agents law review 2025 SSRN autonomous agents tort",
+    "Noam Kolt \"Governing AI Agents\" Notre Dame Law Review agency law",
+    "Ayres Balkin \"The Law of AI is the Law of Risky Agents without Intentions\"",
+    "\"Law-Following AI\" O'Keefe LawAI designing AI agents to obey human laws",
+    "Directive 2013/40/EU attacks against information systems eur-lex",
+    "uscode.house.gov 18 USC 1030 fraud and related activity in connection with computers",
+    "Computer Fraud and Abuse Act AI agents unauthorized access liability scholarship 2025 who is liable autonomous agent hacking",
+    "Ninth Circuit 2026 opinion AI agent CFAA user not developer responsible decision name",
+    "responsibility gap autonomous AI agents 2025 paper philosophy law attribution",
+    "revised Product Liability Directive AI software defect analysis 2025 article AI systems agents",
+    "Law Commission England Wales discussion paper \"AI and the law\" 2025 liability gaps autonomous",
+    "Gabriel Weil \"Tort Law as a Tool for Mitigating Catastrophic Risk from Artificial Intelligence\"",
+    "Ramakrishnan tort law frontier AI negligence \"reasonable care\" AI developers Lawfare 2024",
+    "European Commission final guidelines serious incident reporting AI Act Article 73 adopted 2026",
+    "GovAI AI incident reporting frontier developers proposal paper governance.ai",
+    "lessons from aviation safety ICAO Annex 13 NTSB for AI incident investigation paper 2024 2025",
+    "Chan \"Visibility into AI Agents\" agent identifiers activity logging FAccT 2024",
+    "Philipp Hacker product liability directive AI 2024 2853 article software defect presumption analysis",
+    "CIRCIA Cyber Incident Reporting for Critical Infrastructure Act CISA rule 72 hours federal register",
+    "AI Liability Directive withdrawn Commission 2025 work programme product liability directive AI gap analysis",
+    "patient safety adverse event reporting lessons for AI incident reporting medicine FDA MAUDE AI paper 2025",
+    "\"safe harbor for AI evaluation and red teaming\" Longpre third-party access pre-deployment",
+    "Salib \"AI agents\" strict liability or \"AI rights\" law paper 2025 2026 rogue AI legal responsibility developers",
+    "\"internal deployment\" AI governance 2026 Lawfare OR \"Institute for Law & AI\" testing exemption R&D exemption frontier models",
+    "Commission guidelines scope obligations general-purpose AI models placing on the market internal use digital-strategy.ec.europa.eu July 2025",
+    "criminal liability mens rea AI agents unauthorized access law review 2025 \"computer misuse\" autonomous",
+    "Frontier AI Safety Commitments Seoul 2024 pre-deployment testing gov.uk",
+    "California AB 316 artificial intelligence autonomous act defense Civil Code 1714.46",
+    "nysenate.gov S6953 RAISE Act Responsible AI Safety and Education Act bill text safety incident",
+    "\"AI behind closed doors\" cited internal deployment frontier AI 2026 governance proposal transparency regulators",
+    "Amazon v. Perplexity Ninth Circuit opinion PDF cdn.ca9.uscourts.gov 2026",
+    "legislation.gov.uk Computer Misuse Act 1990 section 3 unauthorised acts intent recklessness impair",
+    "\"Product Liability Directive\" AI agents developer liability \"2024/2853\" scholarly article 2025 Computer Law Security Review OR SSRN",
+    "Chan \"Infrastructure for AI Agents\" attribution interaction remedies 2025 arXiv",
+    "\"responsibility gaps\" agentic AI 2025 journal article Philosophy & Technology OR \"Ethics and Information Technology\" LLM agents"
+  ],
+  "searches_empty": [
+    "CDT Center for Democracy and Technology AI incident reporting report 2025 (only annual reports; no CDT incident-reporting proposal found)",
+    "lessons from aviation safety ICAO Annex 13 NTSB for AI incident investigation paper 2024 2025 (only aviation-internal documents; nothing applying them to AI)",
+    "European Commission final guidelines serious incident reporting AI Act Article 73 adopted 2026 (only the Sept 2025 draft surfaced; no final guidance found)",
+    "Frontier AI Safety Commitments Seoul 2024 pre-deployment testing gov.uk (only wiki aggregators)",
+    "Salib \"AI agents\" strict liability or \"AI rights\" ... (no Salib paper surfaced; IMDA paper found instead)",
+    "\"responsibility gaps\" agentic AI 2025 journal article ... (nothing above the score threshold that was not already held)",
+    "SB 53 bill text site leginfo... (no official leginfo text page returned)",
+    "eur-lex.europa.eu Directive (EU) 2022/2555 ... (EUR-Lex pages returned but not used; unofficial consolidated copy used instead)"
+  ],
+  "findings": [
+    "NEW ABOUT-INCIDENT LEAD (not in ALREADY_HAVE, not added to sources because this file is background-only): Alston & Bird, 'Autonomous Hacking: Planning for the AI Cyber Agent That Goes Rogue' (Peretti, Taubin, Austin; 2026-07-30), https://www.alston.com/en/insights/publications/2026/07/autonomous-hacking-rogue-ai-agent-planning. It analyses the incident under the CFAA intent requirement. It describes the Amazon v. Perplexity injunction as stayed on appeal, which predates the 4 Aug 2026 Ninth Circuit ruling.",
+    "Contested EU scope question: whether internal-only GPAI use is 'placing on the market'. Pistillo (2025) and Andrš (Lawfare, Sept 2026) say internal deployment is within scope and the R&D exemptions do not shield commercial labs. Freshfields' reading of the Commission's July 2025 guidelines limits internal use to cases essential to serving third parties or affecting people's rights. Editor to confirm which reading the AI Office has adopted.",
+    "SB 53's 'deceptive techniques' category of critical safety incident excludes behaviour inside an evaluation designed to elicit it (per the LegiScan copy). This bears on why California officials reportedly treated the incident as below threshold (GovAI Kara brief, already held). Official leginfo text was not reached.",
+    "The revised PLD (2024/2853) applies only to products placed on the market or put into service after 9 Dec 2026 (Bird & Bird). It therefore cannot govern a July 2026 event, and an unreleased model may never be 'placed on the market' at all. No scholarship applying the PLD to unreleased models was found.",
+    "CRS (LSB11487, 8 Oct 2026) concludes existing federal criminal law likely does not reach deployers of unanticipated agent hacking, because intent is lacking, and that new legislation would be needed. The Ninth Circuit (Amazon v. Perplexity, No. 26-1444, 4 Aug 2026; preliminary-injunction stage) read the CFAA's 'whoever' as a person and attributed agent access to the directing user. Together these frame the attribution gap; the full opinion was not read (Leagle paywall).",
+    "California Civil Code 1714.46 removes the 'the AI acted autonomously' defence in civil suits. This is relevant to any California civil claim by an affected party.",
+    "Citation update: Kolt, 'Governing AI Agents', is now published at 101 Notre Dame L. Rev. 335 (2026) (https://ndlawreview.org/governing-ai-agents/). The arXiv preprint (2501.07913) is already held, so I did not add a duplicate.",
+    "Excluded on the date window: Hacker, 'The European AI liability directives - Critique of a half-hearted approach' (CLSR 51, Nov 2023). Excluded on score (5/9): Mukherjee and Chang, 'Agentic AI: Autonomy, Accountability, and the Algorithmic Society' (arXiv 2502.00289).",
+    "Possible exclusion-list additions (seen in results, not opened): theaicareerlab.com (SEO-style explainer on AI hack liability), truescreen.io 'Agentic AI Liability' (vendor SEO content), longtermwiki.com (aggregator wiki pages). letsdatascience.com appeared and is already excluded.",
+    "Credibility convention: laws read from official or unofficial texts are 'primary', with any unofficial copy noted. Papers, think-tank reports and official discussion papers that analyse rather than examine incident evidence are 'commentary'. Official summaries restating law are 'reported'. EUR-Lex entries are read_depth 'metadata' because article text did not render.",
+    "Search count: 60 WebSearch calls, at the 60 budget."
+  ],
+  "already_have_confirmed": [
+    "https://static1.squarespace.com/static/64edf8e7f2b10d716b5ba0e1/t/69f23d454b559e4d86a52d90/1777483077069/Risk+Reporting+for+Developers%27+Internal+AI+Model+Use.pdf (IAPS, Delaney et al., Risk Reporting for Developers' Internal AI Model Use; also at iaps.ai/research/risk-reporting-for-developers-internal-ai-model-use and arXiv 2604.24966)",
+    "https://www.governance.ai/research-paper/improving-frontier-ai-incident-reporting-regimes (Kara, GovAI; held in round3 governance-orgs.json as about-incident; anchor for incident-reporting)",
+    "https://arxiv.org/abs/2501.07913 (Kolt, Governing AI Agents; published version at ndlawreview.org)",
+    "https://ojs.aaai.org/index.php/AIES/article/view/31688 (Llorca Albareda, responsibility gap)",
+    "https://ec.europa.eu/newsroom/dae/redirection/document/118119 (GPAI Code of Practice, Safety and Security chapter)",
+    "https://ec.europa.eu/newsroom/dae/redirection/document/118340 (Commission GPAI scope guidelines)",
+    "https://digital-strategy.ec.europa.eu/en/consultations/ai-act-commission-issues-draft-guidance-and-reporting-template-serious-ai-incidents-and-seeks (draft Art. 73 guidance)",
+    "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+    "https://www.lw.com/admin/upload/SiteAttachments/European-Commission-Publishes-Draft-Guidance-Reporting-Serious-AI-Incidents.pdf",
+    "https://artificialintelligenceact.eu/article/2/ ; /article/55/ ; /article/73/ (unofficial AI Act article texts)",
+    "https://digitaldemocracy.calmatters.org/bills/ca_202520260sb53 (SB 53 tracker)",
+    "https://www.nysenate.gov/legislation/bills/2025/S8828 and Wiley RAISE alert (sitepilot12.firmseek.com)",
+    "https://www.law.cornell.edu/uscode/text/18/1030 (CFAA, unofficial; official govinfo text added)",
+    "https://www.legislation.gov.uk/ukpga/1990/18/section/1 and /section/3ZA (CMA; s.3 added)",
+    "https://arxiv.org/abs/2602.20021 (Agents of Chaos; held in background/oversight-eval-control.json)",
+    "https://www.imda.gov.sg/assets/d67062a6-6347-4995-ad49-910072e154b0.pdf (IMDA incident advisory; the separate IMDA legal-responsibility paper is added)",
+    "Herbosch, 'Europe's AI Liability Wake-Up Call' (Oxford Martin, held in round3); his NCJOLT article is added as distinct"
+  ],
+  "remaining": [
+    "Official SB 53 text on leginfo (billStatusClient fetch failed)",
+    "EUR-Lex article text for AI Act Arts 2(6), 2(8), 55, 73; Directive 2013/40/EU; PLD 2024/2853; NIS2 (pages rendered metadata only)",
+    "Amazon.com Services v. Perplexity AI, 9th Cir. No. 26-1444 (2026-08-04), full opinion (Leagle paywalled; official ca9 copy not found)",
+    "ICAO Annex 13 / NTSB-based proposals for AI incident investigation (no AI-specific source found)",
+    "Final (non-draft) Commission Art. 73 guidance, if adopted",
+    "CIRCIA final rule status (NPRM 2024; final rule due around Oct 2025; not verified)",
+    "Brundage (2025) on internal deployment as a legal loophole, cited by Stix et al.",
+    "Weil SSRN 4694006 full text; Law Commission discussion paper full PDF; IAPS Managing Risks full PDF",
+    "CDT incident-reporting work, if any"
+  ],
+  "sources": [
+    {
+      "title": "AI Behind Closed Doors: a Primer on The Governance of Internal Deployment",
+      "url": "https://arxiv.org/abs/2504.12170",
+      "publisher": "Apollo Research (arXiv preprint)",
+      "author": "Charlotte Stix; Matteo Pistillo; Girish Sastry; Marius Hobbhahn; Alejandro Ortega; Mikita Balesni; Annika Hallensleben; Nix Goldowsky-Dill; Lee Sharkey",
+      "date": "2025-04-16",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation",
+        "technical-safety"
+      ],
+      "type": "preprint",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Apollo Research \"AI Behind Closed Doors\" internal deployment governance",
+      "note": "Anchor. The foundational framing of internal deployment as a governance gap. Reviews 20+ US and EU legal texts, draws lessons from biosafety, chemicals and nuclear R&D, and proposes internal-use policies, an oversight board and pre-use information sharing with government."
+    },
+    {
+      "title": "Internal Deployment Gaps in AI Regulation",
+      "url": "https://arxiv.org/abs/2601.08005v3",
+      "publisher": "MIT CSAIL (arXiv preprint)",
+      "author": "Joe Kwon; Stephen Casper",
+      "date": "2026-01-12",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "preprint",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "GovAI internal deployment frontier AI paper",
+      "note": "Anchor. Compares how the EU AI Act and Code of Practice, SB 53, RAISE and the proposed federal AIREA handle internal systems. Finds three gaps: unclear scope (R&D exemptions), point-in-time compliance, and regulators not knowing which internal systems exist."
+    },
+    {
+      "title": "Internal Deployment in the AI Act",
+      "url": "https://arxiv.org/abs/2512.05742v1",
+      "publisher": "Apollo Research (arXiv legal memo)",
+      "author": "Matteo Pistillo",
+      "date": "2025-12-05",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "preprint",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "Pistillo \"Internal deployment in the EU AI Act\" arXiv 2512.05742",
+      "note": "Legal memo arguing Art. 2(1)(a)-(c) brings internally deployed models within the AI Act, and reading the Art. 2(6) and 2(8) research exceptions as complementary rather than exempting. Directly relevant to whether never-released models carried EU duties."
+    },
+    {
+      "title": "Managing Risks from Internal AI Systems",
+      "url": "https://www.iaps.ai/research/managing-risks-from-internal-ai-systems",
+      "publisher": "Institute for AI Policy and Strategy (IAPS)",
+      "author": "Ashwin Acharya; Oscar Delaney",
+      "date": "2025-07-21",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "technical-safety",
+        "security-geopolitics"
+      ],
+      "type": "think-tank",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "snowball from Internal Deployment Gaps in AI Regulation (ref. 1)",
+      "note": "Names AI-origin internal risks (internal rogue deployment, self-exfiltration, successor sabotage) alongside theft and misuse. Recommends extending government evaluations such as CAISI to internal models and lab-government information sharing."
+    },
+    {
+      "title": "You Don't Have to Sell It to Be Bound by It: GPAI and the EU AI Act",
+      "url": "https://www.lawfaremedia.org/article/you-don't-have-to-sell-it-to-be-bound-by-it--gpai-and-the-eu-ai-act",
+      "publisher": "Lawfare",
+      "author": "Eliška Andrš (with Kathrin Gardhouse)",
+      "date": "2026-09-16",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Pistillo \"Internal deployment in the EU AI Act\" arXiv 2512.05742",
+      "note": "Argues internal use places a GPAI model on the EU market. The 'sole purpose' R&D exemption is unlikely to fit commercial labs, and the broader one ends at putting into service. Floats Art. 93 premarket enforcement, tentatively."
+    },
+    {
+      "title": "What Should Frontier AI Developers Disclose About Internal Deployments?",
+      "url": "https://icml.cc/virtual/2026/78559",
+      "publisher": "ICML 2026, Second Workshop on Technical AI Governance Research",
+      "author": "Jacob Charnock; Raja Moreno; Justin Miller; William Anderson",
+      "date": "2026-07",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "internal deployment frontier AI governance 2026 paper rogue internal deployment oversight",
+      "note": "Workshop poster proposing four categories of internal-deployment disclosure (capabilities, usage, mitigations, governance), with costs and benefits of each, mapped onto SB 53, RAISE and Code of Practice reports. Date is the conference month."
+    },
+    {
+      "title": "When AI Builds AI: Findings From a Workshop on Automation of AI R&D",
+      "url": "https://cset.georgetown.edu/publication/when-ai-builds-ai/",
+      "publisher": "Center for Security and Emerging Technology (CSET), Georgetown",
+      "author": "Helen Toner; Kendrea Beers; Steve Newman; Saif M. Khan; Colin Shea-Blymyer; Evelyn Yee; Ashwin Acharya; Kathleen Fisher; Keller Scholl; Peter Wildeford; Ryan Greenblatt; Samuel Albanie; Stephanie Ballard; Thomas Larsen",
+      "date": "2026-01",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "security-geopolitics",
+        "technical-safety"
+      ],
+      "type": "think-tank",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "CSET \"When AI Builds AI\" workshop report automation of AI R&D",
+      "note": "Expert workshop finding that labs already use new models internally before release, and that outsiders learn about this only through voluntary, inconsistent company disclosures. Useful for the visibility argument behind internal-use oversight."
+    },
+    {
+      "title": "Pre-Deployment Evaluation of OpenAI's o1 Model",
+      "url": "https://www.nist.gov/node/1869881",
+      "publisher": "US AI Safety Institute (NIST) and UK AI Safety Institute",
+      "author": "US AISI; UK AISI",
+      "date": "2024-12-18",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "technical-safety",
+        "cybersecurity"
+      ],
+      "type": "official",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "\"pre-deployment evaluation\" US AISI UK AISI joint testing report Claude o1 2024",
+      "note": "A worked example of the voluntary government pre-deployment testing regime: a joint US-UK pre-release evaluation that included cyber challenges. Shows what government testing covered before release, and that it covered only pre-release versions."
+    },
+    {
+      "title": "US government agency to safety test frontier AI models before release",
+      "url": "https://www.cio.com/article/4168122/us-government-agency-to-safety-test-frontier-ai-models-before-release.html",
+      "publisher": "CIO",
+      "author": "Paul Barker",
+      "date": "2026-05-06",
+      "discipline": "governance-policy",
+      "also_relevant_to": [],
+      "type": "news",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "reported",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "pre-deployment testing frontier AI government access AISI CAISI agreements analysis 2025",
+      "note": "Reports that CAISI's pre-release testing agreements now cover five labs, OpenAI's dating from 2024. The agreements address models before public availability; whether internal-only models are covered is not stated."
+    },
+    {
+      "title": "EU AI Act unpacked #27: Guidelines on the scope of obligations for general-purpose AI models",
+      "url": "https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-27-guidelines-on-the-scope-of-obligations-for-general-purpos-102kxqo",
+      "publisher": "Freshfields (Technology Quotient blog)",
+      "author": "Theresa Ehlen; Lutz Riede; Laéna Bouafy; Verena Rocard; Julia Utzerath; John-Markus Maddaloni",
+      "date": "2025-07-25",
+      "discipline": "law-regulation",
+      "also_relevant_to": [],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Commission guidelines scope obligations general-purpose AI models placing on the market internal use",
+      "note": "Reads the Commission's GPAI guidelines as treating internal use as placing on the market only where essential to serving third parties or affecting people's rights. Narrower than Pistillo and Andrš, so useful for the scope debate."
+    },
+    {
+      "title": "Position: A Safe Harbor for AI Evaluation and Red Teaming",
+      "url": "https://mlanthology.org/icml/2024/longpre2024icml-position",
+      "publisher": "ICML 2024 (PMLR)",
+      "author": "Shayne Longpre; Sayash Kapoor; Kevin Klyman; et al. (23 authors)",
+      "date": "2024",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation",
+        "technical-safety"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "\"safe harbor for AI evaluation and red teaming\" Longpre third-party access pre-deployment",
+      "note": "Argues that independent pre- and post-release testing needs legal and technical safe harbours from labs. Background for the debate on who tests unreleased models, and under what protections."
+    },
+    {
+      "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act), Official Journal text",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+      "publisher": "EUR-Lex (Publications Office of the EU)",
+      "author": "European Parliament and Council",
+      "date": "2024-06-13",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "internal-deployment",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "metadata",
+      "found_via": "EUR-Lex Regulation (EU) 2024/1689 Artificial Intelligence Act official text",
+      "note": "The official source for Arts 2(6) and 2(8) (research and pre-market testing exclusions), 3, 55(1)(c) and 73. The EUR-Lex page did not render article text for me, so I confirmed metadata only. The unofficial article pages are already held."
+    },
+    {
+      "title": "Designing Incident Reporting Systems for Harms from General-Purpose AI",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/41139",
+      "publisher": "Proceedings of the AAAI Conference on Artificial Intelligence 40(44)",
+      "author": "Kevin Wei; Lennart Heim",
+      "date": "2026-03-14",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "longtermresilience.org \"AI incident reporting\" report Tommy Shaffer Shane",
+      "note": "Anchor. Peer-reviewed seven-part design framework covering goals, reporters and recipients, incident types, harm threshold, enforcement, anonymity and follow-up. Draws lessons from nine safety-critical industries, including near-miss reporting and mandatory versus voluntary reporting."
+    },
+    {
+      "title": "An Argument for Hybrid AI Incident Reporting: Lessons Learned from Other Incident Reporting Systems",
+      "url": "https://cset.georgetown.edu/wp-content/uploads/CSET-An-Argument-for-Hybrid-AI-Incident-Reporting.pdf",
+      "publisher": "Center for Security and Emerging Technology (CSET)",
+      "author": "Ren Bin Lee Dixon; Heather Frase",
+      "date": "2024-03",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "think-tank",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "CSET AI incident reporting mandatory federal framework report",
+      "note": "Anchor. Proposes mandatory, voluntary and citizen reporting channels feeding an independent body, using lessons from healthcare, NTSB/ASRS transport safety and CIRCIA. A key cross-sector source."
+    },
+    {
+      "title": "AI Incidents: Key Components for a Mandatory Reporting Regime",
+      "url": "https://cset.georgetown.edu/publication/ai-incidents-key-components-for-a-mandatory-reporting-regime/",
+      "publisher": "Center for Security and Emerging Technology (CSET)",
+      "author": "Ren Bin Lee Dixon; Heather Frase",
+      "date": "2025-01",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "think-tank",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "CSET AI incident reporting mandatory federal framework report",
+      "note": "Standard incident fields (type, severity, technical data, affected parties, context), plus a call for an independent investigative agency to find facts not visible in the first report."
+    },
+    {
+      "title": "Towards a common reporting framework for AI incidents",
+      "url": "https://www.oecd.org/en/publications/towards-a-common-reporting-framework-for-ai-incidents_f326d4ac-en.html",
+      "publisher": "OECD (OECD Artificial Intelligence Papers)",
+      "author": "OECD",
+      "date": "2025-02-27",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "official",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "OECD \"common reporting framework\" AI incidents 2025 publication",
+      "note": "Anchor. A 29-criterion common framework that countries can adopt so incident reports are interoperable across jurisdictions. It is the international reference point for the cross-border reporting questions raised by a US lab harming a firm in Europe."
+    },
+    {
+      "title": "AI incident reporting: Addressing a gap in the UK's regulation of AI",
+      "url": "https://longtermresilience.org/post/ai-incident-reporting-addressing-a-gap-in-the-uk-s-regulation-of-ai",
+      "publisher": "Centre for Long-Term Resilience (CLTR)",
+      "author": "Tommy Shaffer Shane",
+      "date": "2024-06-26",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "think-tank",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Centre for Long-Term Resilience AI incident reporting gap UK report",
+      "note": "UK proposal for DSIT incident capacity, with advanced foundation models named as a coverage gap. Explicitly modelled on aviation and medicine reporting."
+    },
+    {
+      "title": "Responsible Reporting for Frontier AI Development",
+      "url": "https://ojs.aaai.org/index.php/AIES/article/view/31678",
+      "publisher": "Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society 7(1)",
+      "author": "Noam Kolt; Markus Anderljung; Joslyn Barnhart; Asher Brass; Kevin Esvelt; Gillian K. Hadfield; Lennart Heim; Mikel Rodriguez; Jonas B. Sandbrink; Thomas Woodside",
+      "date": "2024-10-16",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "IAPS internal deployment AI policy report (snowball via IAPS research list)",
+      "note": "Proposes developer-to-government safety reporting, with voluntary and regulatory routes. Liability safe harbours and enforcement against misreporting are central to debates on candid post-incident disclosure."
+    },
+    {
+      "title": "Coordinated Disclosure of Dual-Use Capabilities: An Early Warning System for Advanced AI",
+      "url": "https://www.iaps.ai/research/coordinated-disclosure",
+      "publisher": "Institute for AI Policy and Strategy (IAPS)",
+      "author": "Joe O'Brien",
+      "date": "2024-06-21",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "cybersecurity",
+        "security-geopolitics"
+      ],
+      "type": "think-tank",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "snowball from IAPS Policy and Standards research list",
+      "note": "Proposes a US government coordinator for reports of dangerous capabilities, modelled on vulnerability disclosure. Relevant to how cyber-offence capability findings from evaluations should reach defenders."
+    },
+    {
+      "title": "Lessons for Editors of AI Incidents from the AI Incident Database",
+      "url": "https://arxiv.org/abs/2409.16425v1",
+      "publisher": "arXiv preprint (AI Incident Database / Responsible AI Collaborative)",
+      "author": "Kevin Paeth; Daniel Atherton; Nikiforos Pittaras; Heather Frase; Sean McGregor",
+      "date": "2024-09-24",
+      "discipline": "governance-policy",
+      "also_relevant_to": [],
+      "type": "preprint",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "longtermresilience.org \"AI incident reporting\" report Tommy Shaffer Shane",
+      "note": "Shows that uncertainty about cause, severity and technical detail is built into incident records. Directly useful to the Index's own editorial method for a contested incident."
+    },
+    {
+      "title": "Bill Text: CA SB53, 2025-2026 Regular Session, Chaptered (Transparency in Frontier Artificial Intelligence Act)",
+      "url": "https://legiscan.com/CA/text/SB53/2025",
+      "publisher": "LegiScan (unofficial copy of California statute, Ch. 138, Stats. 2025)",
+      "author": "California Legislature (Sen. Wiener)",
+      "date": "2025-09-29",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "leginfo.legislature.ca.gov SB-53 Artificial intelligence models: large developers bill text 2025",
+      "note": "Unofficial copy; the official leginfo fetch failed. Defines a critical safety incident, excluding deceptive behaviour inside evaluations designed to elicit it. Sets 15-day/24-hour reporting to OES and quarterly internal-use risk summaries (Bus. & Prof. Code 22757.11-13)."
+    },
+    {
+      "title": "Governor Hochul Signs Nation-Leading Legislation to Require AI Frameworks for AI Frontier Models",
+      "url": "https://governor.ny.gov/news/governor-hochul-signs-nation-leading-legislation-require-ai-frameworks-ai-frontier-models",
+      "publisher": "Office of the Governor of New York",
+      "author": "Office of the Governor of New York",
+      "date": "2025-12-19",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "official",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "reported",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "New York RAISE Act signed chapter amendment safety incident 72 hours frontier developers analysis",
+      "note": "Official announcement of the RAISE Act chapter amendments (S6953B/A6453B): 72-hour incident reporting to the State and a new DFS oversight office. Restates the law; the bill text is held separately (S8828)."
+    },
+    {
+      "title": "New York Enacts the RAISE Act Regulating Frontier AI Models",
+      "url": "https://www.mofo.com/resources/insights/260105-new-york-enacts-the-raise-act-regulating-frontier-ai-models",
+      "publisher": "Morrison & Foerster",
+      "author": "Tessa Schwartz; Marian A. Waldmann Agarwal; Maya Vishwanath",
+      "date": "2026-01-05",
+      "discipline": "law-regulation",
+      "also_relevant_to": [],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "nysenate.gov S6953 RAISE Act Responsible AI Safety and Education Act bill text safety incident",
+      "note": "Practitioner summary of the amended RAISE Act: AG enforcement, penalties up to $1m/$3m, no private right of action. Notes the agreed amendments were not yet in the enacted text."
+    },
+    {
+      "title": "European Commission seeks feedback on draft guidance on serious AI incidents",
+      "url": "https://www.dlapiper.com/insights/publications/ai-outlook/2025/european-commission-seeks-feedback-on-draft-guidance-on-serious-ai-incidents",
+      "publisher": "DLA Piper (AI Outlook)",
+      "author": "DLA Piper",
+      "date": "2025-10-15",
+      "discipline": "law-regulation",
+      "also_relevant_to": [],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "European Commission guidelines serious incident reporting Article 73 AI Act draft guidance template 2025",
+      "note": "Explains the draft Art. 73 guidance, including indirect causation and foreseeable use. Notes that one event can trigger AI Act, NIS 2 and CER notifications to different authorities. Useful for mapping parallel EU reporting duties."
+    },
+    {
+      "title": "Directive (EU) 2022/2555 (NIS 2), Article 23: Reporting obligations",
+      "url": "https://www.springlex.eu/en/packages/nis2/nis2-directive/article-23/",
+      "publisher": "Springlex (unofficial consolidated text; links to EUR-Lex CELEX 02022L2555-20221227)",
+      "author": "European Parliament and Council",
+      "date": "2022-12-27",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "cybersecurity"
+      ],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "NIS2 Directive (EU) 2022/2555 EUR-Lex Article 23 reporting obligations",
+      "note": "Unofficial copy; EUR-Lex not fetched. The cyber benchmark: 24-hour early warning, 72-hour notification, one-month final report for significant incidents at essential and important entities. Relevant to the breached platform's side of the incident."
+    },
+    {
+      "title": "Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA): Notice of Proposed Rulemaking Informational Overview",
+      "url": "https://www.cisa.gov/sites/default/files/2024-05/CIRCIA%20NPRM%20Overview%20May_508cL.pdf",
+      "publisher": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "author": "CISA",
+      "date": "2024-05",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "cybersecurity"
+      ],
+      "type": "official",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "CIRCIA Cyber Incident Reporting for Critical Infrastructure Act CISA rule 72 hours federal register",
+      "note": "The agency's own overview of the proposed CIRCIA rule: 72-hour incident and 24-hour ransom-payment reports, data preservation, and covered critical-infrastructure entities. The US cyber analogue AI reporting proposals borrow from."
+    },
+    {
+      "title": "Artificial intelligence related safety issues associated with FDA medical device reports",
+      "url": "https://doaj.org/article/af09ce6bb89840bf87f617dc01d79910",
+      "publisher": "npj Digital Medicine 7(1)",
+      "author": "Jessica L. Handley; Seth A. Krevat; Allan Fong; Raj M. Ratwani",
+      "date": "2024-12",
+      "discipline": "governance-policy",
+      "also_relevant_to": [],
+      "type": "paper",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "patient safety adverse event reporting lessons for AI incident reporting medicine FDA MAUDE AI paper 2025",
+      "note": "Medical-sector evidence: about a third of AI device reports lacked enough detail to judge whether AI contributed. A concrete lesson that reporting templates must capture AI-specific causal data."
+    },
+    {
+      "title": "Proposed US law would make AI risk reporting a legal obligation",
+      "url": "https://www.csoonline.com/article/4189908/proposed-us-law-would-make-ai-risk-reporting-a-legal-obligation.html",
+      "publisher": "CSO Online",
+      "author": "Gyana Swain",
+      "date": "2026-06-26",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "news",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "reported",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "GovAI AI incident reporting frontier developers proposal paper governance.ai",
+      "note": "Reports Rep. Moran's AI Incident Reporting Act: 7-day reports to Commerce covering oversight evasion, unauthorized access and offensive cyber capability, with subpoena and penalty powers. A federal proposal predating the incident."
+    },
+    {
+      "title": "The GPAI Code of Practice: Delayed, Yet Full of Promise",
+      "url": "https://verfassungsblog.de/the-gpai-code-of-practice/",
+      "publisher": "Verfassungsblog",
+      "author": "Gustavo Gil Gasiola",
+      "date": "2025-07-16",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "GPAI Code of Practice Safety and Security chapter final text internal use serious incident reporting commitment",
+      "note": "Academic reading of the final Code's Safety and Security chapter: loss of control and cyber offence as default systemic risks, serious-incident tracking under Art. 55(1)(c), and contested external-evaluator access."
+    },
+    {
+      "title": "Visibility into AI Agents",
+      "url": "https://www.governance.ai/analysis/visibility-into-ai-agents",
+      "publisher": "Centre for the Governance of AI (GovAI); FAccT 2024",
+      "author": "Alan Chan et al.",
+      "date": "2024-05-15",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "technical-safety",
+        "law-regulation"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "incident-reporting",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Chan \"Visibility into AI Agents\" agent identifiers activity logging FAccT 2024",
+      "note": "Proposes agent identifiers, real-time monitoring and activity logs. These are the evidentiary basis for investigating, attributing and reporting incidents caused by agents."
+    },
+    {
+      "title": "The Law of AI is the Law of Risky Agents Without Intentions",
+      "url": "https://lawreview.uchicago.edu/online-archive/law-ai-law-risky-agents-without-intentions",
+      "publisher": "The University of Chicago Law Review Online",
+      "author": "Ian Ayres; Jack M. Balkin",
+      "date": "2024-11-27",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "ethics-philosophy"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Ayres Balkin \"The Law of AI is the Law of Risky Agents without Intentions\"",
+      "note": "Anchor. Answers the mens rea gap by ascribing intention to AI for its foreseeable consequences and holding designers and deployers to objective standards. Treats AI as an agent of its principals, who cannot dilute their duty of care by substitution."
+    },
+    {
+      "title": "Law-Following AI: Designing AI Agents to Obey Human Laws",
+      "url": "https://ir.lawnet.fordham.edu/flr/vol94/iss1/2",
+      "publisher": "Fordham Law Review 94(1)",
+      "author": "Cullen O'Keefe; Ketan Ramakrishnan; Janna Tay; Christoph Winter",
+      "date": "2025-10-01",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "ethics-philosophy",
+        "governance-policy"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "\"Law-Following AI\" O'Keefe LawAI designing AI agents to obey human laws",
+      "note": "Anchor. Proposes imposing legal duties directly on AI agents so they refuse illegal acts, such as unauthorized access, even when a principal or task pushes them. Key reference for agents breaking the law to reach a goal."
+    },
+    {
+      "title": "Tort Law at the Frontier of Artificial Intelligence",
+      "url": "https://www.yalejreg.com/wp-content/uploads/Ramakrishnan-Article-43.3.pdf",
+      "publisher": "Yale Journal on Regulation 43:960",
+      "author": "Ketan Ramakrishnan",
+      "date": "2026",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Ramakrishnan tort law frontier AI negligence \"reasonable care\" AI developers Lawfare 2024",
+      "note": "Defends negligence over strict, vicarious or product liability for foundation models. Proposes a 'behavioral malfunction' doctrine and a duty against harm resembling human wrongdoing. Warns liability can chill risk disclosure."
+    },
+    {
+      "title": "Tort Law and Frontier AI Governance",
+      "url": "https://www.governance.ai/research-paper/tort-law-and-frontier-ai-governance",
+      "publisher": "Lawfare / Centre for the Governance of AI",
+      "author": "Matthew van der Merwe; Ketan Ramakrishnan; Markus Anderljung",
+      "date": "2024-05-24",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "Ramakrishnan tort law frontier AI negligence \"reasonable care\" AI developers Lawfare 2024",
+      "note": "Argues tort law can hold frontier developers to reasonable care before and alongside regulation. Starts the Lawfare exchange with Weil."
+    },
+    {
+      "title": "Tort Law Should Be the Centerpiece of AI Governance",
+      "url": "https://www.lawfaremedia.org/article/tort-law-should-be-the-centerpiece-of-ai-governance",
+      "publisher": "Lawfare",
+      "author": "Gabriel Weil",
+      "date": "2024-08-06",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "snowball from Tort Law and Frontier AI Governance",
+      "note": "Argues for strict liability, punitive damages in near-miss cases, and mandatory insurance. Directly relevant to a compensable, non-catastrophic event that signals catastrophic risk."
+    },
+    {
+      "title": "Tort Law as a Tool for Mitigating Catastrophic Risk from Artificial Intelligence",
+      "url": "https://private-law-theory.org/?p=64870",
+      "publisher": "SSRN working paper (abstract reproduced on Private Law Theory)",
+      "author": "Gabriel Weil",
+      "date": "2024-01-13",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "Gabriel Weil \"Tort Law as a Tool for Mitigating Catastrophic Risk from Artificial Intelligence\"",
+      "note": "The full scholarly case for treating frontier training and deployment as abnormally dangerous, and for pulling expected catastrophic liability forward through punitive damages. SSRN abstract 4694006 was not opened directly."
+    },
+    {
+      "title": "Liability for AI Agents",
+      "url": "https://journals.law.unc.edu/ncjolt/?p=9525",
+      "publisher": "North Carolina Journal of Law & Technology 26(3)",
+      "author": "Maarten Herbosch",
+      "date": "2025-04",
+      "discipline": "law-regulation",
+      "also_relevant_to": [],
+      "type": "paper",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "liability for AI agents law review 2025 SSRN autonomous agents tort",
+      "note": "Law-and-economics counterpoint: AI agents largely fit existing product and tort doctrine, with targeted fixes for causation borrowed from medical malpractice. The author's Oxford Martin blog on the incident is already held."
+    },
+    {
+      "title": "An Autonomy-Based Classification: AI Agents, Liability and Lessons from the Automated Vehicles Act",
+      "url": "https://www.interface-eu.org/publications/ai-agent-classification",
+      "publisher": "Interface, with the Ada Lovelace Institute",
+      "author": "Lisa Soder; Julia Smakman; Connor Dunlop; Oliver Sussman",
+      "date": "2025-04-02",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "law-regulation"
+      ],
+      "type": "think-tank",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "liability for AI agents law review 2025 SSRN autonomous agents tort",
+      "note": "A five-level autonomy scale borrowed from UK automated-vehicle law. Responsibility shifts upstream to developers as user control falls, and logging and insurance are recommended."
+    },
+    {
+      "title": "Legal Responsibility for AI Agents (Discussion Paper)",
+      "url": "https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/agents-legal-responsibility.pdf",
+      "publisher": "Infocomm Media Development Authority of Singapore (IMDA)",
+      "author": "IMDA with a legal-community working group",
+      "date": "2026-05",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "official",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "Salib \"AI agents\" strict liability or \"AI rights\" law paper 2025 2026 rogue AI legal responsibility developers",
+      "note": "Official discussion paper whose worked hypothetical is an agent hacking a cloud provider. Analyses negligence duty, breach, causation and remoteness across the value chain. Excludes criminal law. Distinct from IMDA's incident advisory, which is already held."
+    },
+    {
+      "title": "Artificial Intelligence and Federal Criminal Law: Considerations for Congress (LSB11487)",
+      "url": "https://www.everycrsreport.com/reports/LSB11487.html",
+      "publisher": "Congressional Research Service (via EveryCRSReport)",
+      "author": "Congressional Research Service",
+      "date": "2026-10-08",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "report",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "criminal liability mens rea AI agents unauthorized access law review 2025 \"computer misuse\" autonomous",
+      "note": "Concludes that unanticipated agent hacking may facially match the CFAA. Deployers likely escape liability without intent, because aiding-and-abetting, respondeat superior and Pinkerton all need intent. Lists options including a responsible-corporate-officer rule. Read via a mirror of the CRS text."
+    },
+    {
+      "title": "Ninth Circuit Rules on AI Agent 'Access' to Third-Party Websites Under CFAA",
+      "url": "https://www.cooley.com/news/insight/2026/2026-08-06-ninth-circuit-rules-on-ai-agent-access-to-third-party-websites-under-cfaa",
+      "publisher": "Cooley",
+      "author": "Cooley (contacts: Max Bernstein; William K. Pao; Madeleine Ahlers)",
+      "date": "2026-08-06",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "cybersecurity"
+      ],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "Ninth Circuit 2026 opinion AI agent CFAA user not developer responsible decision name",
+      "note": "Amazon v. Perplexity (9th Cir. No. 26-1444, 4 Aug 2026): the CFAA's 'whoever' means a person, so the directing user, not the developer, accessed. Preliminary-injunction stage only. Separate matter; relevant for its attribution reasoning."
+    },
+    {
+      "title": "18 U.S. Code § 1030, Fraud and related activity in connection with computers (2018 ed.)",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2018-title18/html/USCODE-2018-title18-partI-chap47-sec1030.htm",
+      "publisher": "GovInfo (US Government Publishing Office)",
+      "author": "US Congress",
+      "date": "2018",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "cybersecurity"
+      ],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "uscode.house.gov 18 USC 1030 fraud and related activity in connection with computers",
+      "note": "Official CFAA text (2018 edition; later amendments not checked). Mental states are intentional access, plus knowing or reckless damage in (a)(5). The civil action in (g) excludes negligent software design. Cornell's unofficial copy is already held."
+    },
+    {
+      "title": "Computer Misuse Act 1990, section 3: Unauthorised acts with intent to impair, or with recklessness as to impairing, operation of computer, etc.",
+      "url": "https://legislation.gov.uk/ukpga/1990/18/section/3",
+      "publisher": "legislation.gov.uk (The National Archives)",
+      "author": "UK Parliament",
+      "date": "1990 (revised to 2023-02-07)",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "cybersecurity"
+      ],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "legislation.gov.uk Computer Misuse Act 1990 section 3 unauthorised acts intent recklessness impair",
+      "note": "Official text. The s.3 offence requires knowledge that the act is unauthorised plus intent or recklessness as to impairment, and 'causing an act to be done' counts as doing it. Complements the s.1 and s.3ZA pages already held."
+    },
+    {
+      "title": "Directive 2013/40/EU on attacks against information systems",
+      "url": "https://eur-lex.europa.eu/eli/dir/2013/40/oj/eng",
+      "publisher": "EUR-Lex (Publications Office of the EU)",
+      "author": "European Parliament and Council",
+      "date": "2013-08-12",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "cybersecurity"
+      ],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "metadata",
+      "found_via": "Directive 2013/40/EU attacks against information systems eur-lex",
+      "note": "Foundational EU computer-crime instrument (illegal access, system and data interference, legal-person liability) setting the 'intentionally and without right' mens rea. The EUR-Lex page did not render article text; only metadata was confirmed."
+    },
+    {
+      "title": "Directive (EU) 2024/2853 on liability for defective products and repealing Council Directive 85/374/EEC",
+      "url": "https://eur-lex.europa.eu/eli/dir/2024/2853",
+      "publisher": "EUR-Lex (Publications Office of the EU)",
+      "author": "European Parliament and Council",
+      "date": "2024-10-23",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 3
+      },
+      "paywalled": false,
+      "read_depth": "metadata",
+      "found_via": "Directive (EU) 2024/2853 liability for defective products EUR-Lex software AI",
+      "note": "The revised PLD: software and AI as products, defectiveness factors including continued learning and cybersecurity, and presumptions. The EUR-Lex page rendered metadata only (in force 2024-11-18). Substance was taken from the Bird & Bird summary."
+    },
+    {
+      "title": "AI Liability in light of the new 2024 PLD: expanded liability, challenging defences, and new evidentiary burdens",
+      "url": "https://cm.twobirds.com/en/insights/2026/france/ai-liability-in-light-of-the-new-2024-pld-expanded-liability-challenging-defences-and-new-evidentiar",
+      "publisher": "Bird & Bird",
+      "author": "Charles-Henri Caron; Lînah Bonneville",
+      "date": "2026",
+      "discipline": "law-regulation",
+      "also_relevant_to": [],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "\"Product Liability Directive\" AI agents developer liability \"2024/2853\" scholarly article 2025 Computer Law Security Review OR SSRN",
+      "note": "Explains PLD Arts 4, 7 and 8 and the disclosure and presumption rules. Confirms the PLD applies only to products placed on the market after 9 Dec 2026. Exact publication date is not shown."
+    },
+    {
+      "title": "Anatomy of a Fall: On the Anticipated Withdrawal of the AI Liability Directive Proposal",
+      "url": "https://verfassungsblog.de/anatomy-of-a-fall-aiact-aild-pld/",
+      "publisher": "Verfassungsblog",
+      "author": "Cristina Frattone",
+      "date": "2025-05-06",
+      "discipline": "law-regulation",
+      "also_relevant_to": [],
+      "type": "blog-expert",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 2,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "partial",
+      "found_via": "AI Liability Directive withdrawn Commission 2025 work programme product liability directive AI gap analysis",
+      "note": "Explains the gap left by withdrawing the AILD. PLD limits (excluded harms, state-of-the-art defence) push victims to national fault law without causation presumptions or disclosure aids."
+    },
+    {
+      "title": "Civil Code section 1714.46",
+      "url": "https://california.public.law/codes/civil_code_section_1714.46",
+      "publisher": "California Public Law (unofficial copy of Cal. Civ. Code § 1714.46)",
+      "author": "California Legislature",
+      "date": "2025",
+      "discipline": "law-regulation",
+      "also_relevant_to": [],
+      "type": "legislation",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "primary",
+      "scores": {
+        "authority": 3,
+        "evidence": 3,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "full",
+      "found_via": "California AB 316 artificial intelligence autonomous act defense Civil Code 1714.46",
+      "note": "Unofficial copy. Bars developers, modifiers and users from pleading that AI acted autonomously as a defence in California civil actions, while preserving causation, foreseeability and comparative-fault arguments. Linking it to AB 316 rests on search metadata."
+    },
+    {
+      "title": "Infrastructure for AI Agents",
+      "url": "https://mlanthology.org/tmlr/2025/chan2025tmlr-infrastructure/",
+      "publisher": "Transactions on Machine Learning Research",
+      "author": "Alan Chan; Kevin Wei; Sihao Huang; Nitarshan Rajkumar; Elija Perrier; Seth Lazar; Gillian K. Hadfield; Markus Anderljung",
+      "date": "2025",
+      "discipline": "governance-policy",
+      "also_relevant_to": [
+        "technical-safety",
+        "law-regulation"
+      ],
+      "type": "paper",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "Chan \"Infrastructure for AI Agents\" attribution interaction remedies 2025 arXiv",
+      "note": "Proposes agent infrastructure whose first function is attribution, binding actions to agents and responsible parties, plus remedies. This is the technical precondition for allocating liability when many agents act."
+    },
+    {
+      "title": "Artificial Intelligence and the Law: a discussion paper",
+      "url": "https://lawcom.gov.uk/?p=3306",
+      "publisher": "Law Commission of England and Wales",
+      "author": "Law Commission",
+      "date": "2025-07-31",
+      "discipline": "law-regulation",
+      "also_relevant_to": [
+        "governance-policy"
+      ],
+      "type": "official",
+      "relation": "background",
+      "theme": "liability-for-agents",
+      "credibility": "commentary",
+      "scores": {
+        "authority": 3,
+        "evidence": 2,
+        "relevance": 2
+      },
+      "paywalled": false,
+      "read_depth": "abstract",
+      "found_via": "Law Commission England Wales discussion paper \"AI and the law\" 2025 liability gaps autonomous",
+      "note": "Official law-reform body mapping private, public and criminal-law issues from AI autonomy and adaptiveness, including possible liability gaps. Makes no reform proposals; the full PDF was not opened."
+    }
+  ]
+}

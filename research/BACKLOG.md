@@ -42,6 +42,13 @@ Research is **paused** (19 Oct 2026, 20:00 Athens). Every researcher saved its v
 ### Lesson for future rounds
 Each turn has a shared budget of about 200 web searches across all researchers. Run at most three researchers at a time, give each a fixed checklist, and expect each to manage 50–80 searches.
 
+## Round 3 (organisations deep sweep) and round 4 (background literature)
+
+- Round 3: 49 new sources from 74 organisations (governance think tanks, safety orgs and fellowships, policy and advocacy). 22 policy organisations' own sites were never reached by search; their "not found" rests on searches only (RAND, Brookings, Carnegie, AEI, Hoover, Heritage, R Street, Niskanen, FAI, IFP, SCSP, MIRI, PauseAI, ControlAI, Secure AI Project, Midas, AI Lab Watch, EPIC, CDT, Access Now, AlgorithmWatch, AI Policy Institute). CBAI and Truthful AI effectively unchecked.
+- Round 4: 167 background sources across 10 themes. Gaps: CISA/BSI/ANSSI agent-sandboxing guidance; ICAO/NTSB-style AI investigation literature; the September 2024 o1-preview system card; IMDA framework PDF; official EU texts (EUR-Lex showed metadata only).
+- Leads not yet added: Alston & Bird "Autonomous Hacking" note (30 Jul 2026, analyses the incident under the CFAA); LessWrong posts by Lao Mein, Cant and Kane, Flood; ~10 more Apart sprint entries; Toner in the Washington Post (10 Aug) and ABC 7.30 (5 Aug); Ó hÉigeartaigh in TIME and the Irish Times.
+- Facts to check on the incident page: ExploitGym authorship (Berkeley-led, with OpenAI and Google co-authors); whether Hugging Face dataset loading scripts still ran in July 2026; SB 53 excludes deception inside evaluations designed to elicit it; revised PLD applies only to products placed on the market after 9 Dec 2026.
+
 ## Not started
 - **Field-wide library** (50–100 foundational sources per discipline), after the pilot method is approved.
 - **Disciplines held in reserve:** biosecurity; economics, insurance and finance.

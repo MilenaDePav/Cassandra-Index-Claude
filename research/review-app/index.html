@@ -153,6 +153,7 @@ li.src[data-decision="flag"] { box-shadow: inset 3px 0 0 var(--flag); padding-le
     'law-regulation': 'Law and regulation', 'ethics-philosophy': 'Ethics and philosophy', 'security-geopolitics': 'Security and geopolitics', 'general': 'General coverage'
   };
   const CAT = { official: 'Official and legal documents', disclosures: 'Company disclosures', reports: 'Technical reports and papers', 'think-tanks': 'Think-tank analysis', commentary: 'Expert newsletters and commentary', news: 'News articles', media: 'Podcasts and video', data: 'Datasets and trackers' };
+  const THEME = { 'ai-oversight-of-ai': 'Can AI police AI?', 'agent-evaluation': 'Evaluating agents', 'containment-and-control': 'Containment and control', 'multi-agent-risk': 'Multi-agent risk', 'reward-hacking': 'Reward hacking', 'internal-deployment': 'Internal deployment', 'incident-reporting': 'Incident reporting', 'liability-for-agents': 'Liability for agents', 'ai-cyber-offence': 'AI and cyber offence', 'ml-supply-chain': 'ML supply-chain security' };
   const CRED = { primary: 'Primary source', verified: 'Verified', reported: 'Reported', commentary: 'Commentary' };
   const REC = { include: 'Include', 'include-caveat': 'Include with caveat', exclude: 'Exclude' };
   const state = { sources: [], decisions: {}, cat: '', db: null, canWrite: true };
@@ -209,7 +210,7 @@ li.src[data-decision="flag"] { box-shadow: inset 3px 0 0 var(--flag); padding-le
           <span>${esc(DISC[s.discipline] || s.discipline)}</span>
           <span>${esc(s.typeLabel || s.type)}</span>
           <span class="tag ${esc(s.credibility)}">${esc(CRED[s.credibility] || s.credibility)}</span>
-          ${s.relation === 'background' ? '<span>Background</span>' : ''}
+          ${s.relation === 'background' ? `<span>Background${s.theme ? ': ' + esc(THEME[s.theme] || s.theme) : ''}</span>` : ''}
           ${s.essential ? '<span class="tag ess">Start here</span>' : ''}
           ${s.score != null ? `<span>Score ${s.score}/9</span>` : ''}
           ${s.round === 2 ? '<span class="r2">Round 2</span>' : ''}

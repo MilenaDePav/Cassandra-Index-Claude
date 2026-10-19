@@ -18,3 +18,4 @@ Checked by every researcher before searching. Add entries with a date and reason
 | dailyaiworld.com | Near-duplicate pages (flagged round 3, not opened) | 2026-10-19 |
 | techjacksolutions.com | SEO-style pages (flagged round 3, not opened) | 2026-10-19 |
 | themoonlight.io, haebom.dev, papers.lunadong.com, sotaverified.org, awesomepapers.io, explainx.ai, remio.ai, vibegraveyard.ai, tech-insider.org, gmagazine.it.com, for.you.com | Automated paper summaries or rewrites (flagged in background round, not opened) | 2026-10-19 |
+| theaicareerlab.com, truescreen.io, longtermwiki.com | Seen in results, appear automated or derivative (background round, not opened) | 2026-10-19 |
