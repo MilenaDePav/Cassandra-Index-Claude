@@ -9,7 +9,7 @@ Each incident gets a plain-language summary and a library of every credible tech
 - **Incidents** live as one YAML file each in `src/data/incidents/`. The schema (and its checks) is in `src/content.config.ts`.
 - **Risk taxonomy, evidence tiers, lenses** are defined in `src/data/taxonomy.ts`.
 - Entries with `status: draft` or `review` are **hidden on the public site**. Set `status: published` once the editor has checked an entry.
-- Every push to `main` rebuilds and deploys the site through GitHub Pages.
+- Deploys are manual until launch: Actions tab → "Deploy to GitHub Pages" → Run workflow.
 
 ## Commands
 

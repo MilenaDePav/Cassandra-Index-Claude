@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
+# Manual only until launch: run it from the Actions tab ("Run workflow").
+# To deploy on every push after launch, add back:  push: { branches: [main] }
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
