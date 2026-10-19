@@ -28,6 +28,20 @@ Research is **paused** (19 Oct 2026, 20:00 Athens). Every researcher saved its v
 - Anthropic: three real-world intrusions found in a review of its cyber evaluations (30 Jul)
 - Australia: Medicare breach by the same agent campaign (Sep)
 
+## Round 2 (19 Oct, evening): newsletters, think tanks, organisations
+
+65 new sources added (361 in total), plus coverage checklists of 141 names (38 writers, 55 think tanks, 48 organisations). Round-2 sources have not had the independent reviewer pass; they carry a "Round 2" flag in the review app.
+
+### Still to finish from round 2 (search limit cut these short)
+- **Think tanks checked by one combined search only** (treat "not found" as provisional): AEI, Hoover, Heritage, R Street, Niskanen, FAI.
+- **Newsletters:** open sweep for other expert Substacks; second tries for Helen Toner and Kevin Frazier; 11 smaller Substacks listed in `round2/newsletters.json` findings, not yet opened.
+- **Organisations:** CAIS AI Safety Newsletter issues 81 onwards, OpenAI 5 Sep wiki statement, International AI Safety Report key update, Conjecture, Japan/Canada/France institutes, Frontier Model Forum follow-ups.
+- **Unopened but likely important:** LawAI op-ed by Mackenzie Arnold and Stephan Llerena, Guardian, 8 Sep 2026 (blocked); Heidy Khlaaf comment in Nature (fetch failed); Casey Newton's paywalled Platformer post; second Wildeford post; one Jarovsky post that would not load.
+- **BlueDot lesson text:** behind login; only reading lists were visible. The editor can check the lessons directly while signed in.
+
+### Lesson for future rounds
+Each turn has a shared budget of about 200 web searches across all researchers. Run at most three researchers at a time, give each a fixed checklist, and expect each to manage 50–80 searches.
+
 ## Not started
 - **Field-wide library** (50–100 foundational sources per discipline), after the pilot method is approved.
 - **Disciplines held in reserve:** biosecurity; economics, insurance and finance.

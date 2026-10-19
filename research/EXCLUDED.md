@@ -13,3 +13,5 @@ Checked by every researcher before searching. Add entries with a date and reason
 | letsdatascience.com | Appears machine-rewritten; dates inconsistent | 2026-10-19 |
 | modernaction.io | Appears machine-rewritten (flagged in round 2, not opened) | 2026-10-19 |
 | news.ainauten.com | Appears machine-rewritten (flagged in round 2, not opened) | 2026-10-19 |
+| situational-intelligence.onrender.com | Automated briefing | 2026-10-19 |
+| book.st-hakky.com | Rewrites other coverage | 2026-10-19 |
