@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import TierLadder from '../components/TierLadder.astro';
-import { RISK_TYPES, TIERS, SEVERITIES, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY } from '../data/taxonomy';
+import { RISK_TYPES, TIERS, SEVERITIES, DISCIPLINES, CATEGORIES, CREDIBILITY } from '../data/taxonomy';
 ---
 <Base title="Methodology" description="How the Cassandra Index decides what to include, how it grades evidence and severity, and how sources are checked.">
   <div class="wrap prose">
@@ -39,7 +39,7 @@ import { RISK_TYPES, TIERS, SEVERITIES, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY
     <h2 id="sources">Sources and credibility</h2>
     <p>Each incident has a resource library built by researchers working in six disciplines. Every source is tagged with the discipline whose literature it belongs to, the type of document it is, and whether it discusses the incident itself or is background a researcher needs to analyse it.</p>
     <ul>{Object.values(DISCIPLINES).map((l) => <li><strong>{l.label}.</strong> {l.description}</li>)}</ul>
-    <p>Source types: {Object.values(RESOURCE_TYPES).join(', ').toLowerCase()}.</p>
+    <p>Sources are grouped by the kind of document they are: {Object.values(CATEGORIES).map((c) => c.label.toLowerCase()).join('; ')}.</p>
     <p>Every source is labelled by how far it can be relied on as evidence of fact:</p>
     <ul>{Object.values(CREDIBILITY).map((c) => <li><strong>{c.label}:</strong> {c.description}</li>)}</ul>
     <p>Sources are opened and read before they are listed. Each is scored on authority, evidence and relevance, and only those that clear a published threshold are included. Social media posts and newsletters count as commentary, never proof of fact, unless the author is a party to the incident.</p>

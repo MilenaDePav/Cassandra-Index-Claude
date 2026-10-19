@@ -160,6 +160,7 @@ export const RESOURCE_TYPES = {
   'news': 'News',
   'explainer': 'Explainer',
   'podcast': 'Podcast',
+  'video': 'Video or talk',
   'repository': 'Repository',
   'dataset': 'Dataset',
 } as const;
@@ -171,3 +172,22 @@ export const CREDIBILITY = {
   reported: { label: 'Reported', description: 'Established journalism, not independently confirmed here.' },
   commentary: { label: 'Commentary', description: 'Interpretation by credible experts; not proof of fact.' },
 } as const;
+
+// What readers browse by: the kind of document. Each source type belongs to one category.
+export const CATEGORIES = {
+  'official': { label: 'Official and legal documents', types: ['official', 'legislation', 'advisory'] },
+  'disclosures': { label: 'Company disclosures', types: ['primary-disclosure'] },
+  'reports': { label: 'Technical reports and papers', types: ['report', 'paper', 'preprint'] },
+  'think-tanks': { label: 'Think-tank analysis', types: ['think-tank'] },
+  'commentary': { label: 'Expert newsletters and commentary', types: ['newsletter', 'blog-expert', 'forum-expert', 'explainer'] },
+  'news': { label: 'News articles', types: ['news'] },
+  'media': { label: 'Podcasts and video', types: ['podcast', 'video'] },
+  'data': { label: 'Datasets and trackers', types: ['dataset', 'repository'] },
+} as const;
+export type Category = keyof typeof CATEGORIES;
+
+export function categoryOf(type: ResourceType): Category {
+  const hit = (Object.keys(CATEGORIES) as Category[]).find((c) => (CATEGORIES[c].types as readonly string[]).includes(type));
+  if (!hit) throw new Error(`Resource type ${type} has no category`);
+  return hit;
+}

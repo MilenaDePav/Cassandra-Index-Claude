@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import TierLadder from '../../components/TierLadder.astro';
 import RiskTag from '../../components/RiskTag.astro';
 import { getIncidents, formatDate, isReviewed, type Incident } from '../../lib/incidents';
-import { riskTypeOf, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY, SEVERITIES, TIERS, type Discipline } from '../../data/taxonomy';
+import { riskTypeOf, DISCIPLINES, RESOURCE_TYPES, CREDIBILITY, CATEGORIES, categoryOf, SEVERITIES, TIERS, type Discipline, type Category } from '../../data/taxonomy';
 import { countryName } from '../../data/countries';
 
 export async function getStaticPaths() {
@@ -17,11 +17,13 @@ const rt = riskTypeOf(d.risk.primary);
 const credRank = { primary: 0, verified: 1, reported: 2, commentary: 3 } as const;
 const sortRes = (a: (typeof d.resources)[number], b: (typeof d.resources)[number]) =>
   Number(b.essential) - Number(a.essential) || credRank[a.credibility] - credRank[b.credibility] || (b.date ?? '').localeCompare(a.date ?? '');
-const disciplines = (Object.keys(DISCIPLINES) as Discipline[])
-  .map((k) => ({ key: k, ...DISCIPLINES[k], items: d.resources.filter((r) => r.discipline === k).sort(sortRes) }))
+const categories = (Object.keys(CATEGORIES) as Category[])
+  .map((k) => ({ key: k, label: CATEGORIES[k].label, items: d.resources.filter((r) => categoryOf(r.type) === k).sort(sortRes) }))
   .filter((g) => g.items.length > 0);
+const disciplines = (Object.keys(DISCIPLINES) as Discipline[])
+  .map((k) => ({ key: k, label: DISCIPLINES[k].label, n: d.resources.filter((r) => r.discipline === k || r.alsoRelevantTo.includes(k)).length }))
+  .filter((g) => g.n > 0);
 const essentials = d.resources.filter((r) => r.essential).sort(sortRes);
-const typesPresent = (Object.keys(RESOURCE_TYPES) as (keyof typeof RESOURCE_TYPES)[]).filter((t) => d.resources.some((r) => r.type === t));
 const verdictLabel = { triggered: 'Triggered', 'not-triggered': 'Not triggered', unclear: 'Unclear', gap: 'Gap in the law' } as const;
 const permalink = new URL(`/incidents/${incident.id}/`, Astro.site).href;
 const citation = `The Cassandra Index (${d.dateUpdated.slice(0, 4)}). "${d.title}" [${d.id}]. Updated ${formatDate(d.dateUpdated)}. ${permalink}`;
@@ -57,7 +59,7 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
           {d.timeline.length > 0 && <li><a href="#timeline">Timeline</a></li>}
           <li><a href="#library">Resource library <span class="faint">{d.resources.length}</span></a>
             <ul>
-              {disciplines.map((g) => <li><a href={`#d-${g.key}`}>{g.label} <span class="faint">{g.items.length}</span></a></li>)}
+              {categories.map((g) => <li><a href={`#c-${g.key}`}>{g.label} <span class="faint">{g.items.length}</span></a></li>)}
             </ul>
           </li>
           {d.governance.length > 0 && <li><a href="#law">Law and governance</a></li>}
@@ -87,7 +89,7 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
 
         <section id="library" aria-labelledby="lib-h">
           <h2 id="lib-h">Resource library</h2>
-          <p class="muted">{d.resources.length} sources across {disciplines.filter((g) => g.key !== 'general').length} disciplines, each opened and checked. Every source is labelled by how far it can be relied on as evidence of fact.</p>
+          <p class="muted">{d.resources.length} sources, grouped by kind of document and filterable by discipline. Each was opened and checked, and is labelled by how far it can be relied on as evidence of fact.</p>
 
           {essentials.length > 0 && (
             <div class="start">
@@ -101,14 +103,14 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
           <form class="lib-filters ui" id="lib-filters" aria-label="Filter sources" onsubmit="return false">
             <fieldset>
               <legend class="visually-hidden">Discipline</legend>
-              <label class="chip"><input type="radio" name="disc" value="" checked /> All</label>
-              {disciplines.map((g) => <label class="chip"><input type="radio" name="disc" value={g.key} /> {g.label}</label>)}
+              <label class="chip"><input type="radio" name="disc" value="" checked /> All disciplines</label>
+              {disciplines.map((g) => <label class="chip"><input type="radio" name="disc" value={g.key} /> {g.label} <span class="faint">{g.n}</span></label>)}
             </fieldset>
             <div class="row">
-              <label>Type
-                <select name="type" id="lib-type">
-                  <option value="">All types</option>
-                  {typesPresent.map((t) => <option value={t}>{RESOURCE_TYPES[t]}</option>)}
+              <label>Credibility
+                <select name="cred" id="lib-cred">
+                  <option value="">Any</option>
+                  {(Object.keys(CREDIBILITY) as (keyof typeof CREDIBILITY)[]).map((c) => <option value={c}>{CREDIBILITY[c].label}</option>)}
                 </select>
               </label>
               <label>Show
@@ -122,18 +124,18 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
             </div>
           </form>
 
-          {disciplines.map((g) => (
-            <section class="disc" id={`d-${g.key}`} data-disc={g.key} aria-labelledby={`dh-${g.key}`}>
-              <h3 id={`dh-${g.key}`}>{g.label} <span class="faint ui">{g.items.length}</span></h3>
-              <p class="disc-desc ui">{g.description}</p>
+          {categories.map((g) => (
+            <section class="disc" id={`c-${g.key}`} aria-labelledby={`ch-${g.key}`}>
+              <h3 id={`ch-${g.key}`}>{g.label} <span class="faint ui">{g.items.length}</span></h3>
               <ul class="resources">
                 {g.items.map((r) => (
-                  <li data-type={r.type} data-rel={r.relation} data-also={r.alsoRelevantTo.join(' ')}>
+                  <li data-disc={[r.discipline, ...r.alsoRelevantTo].join(' ')} data-cred={r.credibility} data-rel={r.relation}>
                     <a href={r.url} rel="noopener" class="r-title">{r.title}</a>
                     <p class="r-meta ui">
                       <span>{r.publisher}{r.author && `, ${r.author}`}</span>
                       {r.date && <span>{formatDate(r.date, true)}</span>}
                       <span>{RESOURCE_TYPES[r.type]}</span>
+                      <span>{DISCIPLINES[r.discipline].label}</span>
                       <span class:list={['cred', r.credibility]} title={CREDIBILITY[r.credibility].description}>{CREDIBILITY[r.credibility].label}</span>
                       {r.relation === 'background' && <span class="bg">Background</span>}
                       {r.paywalled && <span>Paywalled</span>}
@@ -209,12 +211,12 @@ const eventDate = d.dateEventEnd ? `${formatDate(d.dateEvent)} to ${formatDate(d
     const libEmpty = document.getElementById('lib-empty')!;
     const applyLib = () => {
       const f = new FormData(lf);
-      const disc = String(f.get('disc') ?? ''), type = String(f.get('type') ?? ''), rel = String(f.get('rel') ?? '');
+      const disc = String(f.get('disc') ?? ''), cred = String(f.get('cred') ?? ''), rel = String(f.get('rel') ?? '');
       let total = 0;
       for (const sec of sections) {
         let n = 0;
         for (const li of sec.querySelectorAll<HTMLLIElement>('li')) {
-          const ok = (!disc || sec.dataset.disc === disc || li.dataset.also!.split(' ').includes(disc)) && (!type || li.dataset.type === type) && (!rel || li.dataset.rel === rel);
+          const ok = (!disc || li.dataset.disc!.split(' ').includes(disc)) && (!cred || li.dataset.cred === cred) && (!rel || li.dataset.rel === rel);
           li.hidden = !ok; if (ok) n++;
         }
         sec.hidden = n === 0; total += n;
