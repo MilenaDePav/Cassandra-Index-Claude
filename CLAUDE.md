@@ -15,3 +15,6 @@ Editor: Milena (lawyer, AI governance). She approves every entry; never set `sta
 ## Rules
 - No hazard uplift: describe capabilities, never methods.
 - Name only public actors acting in role.
+
+## Current plan and decisions
+Read `docs/DECISIONS.md` before changing the schema or site: it records the editor's verdicts on every planned change, the build order, and the rule that every judgement field is attributed (basis + assessor: sources / editor / reviewer / not-determinable). Research state and gaps: `research/BACKLOG.md`. Research method: `research/PROTOCOL.md`.
