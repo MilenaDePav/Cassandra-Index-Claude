@@ -74,16 +74,37 @@ The Index records and attributes findings; it does not make its own expert findi
 | Repository | Public | Private until launch | Adopt now (editor does this in GitHub settings) |
 | Hosting | GitHub Pages, manual deploys | Cloudflare Pages behind Cloudflare Access until launch | Adopt now (editor connects Cloudflare's newer full-API connector first) |
 
+### Fact-checking gate (added by the editor, 23 Oct 2026)
+
+| Change | From | To | Verdict |
+| --- | --- | --- | --- |
+| Fact-checker | Researchers collect; an independent reviewer checks some rounds; the editor approves | Every candidate passes a strict, independent fact-checker before it reaches the editor. Criteria below are a draft for the editor to finalise | Adopt now (criteria to finalise) |
+
+**Pipeline:** intake agents find candidates → extractor drafts the entry and sources → **fact-checker** (separate agent, fresh context, never sees the extractor's reasoning, opens every source itself) → editor approves. The fact-checker flags and explains; it does not rewrite entries, so it never becomes a second author.
+
+**Draft criteria** (any failure under Accuracy or Credibility blocks the entry):
+
+1. **Relevance:** maps to a catastrophic pathway under the inclusion rule, with a one-line reason; within coverage (2026 onwards); not a duplicate of an existing entry; incident boundary is clear (related events become separate linked entries).
+2. **Accuracy:** every factual claim in the entry traces to a specific passage in a cited source; dates, numbers and names match the source exactly; no claim is stronger than its source (unverified claims say "reported"); contested facts are marked as contested; the evidence tier matches what the sources support.
+3. **Credibility:** the core event rests on at least one primary or verified source; corroboration comes from genuinely independent sources, not syndicated copies; every source was opened and read in full; no excluded or machine-written publisher; credibility labels follow the protocol.
+4. **Attribution:** every judgement field has a basis and an assessor (section 1); nothing reads as Cassandra's own finding unless assessed by the editor.
+5. **Safety and legal:** no hazard uplift; no private individuals; defamation-safe wording; summaries and notes in our own words.
+
+**Outcome per candidate:** pass / return with listed fixes / reject, with a short fact-check report kept alongside the entry.
+
+**Keeping the checker honest:** seed known errors into test candidates to measure whether it catches them; the editor spot-checks a sample of its passes; its reports are kept so the method can be published.
+
 ## 3. Build order
 
-1. Schema: causal tags, harms (actual/potential), MIT severity, prevention ("What investigators found"), Art. 3(49), disclosure and response, actor roles, date precision, cross-references, provenance, verified-on and archive fields. Every judgement field with basis + assessor. Apply to CAS-2026-0001.
-2. Codebook page in Methodology, plus Limitations section.
-3. Related trackers page and AIRO links.
-4. Licence change and Terms of use.
-5. Split related incidents into linked entries.
-6. Reviewer pass on rounds 2–4; direct-visit sweep of the 22 sites.
-7. Daily intake.
-8. Cloudflare hosting (after the editor connects the new connector).
+1. Fact-checking gate: agree the criteria, then build the checker prompt, report format and seeded-error tests.
+2. Schema: causal tags, harms (actual/potential), MIT severity, prevention ("What investigators found"), Art. 3(49), disclosure and response, actor roles, date precision, cross-references, provenance, verified-on and archive fields. Every judgement field with basis + assessor. Apply to CAS-2026-0001.
+3. Codebook page in Methodology, plus Limitations section.
+4. Related trackers page and AIRO links.
+5. Licence change and Terms of use.
+6. Split related incidents into linked entries.
+7. Reviewer pass on rounds 2–4; direct-visit sweep of the 22 sites.
+8. Daily intake.
+9. Cloudflare hosting (after the editor connects the new connector).
 
 ## 4. Facts to verify before the incident text is final
 

@@ -124,7 +124,8 @@ A one-person index cannot credibly claim its own expert verdict in every discipl
 3. **Wording matches the method:** "What investigators found", never "the cause was". Empty is better than guessed: "No published finding yet".
 4. **Facts** are cited; **classifications** follow a published codebook with a reason per code; **judgements** are attributed.
 5. **AI drafts, a human decides.** Claude may double-code to flag disagreements; the methodology says so (cf. Holweg and Hacker, "Should We Allow AI to Police Itself?").
-6. **Expert review per field**, credited by name; right of reply for named organisations; public corrections log. Reliability testing with advisers later.
+6. **A strict fact-checker gates every candidate** before it reaches the editor: relevance, accuracy (every claim traced to a source passage), credibility, attribution, safety. Criteria are a draft in `docs/DECISIONS.md` for the editor to finalise.
+7. **Expert review per field**, credited by name; right of reply for named organisations; public corrections log. Reliability testing with advisers later.
 
 ---
 
